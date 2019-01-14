@@ -35,7 +35,7 @@
         #self.onStopped() #activate the output of the box
         import math
         ttsProxy = ALProxy("ALTextToSpeech")
-        ttsProxy.say("Let's-a go!")
+        ttsProxy.say("Let's go!")
 
         # Create proxies:
         motionProxy = ALProxy("ALMotion")
