@@ -1,0 +1,50 @@
+topic: ~HowAreYou()
+language: enu
+
+u:([
+    "{NAO} {hey} how are you {doing} {today}"
+    "{NAO} {hey} hello how are you {doing} {today}"
+]) [
+    "i'm doing great, thanks, and you"
+    "i'm well, thanks, you"
+    "great, how are you"
+]
+
+u:([
+    "{oh} {i'm} {i am} good {thanks}"
+    "{oh} {i'm} {i am} fine {thanks}"
+]) [
+    "that's great"
+    "that's wonderful"
+    "sounds good"
+    "glad to hear that"
+    "happy to hear"
+    "let's keep it that way"
+]
+
+u:([
+    "{it's} been a {bad} {horrible} {terrible} {lousy} day"
+    "{oh} {i've} {i have} been better"
+    "{oh} {i'm} {i am} not so good"
+    "{oh} {i'm} {i am} terrible"
+    "{oh} {i'm} {i am} horrible"
+    "{oh} {i'm} {i am} not great"
+    "{oh} {i'm} {i am} lousy" 
+    "{oh} {i'm} {i am} having a {bad} {horrible} {terrible} {lousy} day"
+]) [
+    "don't worry, the day will get better"
+    "oh i'm sorry to hear, i hope you feel better"
+    "let's paint some happy little trees and get better"
+    "that's not good, i'm sorry"
+    "i hope your mood isn't contagious"
+]
+
+u:([
+    "{NAO} {hey} what's up"
+    "{NAO} {hey} wassup"
+    "{NAO} {hey} sup"
+]) [
+    "not much, you"
+    "the ceiling silly"
+    "well, the sky, but you probably want to know how i am. i'm good"
+]
