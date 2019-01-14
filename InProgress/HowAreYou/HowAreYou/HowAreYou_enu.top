@@ -2,8 +2,7 @@ topic: ~HowAreYou()
 language: enu
 
 u:([
-    "{NAO} {hey} how are you {doing} {today}"
-    "{NAO} {hey} hello how are you {doing} {today}"
+    "{NAO} {hey} {hello} {hi} how are you {doing} {today}"
 ]) [
     "i'm doing great, thanks, and you"
     "i'm well, thanks, you"
@@ -13,6 +12,7 @@ u:([
 u:([
     "{oh} {i'm} {i am} good {thanks}"
     "{oh} {i'm} {i am} fine {thanks}"
+    "{oh} {i'm} {i am} fantastic {thanks}"
 ]) [
     "that's great"
     "that's wonderful"

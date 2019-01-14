@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<package version="0.0.0" uuid="howareyou-6ed802">
+<package uuid="howareyou-6ed802" version="0.0.0">
  <names>
   <name lang="en_US">Untitled</name>
  </names>
@@ -13,7 +13,6 @@
   <behaviorContent path="behavior_1">
    <userRequestable/>
    <nature>interactive</nature>
-   <autonomous/>
    <permissions/>
   </behaviorContent>
   <dialogContent topicName="HowAreYou" typeVersion="1.0">
