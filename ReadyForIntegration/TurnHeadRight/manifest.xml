@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<package version="0.0.0" uuid="turnheadright-fbea7f">
+ <names>
+  <name lang="en_US">TurnHeadRight</name>
+ </names>
+ <descriptions>
+  <description lang="en_US">make NAO turn his head to his right</description>
+ </descriptions>
+ <supportedLanguages>
+  <language>en_US</language>
+ </supportedLanguages>
+ <descriptionLanguages>
+  <language>en_US</language>
+ </descriptionLanguages>
+ <contents>
+  <behaviorContent path="behavior_1">
+   <userRequestable/>
+   <nature>interactive</nature>
+   <names>
+    <name lang="en_US">Turn Head Right</name>
+   </names>
+   <descriptions>
+    <description lang="en_US">make nao turn his head to the right</description>
+   </descriptions>
+   <triggerSentences>
+    <sentence lang="en_US">Turn head right</sentence>
+    <sentence lang="en_US">look right</sentence>
+    <sentence lang="en_US">look to the right</sentence>
+    <sentence lang="en_US">turn your head right</sentence>
+   </triggerSentences>
+   <loadingResponses>
+    <sentence lang="en_US">okay</sentence>
+   </loadingResponses>
+   <autonomous>
+    <condition purpose="launchTrigger"><![CDATA[('Launchpad/NumPeopleZone2' > 0) && ('Launchpad/PreviousActivity' != "turnheadright-fbea7f/behavior_!")]]></condition>
+   </autonomous>
+   <permissions>
+    <canRunOnPod/>
+    <canStandUp/>
+    <canSitDown/>
+   </permissions>
+  </behaviorContent>
+ </contents>
+</package>
