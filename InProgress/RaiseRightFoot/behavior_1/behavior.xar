@@ -15,7 +15,7 @@
       <BehaviorLayer name="behavior_layer1">
         <BehaviorKeyframe name="keyframe1" index="1">
           <Diagram>
-            <Box name="RaiseRightFoot" id="1" localization="8" tooltip="NAO raises its right foot into the air." x="385" y="257">
+            <Box name="RaiseRightFoot" id="1" localization="8" tooltip="NAO raises its right foot into the air." x="244" y="104">
               <bitmap>media/images/box/box-python-script.png</bitmap>
               <script language="4">
                 <content>
@@ -32,41 +32,58 @@
         pass
 
     def onInput_onStart(self):
-        #self.onStopped() #activate the output of the box
-        import math
-        ttsProxy = ALProxy("ALTextToSpeech")
-        ttsProxy.say("Let's go!")
-
-        # Create proxies:
+        # Create initial proxies:
         motionProxy = ALProxy("ALMotion")
         postureProxy = ALProxy("ALRobotPosture")
 
-        # Set initial posture:
+        # Wake NAO Up:
+        motionProxy.wakeUp()
+
+        # Set NAO to the Init Position:
         postureProxy.goToPosture("StandInit", 0.5)
 
-        # Enable whole body balancer:
+        # Activate Whole Body Balancer:
         isEnabled = True
         motionProxy.wbEnable(isEnabled)
 
-        # Set NAO's legs into a constrained plane:
-        stateName = "Plane"
+        # Constrain legs into a fixed plane:
+        stateName = "Fixed"
         supportLeg = "Legs"
         motionProxy.wbFootState(stateName, supportLeg)
-        names = "LHipYawPitch"
-        angleLists = [-45.0, 10.0, 0.0]
-        timeLists = [3.0, 6.0, 9.0]
-        isAbsolute = True
-        angleLists = [angle*math.pi/180.0 for angle in angleLists]
-        try:
-            motionProxy.angleInterpolation(names, angleLists, timeLists, isAbsolute)
-        except Exception, errorMsg:
-            print str(errorMsg)
-            print "Sorry, this movement is not possible."
-            exit()
 
-        # Disable whole body balancer:
+        # Balance constraint:
+        isEnabledTwo = True
+        supportLeg = "Legs"
+        motionProxy.wbEnableBalanceConstraint(isEnabledTwo, supportLeg)
+
+        # Balance on left leg:
+        supportLeg = "LLeg"
+        duration = 2.0
+        motionProxy.wbGoToBalance(supportLeg, duration)
+
+        # Right leg motion:
+        stateName = "Free"
+        supportLeg = "RLeg"
+        motionProxy.wbFootState(stateName, supportLeg)
+        effector = "RLeg"
+        axisMask = 63
+        frame = motion.FRAME_WORLD
+        times = [2.0, 2.7, 4.5]
+
+        isActive = False
+        motionProxy.wbEnableEffectorOptimization(effector, isActive)
+
+        time.sleep(1.0)
+
+        # Deactivate balance features:
         isEnabled = False
         motionProxy.wbEnable(isEnabled)
+
+        # Send NAO back to Init position:
+        postureProxy.goToPosture("StandInit", 0.3)
+
+        self.onStopped()
+
 
     def onInput_onStop(self):
         self.onUnload() #it is recommended to reuse the clean-up as the box is stopped
