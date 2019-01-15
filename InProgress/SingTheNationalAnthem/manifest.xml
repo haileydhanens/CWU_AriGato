@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<package version="0.0.0" uuid="singthenationalanthem-5147cb">
+ <names>
+  <name lang="en_US">SingTheNationalAnthem</name>
+ </names>
+ <supportedLanguages>
+  <language>en_US</language>
+ </supportedLanguages>
+ <descriptionLanguages>
+  <language>en_US</language>
+ </descriptionLanguages>
+ <contents>
+  <behaviorContent path="behavior_1">
+   <userRequestable/>
+   <nature>interactive</nature>
+   <autonomous>
+    <condition purpose="launchTrigger"><![CDATA[(('Launchpad/NumPeopleZone2' > 0) ~ 5)
+&& ('Launchpad/PreviousActivity' !="singthenationalanthem-5147cb/behavior_1")
+]]></condition>
+   </autonomous>
+   <permissions/>
+  </behaviorContent>
+ </contents>
+</package>
