@@ -15,11 +15,13 @@
       <BehaviorLayer name="behavior_layer1">
         <BehaviorKeyframe name="keyframe1" index="1">
           <Diagram>
-            <Box name="RaiseRightFoot" id="1" localization="8" tooltip="NAO raises its right foot into the air." x="244" y="104">
+            <Box name="RaiseRightFoot" id="1" localization="8" tooltip="NAO raises its right foot into the air.&#x0A;" x="628" y="380">
               <bitmap>media/images/box/box-python-script.png</bitmap>
               <script language="4">
                 <content>
-                  <![CDATA[class MyClass(GeneratedClass):
+                  <![CDATA[import almath # Used when calculating leg path.
+
+class MyClass(GeneratedClass):
     def __init__(self):
         GeneratedClass.__init__(self)
 
@@ -36,54 +38,76 @@
         motionProxy = ALProxy("ALMotion")
         postureProxy = ALProxy("ALRobotPosture")
 
-        # Wake NAO Up:
+        # Wake NAO up:
         motionProxy.wakeUp()
 
-        # Set NAO to the Init Position:
+        # Send NAO to "Stand Init" position:
         postureProxy.goToPosture("StandInit", 0.5)
 
         # Activate Whole Body Balancer:
         isEnabled = True
         motionProxy.wbEnable(isEnabled)
 
-        # Constrain legs into a fixed plane:
+        # Put legs into a constrained fixed plane:
         stateName = "Fixed"
         supportLeg = "Legs"
         motionProxy.wbFootState(stateName, supportLeg)
 
-        # Balance constraint:
-        isEnabledTwo = True
+        # Constraint: Balance Motion
+        isEnable = True
         supportLeg = "Legs"
-        motionProxy.wbEnableBalanceConstraint(isEnabledTwo, supportLeg)
+        motionProxy.wbEnableBalanceConstraint(isEnable, supportLeg)
 
-        # Balance on left leg:
+        # Mark left leg as the support:
         supportLeg = "LLeg"
         duration = 2.0
         motionProxy.wbGoToBalance(supportLeg, duration)
 
-        # Right leg motion:
+        # Give right leg free movement:
         stateName = "Free"
         supportLeg = "RLeg"
         motionProxy.wbFootState(stateName, supportLeg)
+
+        # Optimize right leg:
         effector = "RLeg"
         axisMask = 63
         frame = motion.FRAME_WORLD
+
+        # Right leg motion:
         times = [2.0, 2.7, 4.5]
+        dx = 0.05 # X axis (meters)
+        dz = 0.05 # Z Axis (meters)
+        dwy = 5.0*almath.TO_RAD # Y Axis (radian)
 
-        isActive = False
-        motionProxy.wbEnableEffectorOptimization(effector, isActive)
+        useSensorValues = False
+        path = []
+        currentTf = []
+        currentTf = motionProxy.getTransform(effector, frame, useSensorValues)
 
-        time.sleep(1.0)
+        # Create leg path:
+        targetTf = almath.Transform(currentTf)
+        targetTf *= almath.Transform(-dx, 0.0, dz)
+        targetTf *= almath.Transform().fromRotY(dwy)
+        path.append(list(targetTf.toVector()))
+        targetTf = almath.Transform(currentTf)
+        targetTf *= almath.Transform(dx, 0.0, dz)
+        path.append(list(targetTf.toVector()))
+        path.append(currentTf)
 
-        # Deactivate balance features:
+        # Interpolate angles from path:
+        motionProxy.transformInterpolations(effector, frame, path, axisMask, times)
+
+        # Disable whole body balancer:
         isEnabled = False
         motionProxy.wbEnable(isEnabled)
 
-        # Send NAO back to Init position:
+        # Send NAO back to "Stand Init" position:
         postureProxy.goToPosture("StandInit", 0.3)
 
-        self.onStopped()
+        # Send NAO to rest position:
+        motionProxy.rest()
 
+        self.onStopped() # End function.
 
     def onInput_onStop(self):
         self.onUnload() #it is recommended to reuse the clean-up as the box is stopped
