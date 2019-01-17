@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<package uuid="raiserightfoot-a74a19" version="0.0.0">
+ <names>
+  <name lang="en_US">RaiseRightFoot</name>
+ </names>
+ <descriptions>
+  <description lang="en_US">This application makes NAO raise its right foot into the air and do a small motion with it.</description>
+ </descriptions>
+ <supportedLanguages>
+  <language>en_US</language>
+ </supportedLanguages>
+ <descriptionLanguages>
+  <language>en_US</language>
+ </descriptionLanguages>
+ <contents>
+  <behaviorContent path="behavior_1">
+   <userRequestable/>
+   <nature>interactive</nature>
+   <descriptions>
+    <description lang="en_US">NAO raises its right foot into the air and performs a small motion with it.</description>
+   </descriptions>
+   <triggerSentences>
+    <sentence lang="en_US">Raise your right foot</sentence>
+   </triggerSentences>
+   <loadingResponses>
+    <sentence lang="en_US">Getting ready to raise my right foot!</sentence>
+   </loadingResponses>
+   <autonomous>
+    <condition purpose="launchTrigger"><![CDATA[(('Launchpad/NumPeopleZone2' > 0) - 5)
+&& ('Launchpad/PreviousActivity' != "raiserightfoot-a74a19"/behavior_1)]]></condition>
+   </autonomous>
+   <permissions/>
+  </behaviorContent>
+ </contents>
+</package>
