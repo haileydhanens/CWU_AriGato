@@ -6,12 +6,10 @@
     </BehaviorDescriptions>
     <Dialogs>
         <Dialog name="ExampleDialog" src="behavior_1/ExampleDialog/ExampleDialog.dlg" />
-        <Dialog name="HowAreYou" src="HowAreYou/HowAreYou.dlg" />
     </Dialogs>
     <Resources />
     <Topics>
         <Topic name="ExampleDialog_enu" src="behavior_1/ExampleDialog/ExampleDialog_enu.top" topicName="ExampleDialog" language="en_US" nuance="enu" />
-        <Topic name="HowAreYou_enu" src="HowAreYou/HowAreYou_enu.top" topicName="HowAreYou" language="en_US" nuance="enu" />
     </Topics>
     <IgnoredPaths />
     <Translations auto-fill="en_US">

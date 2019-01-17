@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <package uuid="howareyou-6ed802" version="0.0.0">
  <names>
-  <name lang="en_US">Untitled</name>
+  <name lang="en_US">dialog_how_are_you_userdefined</name>
  </names>
  <supportedLanguages>
   <language>en_US</language>
@@ -13,10 +13,22 @@
   <behaviorContent path="behavior_1">
    <userRequestable/>
    <nature>interactive</nature>
+   <names>
+    <name lang="en_US">HowAreYouU</name>
+   </names>
+   <triggerSentences>
+    <sentence lang="en_US">How are you</sentence>
+    <sentence lang="en_US">What's up</sentence>
+    <sentence lang="en_US">Wassup</sentence>
+    <sentence lang="en_US">Sup</sentence>
+   </triggerSentences>
+   <loadingResponses>
+    <sentence lang="en_US">Let me think for a moment</sentence>
+   </loadingResponses>
+   <autonomous>
+    <condition purpose="launchTrigger"><![CDATA[(('Launchpad/NumPeopleZone2' > 0) ~ 5) && ('Launchpad/PreviousActivity' !="howareyou-6ed802/HowAreYouU")]]></condition>
+   </autonomous>
    <permissions/>
   </behaviorContent>
-  <dialogContent topicName="HowAreYou" typeVersion="1.0">
-   <topic path="HowAreYou/HowAreYou_enu.top" language="en_US"/>
-  </dialogContent>
  </contents>
 </package>
