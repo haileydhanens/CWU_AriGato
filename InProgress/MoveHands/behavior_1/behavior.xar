@@ -15,7 +15,7 @@
       <BehaviorLayer name="behavior_layer1">
         <BehaviorKeyframe name="keyframe1" index="1">
           <Diagram>
-            <Box name="move fingers" id="1" localization="8" tooltip="" x="317" y="151">
+            <Box name="move fingers" id="1" localization="8" tooltip="" x="673" y="203">
               <bitmap>media/images/box/box-python-script.png</bitmap>
               <script language="4">
                 <content>
@@ -39,12 +39,12 @@
 
         proxy.setAngles(left, [0.8, 0.1, -2.0, -0.41, -1.0, 0.8, 0.1, 2.0, -0.41, 1.0 ], 0.2)
 
-        proxy.closeHand('RHand')
-        proxy.openHand('LHand')
-        proxy.closeHand('LHand')
-        proxy.openHand('RHand')
+#        proxy.closeHand('RHand')
+#        proxy.openHand('LHand')
+#        proxy.closeHand('LHand')
+#        proxy.openHand('RHand')
 
-		self.onStopped();
+        self.onStopped();
 
     def onInput_onStop(self):
         self.onUnload() #it is recommended to reuse the clean-up as the box is stopped
