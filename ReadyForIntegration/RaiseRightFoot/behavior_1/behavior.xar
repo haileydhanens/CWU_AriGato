@@ -53,7 +53,7 @@ class MyClass(GeneratedClass):
         supportLeg = "Legs"
         motionProxy.wbFootState(stateName, supportLeg)
 
-        # Constraint: Balance Motion
+        # Constraint - Balance Motion:
         isEnable = True
         supportLeg = "Legs"
         motionProxy.wbEnableBalanceConstraint(isEnable, supportLeg)
@@ -84,7 +84,7 @@ class MyClass(GeneratedClass):
         currentTf = []
         currentTf = motionProxy.getTransform(effector, frame, useSensorValues)
 
-        # Create leg path:
+        # Create the moving leg's path:
         targetTf = almath.Transform(currentTf)
         targetTf *= almath.Transform(-dx, 0.0, dz)
         targetTf *= almath.Transform().fromRotY(dwy)
