@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<package uuid="liftleftarm-5d9f91" version="0.0.0">
+ <names>
+  <name lang="en_US">LiftLeftArm</name>
+ </names>
+ <descriptions>
+  <description lang="en_US">NAO robot lifts left arm and then puts it back down.</description>
+ </descriptions>
+ <supportedLanguages>
+  <language>en_US</language>
+ </supportedLanguages>
+ <descriptionLanguages>
+  <language>en_US</language>
+ </descriptionLanguages>
+ <contents>
+  <behaviorContent path="behavior_1">
+   <userRequestable/>
+   <nature>interactive</nature>
+   <names>
+    <name lang="en_US">Lift Left Arm</name>
+   </names>
+   <descriptions>
+    <description lang="en_US">NAO lifts left arm and puts it back down.</description>
+   </descriptions>
+   <tags>
+    <tag lang="en_US">arm</tag>
+    <tag lang="en_US">left</tag>
+    <tag lang="en_US">move</tag>
+   </tags>
+   <triggerSentences>
+    <sentence lang="en_US">lift your left arm</sentence>
+    <sentence lang="en_US">can you lift your left arm?</sentence>
+    <sentence lang="en_US">move your left arm</sentence>
+   </triggerSentences>
+   <loadingResponses>
+    <sentence lang="en_US">okay I can do that</sentence>
+    <sentence lang="en_US">Okay</sentence>
+   </loadingResponses>
+   <autonomous>
+    <condition purpose="launchTrigger"><![CDATA[(('Launchpad/NumPeopleZone2' > 0) ~ 5)
+&& ('Launchpad/PreviousActivity' !="liftleftarm-5d9f91/congrats")]]></condition>
+   </autonomous>
+   <permissions>
+    <canStandUp/>
+   </permissions>
+  </behaviorContent>
+ </contents>
+</package>
