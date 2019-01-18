@@ -19,7 +19,9 @@
               <bitmap>media/images/box/box-python-script.png</bitmap>
               <script language="4">
                 <content>
-                  <![CDATA[class MyClass(GeneratedClass):
+                  <![CDATA[#module by Hailey Dhanens
+
+class MyClass(GeneratedClass):
     def __init__(self):
         GeneratedClass.__init__(self)
 
@@ -32,17 +34,28 @@
         pass
 
     def onInput_onStart(self):
-
+#        create motion proxy
         proxy = ALProxy("ALMotion")
 
-        left = ['LShoulderPitch', 'LShoulderRoll', 'LElbowYaw', 'LElbowRoll', 'LWristYaw', 'RShoulderPitch', 'RShoulderRoll', 'RElbowYaw', 'RElbowRoll', 'RWristYaw']
 
-        proxy.setAngles(left, [0.8, 0.1, -2.0, -0.41, -1.0, 0.8, 0.1, 2.0, -0.41, 1.0 ], 0.2)
+#        name joints to be moved
+        names =  ['LShoulderPitch', 'LShoulderRoll', 'LElbowYaw', 'LElbowRoll', 'LWristYaw', 'RShoulderPitch', 'RShoulderRoll', 'RElbowYaw', 'RElbowRoll', 'RWristYaw','LHand','RHand']
 
-#        proxy.closeHand('RHand')
-#        proxy.openHand('LHand')
-#        proxy.closeHand('LHand')
-#        proxy.openHand('RHand')
+#        list the angles for the joints
+        angles1 = [0.8, 0.1, -2.0, -0.41, -1.0, 0.8, 0.1, 2.0, -0.41, 1.0 , 1.0, 1.0]
+        angles2 = [0.8, 0.1, -2.0, -0.41, -1.0, 0.8, 0.1, 2.0, -0.41, 1.0 , 0.0, 0.0]
+
+#        joint movement timing
+        times = [0.5 , 0.5 , 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5]
+
+
+#          move joints
+        for i in range(3):
+
+            proxy.angleInterpolation(names, angles1 , times , True)
+            proxy.angleInterpolation(names, angles2 , times , True)
+
+
 
         self.onStopped();
 

@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<package version="0.0.0" uuid="movehands-1c7166">
+ <names>
+  <name lang="en_US">MoveHands</name>
+ </names>
+ <supportedLanguages>
+  <language>en_US</language>
+ </supportedLanguages>
+ <descriptionLanguages>
+  <language>en_US</language>
+ </descriptionLanguages>
+ <contents>
+  <behaviorContent path="behavior_1">
+   <userRequestable/>
+   <nature>interactive</nature>
+   <triggerSentences>
+    <sentence lang="en_US">move your hands please</sentence>
+    <sentence lang="en_US">move your hands</sentence>
+    <sentence lang="en_US">can you move your hands</sentence>
+    <sentence lang="en_US">nao wiggle your fingers</sentence>
+    <sentence lang="en_US">move fingers</sentence>
+    <sentence lang="en_US">can you wiggle your fingers</sentence>
+    <sentence lang="en_US">do your fingers move</sentence>
+   </triggerSentences>
+   <loadingResponses>
+    <sentence lang="en_US">I can wiggle my fingers</sentence>
+   </loadingResponses>
+   <autonomous>
+    <condition purpose="launchTrigger"><![CDATA[('Launchpad/NumPeopleZone2'>0)&&('Launchpad/PreviousActivity'!= 'movehands-1c7166/behavior_1')]]></condition>
+   </autonomous>
+   <permissions>
+    <canRunOnPod/>
+    <canStandUp/>
+    <canSitDown/>
+   </permissions>
+  </behaviorContent>
+ </contents>
+</package>

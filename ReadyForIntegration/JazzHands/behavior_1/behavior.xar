@@ -15,7 +15,7 @@
       <BehaviorLayer name="behavior_layer1">
         <BehaviorKeyframe name="keyframe1" index="1">
           <Diagram>
-            <Box name="Jazz Hands" id="1" localization="8" tooltip="make Nao do jazz hands&#x0A;-basic non repeating&#x0A;-will stop after certain number of iterations" x="531" y="336">
+            <Box name="Jazz Hands" id="1" localization="8" tooltip="make Nao do jazz hands&#x0A;-basic non repeating&#x0A;-will stop after certain number of iterations" x="629" y="353">
               <bitmap>media/images/box/box-python-script.png</bitmap>
               <script language="4">
                 <content>
@@ -43,9 +43,9 @@ class MyClass(GeneratedClass):
         wrists = ['LWristYaw','RWristYaw']
 #        fix arm angles
 #        joint position sets
-        upStart = [-.689, 1.03, -0.925, -0.488, 0, -0.689, -1.03, 0.925, 0.488, 0 ]
-        wrists1 = [-1.7, 0.995]
-        wrists2 = [0, 0.349]
+        upStart = [1.22, 0.11, -2.0, -1.32, 0, 1.22, -0.11, 2.0, 1.32, 0 ]
+        wrists1 = [0.82, -0.82]
+        wrists2 = [-1.5, 1.5]
 
 #        times for angle interpolation
         timesTen = [0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5]
