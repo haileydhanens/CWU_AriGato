@@ -53,27 +53,27 @@ class MyClass(GeneratedClass):
         supportLeg = "Legs"
         motionProxy.wbFootState(stateName, supportLeg)
 
-        # Constraint: Balance Motion
+        # Constraint - Balance Motion:
         isEnable = True
         supportLeg = "Legs"
         motionProxy.wbEnableBalanceConstraint(isEnable, supportLeg)
 
-        # Mark left leg as the support:
+        # Mark right leg as the support:
         supportLeg = "RLeg"
         duration = 2.0
         motionProxy.wbGoToBalance(supportLeg, duration)
 
-        # Give right leg free movement:
+        # Give left leg free movement:
         stateName = "Free"
         supportLeg = "LLeg"
         motionProxy.wbFootState(stateName, supportLeg)
 
-        # Optimize right leg:
+        # Optimize left leg:
         effector = "LLeg"
         axisMask = 63
         frame = motion.FRAME_WORLD
 
-        # Right leg motion:
+        # Left leg motion:
         times = [2.0, 2.7, 4.5]
         dx = 0.05 # X axis (meters)
         dz = 0.05 # Z Axis (meters)
@@ -84,7 +84,7 @@ class MyClass(GeneratedClass):
         currentTf = []
         currentTf = motionProxy.getTransform(effector, frame, useSensorValues)
 
-        # Create leg path:
+        # Create the moving leg's path:
         targetTf = almath.Transform(currentTf)
         targetTf *= almath.Transform(-dx, 0.0, dz)
         targetTf *= almath.Transform().fromRotY(dwy)
