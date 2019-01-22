@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ChoregrapheProject xmlns="http://www.ald.softbankrobotics.com/schema/choregraphe/project.xsd" xar_version="3">
+  <Box name="root" id="-1" localization="8" tooltip="Root box of Choregraphe&apos;s behavior. Highest level possible." x="0" y="0">
+    <bitmap>media/images/box/root.png</bitmap>
+    <script language="4">
+      <content>
+        <![CDATA[]]>
+      </content>
+    </script>
+    <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when diagram is loaded." id="1" />
+    <Input name="onStart" type="1" type_size="1" nature="2" inner="0" tooltip="Box behavior starts when a signal is received on this input." id="2" />
+    <Input name="onStop" type="1" type_size="1" nature="3" inner="0" tooltip="Box behavior stops when a signal is received on this input." id="3" />
+    <Output name="onStopped" type="1" type_size="1" nature="1" inner="0" tooltip="Signal sent when box behavior is finished." id="4" />
+    <Timeline enable="0">
+      <BehaviorLayer name="behavior_layer1">
+        <BehaviorKeyframe name="keyframe1" index="1">
+          <Diagram>
+            <Box name="RaiseRightFoot" id="1" localization="8" tooltip="NAO raises its right foot into the air.&#x0A;" x="468" y="108">
+              <bitmap>media/images/box/box-python-script.png</bitmap>
+              <script language="4">
+                <content>
+                  <![CDATA[import almath # Used when calculating leg path.
+
+class MyClass(GeneratedClass):
+    def __init__(self):
+        GeneratedClass.__init__(self)
+
+    def onLoad(self):
+        #put initialization code here
+        pass
+
+    def onUnload(self):
+        #put clean-up code here
+        pass
+
+    def onInput_onStart(self):
+        # Create initial proxies:
+        motionProxy = ALProxy("ALMotion")
+        postureProxy = ALProxy("ALRobotPosture")
+
+        # Wake NAO up:
+        motionProxy.wakeUp()
+
+        # Send NAO to "Stand Init" position:
+        postureProxy.goToPosture("StandInit", 0.5)
+
+        # Activate Whole Body Balancer:
+        isEnabled = True
+        motionProxy.wbEnable(isEnabled)
+
+        # Put legs into a constrained fixed plane:
+        stateName = "Fixed"
+        supportLeg = "Legs"
+        motionProxy.wbFootState(stateName, supportLeg)
+
+        # Constraint - Balance Motion:
+        isEnable = True
+        supportLeg = "Legs"
+        motionProxy.wbEnableBalanceConstraint(isEnable, supportLeg)
+
+        # Mark left leg as the support:
+        supportLeg = "LLeg"
+        duration = 2.0
+        motionProxy.wbGoToBalance(supportLeg, duration)
+
+        # Give right leg free movement:
+        stateName = "Free"
+        supportLeg = "RLeg"
+        motionProxy.wbFootState(stateName, supportLeg)
+
+        # Optimize right leg:
+        effector = "RLeg"
+        axisMask = 63
+        frame = motion.FRAME_WORLD
+
+        # Right leg motion:
+        times = [2.0, 2.7, 4.5]
+        dx = 0.05 # X axis (meters)
+        dz = 0.05 # Z Axis (meters)
+        dwy = 5.0*almath.TO_RAD # Y Axis (radian)
+
+        useSensorValues = False
+        path = []
+        currentTf = []
+        currentTf = motionProxy.getTransform(effector, frame, useSensorValues)
+
+        # Create the moving leg's path:
+        targetTf = almath.Transform(currentTf)
+        targetTf *= almath.Transform(-dx, 0.0, dz)
+        targetTf *= almath.Transform().fromRotY(dwy)
+        path.append(list(targetTf.toVector()))
+        targetTf = almath.Transform(currentTf)
+        targetTf *= almath.Transform(dx, 0.0, dz)
+        path.append(list(targetTf.toVector()))
+        path.append(currentTf)
+
+        # Interpolate angles from path:
+        motionProxy.transformInterpolations(effector, frame, path, axisMask, times)
+
+        # Disable whole body balancer:
+        isEnabled = False
+        motionProxy.wbEnable(isEnabled)
+
+        # Send NAO back to "Stand Init" position:
+        postureProxy.goToPosture("StandInit", 0.3)
+
+        # Send NAO to rest position:
+        motionProxy.rest()
+
+        self.onStopped() # End function.
+
+    def onInput_onStop(self):
+        self.onUnload() #it is recommended to reuse the clean-up as the box is stopped
+        self.onStopped() #activate the output of the box]]>
+                </content>
+              </script>
+              <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when diagram is loaded." id="1" />
+              <Input name="onStart" type="1" type_size="1" nature="2" inner="0" tooltip="Box behavior starts when a signal is received on this input." id="2" />
+              <Input name="onStop" type="1" type_size="1" nature="3" inner="0" tooltip="Box behavior stops when a signal is received on this input." id="3" />
+              <Output name="onStopped" type="1" type_size="1" nature="1" inner="0" tooltip="Signal sent when box behavior is finished." id="4" />
+            </Box>
+            <Link inputowner="1" indexofinput="2" outputowner="0" indexofoutput="2" />
+            <Link inputowner="0" indexofinput="4" outputowner="1" indexofoutput="4" />
+          </Diagram>
+        </BehaviorKeyframe>
+      </BehaviorLayer>
+    </Timeline>
+  </Box>
+</ChoregrapheProject>
