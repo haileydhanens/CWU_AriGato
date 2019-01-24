@@ -20,6 +20,7 @@
               <script language="4">
                 <content>
                   <![CDATA[import requests
+import json
 
 class MyClass(GeneratedClass):
     def __init__(self):
@@ -37,13 +38,13 @@ class MyClass(GeneratedClass):
 
 
         proxy = ALProxy("ALTextToSpeech")
-        resp = requests.get('http://api.openweathermap.org/data/2.5/forecast?id=524901&APPID=33d6e073a153d55dea7b80db0456ddcc')
+        resp = requests.get('http://api.openweathermap.org/data/2.5/forecast?id=524901&APPID=33d6e073a153d55dea7b80db0456ddcc').json()
 
-        if (resp.status_code != 200):
-            print(resp.status_code)
+        if (resp['cod'] != "200"):
+
 
 #            string text = "The error code is:" + str(resp.status_code)
-            proxy.say("nope")
+            proxy.say(str(resp['cod']))
         else:
             proxy.say("Connection successful")
         self.onStopped() #activate the output of the box
