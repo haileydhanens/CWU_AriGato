@@ -33,7 +33,7 @@
 
     def onInput_onStart(self):
         motionProxy = ALProxy('ALMotion')
-        motionProxy.walkTo(.2, 0.0, 0.0) #x, y, radius (-3.1415 to 3.1415)
+        motionProxy.walkTo(0.2, 0.0, 0.0) #x, y, radius (-3.1415 to 3.1415)
         self.onStopped()
 
     def onInput_onStop(self):
