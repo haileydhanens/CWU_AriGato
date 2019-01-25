@@ -6,8 +6,8 @@ language: enu
 
 # Catching inputs and triggering outputs
 #u:(e:onStart) $onStopped=1
-u: lift your left arm
+u: lift your right arm
 
 # Replying to speech
 #u:(~hello) ~hello
-u: ok
+u: okay!
