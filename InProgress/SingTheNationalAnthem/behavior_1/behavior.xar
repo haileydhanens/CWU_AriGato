@@ -15,7 +15,7 @@
       <BehaviorLayer name="behavior_layer1">
         <BehaviorKeyframe name="keyframe1" index="1">
           <Diagram>
-            <Box name="move fingers" id="1" localization="8" tooltip="" x="317" y="151">
+            <Box name="SingTheNationalAnthem" id="1" localization="8" tooltip="NAO sings the US anthem." x="429" y="200">
               <bitmap>media/images/box/box-python-script.png</bitmap>
               <script language="4">
                 <content>
@@ -32,20 +32,34 @@
         pass
 
     def onInput_onStart(self):
+        #self.onStopped() #activate the output of the box
+        ttsproxy = ALProxy(“ALTextToSpeech”)
+        ttsproxy.say(“Oh, say can you see by the dawn’s early light
+        What so proudly we hailed at the twilight’s last gleaming?
+        Whose broad stripes and bright stars thru the perilous fight,
+        O’er the ramparts we watched were so gallantly streaming?
+        And the rocket’s red glare, the bombs bursting in air,
+        Gave proof through the night that our flag was still there.
+        Oh, say does that star-spangled banner yet wave
+        O’er the land of the free and the home of the brave?
 
-        proxy = ALProxy("ALMotion")
+        On the shore, dimly seen through the mists of the deep,
+        Where the foe’s haughty host in dread silence reposes,
+        What is that which the breeze, o’er the towering steep,
+        As it fitfully blows, half conceals, half discloses?
+        Now it catches the gleam of the morning’s first beam,
+        In full glory reflected now shines in the stream:
+        ‘Tis the star-spangled banner! Oh long may it wave
+        O’er the land of the free and the home of the brave!
 
-        left = ['LShoulderPitch', 'LShoulderRoll', 'LElbowYaw', 'LElbowRoll', 'LWristYaw', 'RShoulderPitch', 'RShoulderRoll', 'RElbowYaw', 'RElbowRoll', 'RWristYaw']
-
-        proxy.setAngles(left, [0.8, 0.1, -2.0, -0.41, -1.0, 0.8, 0.1, 2.0, -0.41, 1.0 ], 0.2)
-
-        proxy.closeHand('RHand')
-        proxy.openHand('LHand')
-        proxy.closeHand('LHand')
-        proxy.openHand('RHand')
-
-
-        pass
+        And where is that band who so vauntingly swore
+        That the havoc of war and the battle’s confusion,
+        A home and a country should leave us no more!
+        Their blood has washed out their foul footsteps’ pollution.
+        No refuge could save the hireling and slave
+        From the terror of flight, or the gloom of the grave:
+        And the star-spangled banner in triumph doth wave
+        O’er the land of the free and the home of the brave!”)
 
     def onInput_onStop(self):
         self.onUnload() #it is recommended to reuse the clean-up as the box is stopped

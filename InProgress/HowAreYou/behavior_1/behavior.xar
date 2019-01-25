@@ -15,12 +15,45 @@
       <BehaviorLayer name="behavior_layer1">
         <BehaviorKeyframe name="keyframe1" index="1">
           <Diagram>
-            <Box name="HowAreYou" id="1" localization="8" tooltip="" x="487" y="179">
-              <dialogFile>../HowAreYou/HowAreYou.dlg</dialogFile>
-              <bitmap>media/images/box/box-dialog.png</bitmap>
+            <Box name="HowAreYou" id="1" localization="8" tooltip="" x="288" y="20">
+              <bitmap>media/images/box/box-python-script.png</bitmap>
               <script language="4">
                 <content>
-                  <![CDATA[]]>
+                  <![CDATA[from random import randint
+
+class MyClass(GeneratedClass):
+    def __init__(self):
+        GeneratedClass.__init__(self)
+
+    def onLoad(self):
+        #put initialization code here
+        pass
+
+    def onUnload(self):
+        #put clean-up code here
+        pass
+
+    def onInput_onStart(self):
+        #self.onStopped() #activate the output of the box
+        proxy = ALProxy("ALTextToSpeech")
+
+        responses = ["I'm doing great, thanks",
+                     "It's been a wonderful day so far",
+                     "Thank you for asking, I am well",
+                     "I'm painting some happy little trees because I'm happy",
+                     "I don't know yet",
+                     "What a great day I've had so far",
+                     "I am well, thank you",
+                     "I've never been better",
+                     "It's a beautiful day in the neighborhood"]
+
+        proxy.say(responses[randint(0, len(responses) - 1)])
+
+        self.onStopped()
+
+    def onInput_onStop(self):
+        self.onUnload() #it is recommended to reuse the clean-up as the box is stopped
+        self.onStopped() #activate the output of the box]]>
                 </content>
               </script>
               <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when diagram is loaded." id="1" />
@@ -29,6 +62,7 @@
               <Output name="onStopped" type="1" type_size="1" nature="1" inner="0" tooltip="Signal sent when box behavior is finished." id="4" />
             </Box>
             <Link inputowner="1" indexofinput="2" outputowner="0" indexofoutput="2" />
+            <Link inputowner="0" indexofinput="4" outputowner="1" indexofoutput="4" />
           </Diagram>
         </BehaviorKeyframe>
       </BehaviorLayer>

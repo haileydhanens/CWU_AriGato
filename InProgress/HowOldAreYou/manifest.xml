@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <package uuid="howoldareyou-f18fe4" version="0.0.0">
  <names>
-  <name lang="en_US">Untitled</name>
+  <name lang="en_US">dialog_how_old_are_you</name>
  </names>
  <supportedLanguages>
   <language>en_US</language>
@@ -13,11 +13,20 @@
   <behaviorContent path="behavior_1">
    <userRequestable/>
    <nature>interactive</nature>
-   <autonomous/>
+   <names>
+    <name lang="en_US">Age</name>
+   </names>
+   <triggerSentences>
+    <sentence lang="en_US">How old are you</sentence>
+    <sentence lang="en_US">What is your age</sentence>
+   </triggerSentences>
+   <loadingResponses>
+    <sentence lang="en_US">Let me think</sentence>
+   </loadingResponses>
+   <autonomous>
+    <condition purpose="launchTrigger"><![CDATA[(('Launchpad/NumPeopleZone2' > 0) ~ 5) && ('Launchpad/PreviousActivity' !="howoldareyou-f18fe4/age")]]></condition>
+   </autonomous>
    <permissions/>
   </behaviorContent>
-  <dialogContent topicName="HowOldAreYou" typeVersion="1.0">
-   <topic path="HowOldAreYou/HowOldAreYou_enu.top" language="en_US"/>
-  </dialogContent>
  </contents>
 </package>

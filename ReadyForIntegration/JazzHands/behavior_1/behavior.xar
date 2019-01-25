@@ -15,11 +15,11 @@
       <BehaviorLayer name="behavior_layer1">
         <BehaviorKeyframe name="keyframe1" index="1">
           <Diagram>
-            <Box name="say stuff" id="1" localization="8" tooltip="" x="187" y="46">
+            <Box name="Jazz Hands" id="1" localization="8" tooltip="make Nao do jazz hands&#x0A;-basic non repeating&#x0A;-will stop after certain number of iterations" x="629" y="353">
               <bitmap>media/images/box/box-python-script.png</bitmap>
               <script language="4">
                 <content>
-                  <![CDATA[from random import randint
+                  <![CDATA[import time
 
 class MyClass(GeneratedClass):
     def __init__(self):
@@ -35,17 +35,38 @@ class MyClass(GeneratedClass):
 
     def onInput_onStart(self):
 
-        proxy = ALProxy("ALTextToSpeech")
+        proxy = ALProxy("ALMotion")
 
-        responses = ["I am 42",
-                     "You should never ask a robot its age",
-                     "1249 and a quarter years old",
-                     "Old enough to know better",
-                     "I was born yesterday",]
+#        joint name groups
+        names = ['LShoulderPitch', 'LShoulderRoll', 'LElbowYaw', 'LElbowRoll', 'LWristYaw', 'RShoulderPitch', 'RShoulderRoll', 'RElbowYaw', 'RElbowRoll', 'RWristYaw']
 
-        proxy.say(responses[randint(0, len(responses) - 1)])
+        wrists = ['LWristYaw','RWristYaw']
+#        fix arm angles
+#        joint position sets
+        upStart = [1.22, 0.11, -2.0, -1.32, 0, 1.22, -0.11, 2.0, 1.32, 0 ]
+        wrists1 = [0.82, -0.82]
+        wrists2 = [-1.5, 1.5]
 
-        self.onStopped()
+#        times for angle interpolation
+        timesTen = [0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5]
+        timesTwo = [0.5, 0.5]
+
+#        do movements
+
+#        MOVES ARMS UP WAY TOO FAST
+        proxy.setAngles(names, upStart, 0.2)
+
+        for i in range(3):
+
+            proxy.angleInterpolation(wrists, wrists1,[0.5, 0.5], True)
+
+            proxy.angleInterpolation(wrists, wrists2,[0.5, 0.5], True)
+
+
+
+
+        self.onStopped() #activate the output of the box
+        pass
 
     def onInput_onStop(self):
         self.onUnload() #it is recommended to reuse the clean-up as the box is stopped
