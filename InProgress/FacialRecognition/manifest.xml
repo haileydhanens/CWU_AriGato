@@ -26,8 +26,8 @@
     <tag lang="en_US">people</tag>
    </tags>
    <triggerSentences>
-    <sentence lang="en_US">Have we met before?</sentence>
-    <sentence lang="en_US">Do you remember me?</sentence>
+    <sentence lang="en_US">Do you know me</sentence>
+    <sentence lang="en_US">Do you remember me</sentence>
    </triggerSentences>
    <loadingResponses>
     <sentence lang="en_US">I remember you!</sentence>
@@ -36,17 +36,6 @@
     <condition purpose="launchTrigger"><![CDATA[(('Launchpad/NumPeopleZone2' > 0) ~ 5)
 && ('Launchpad/PreviousActivity' !="facialrecognition-abb3bd")]]></condition>
    </autonomous>
-   <permissions/>
-  </behaviorContent>
-  <behaviorContent path="LearnFace">
-   <nature>interactive</nature>
-   <triggerSentences>
-    <sentence lang="en_US">Learn my face</sentence>
-   </triggerSentences>
-   <loadingResponses>
-    <sentence lang="en_US">Okay. I'm learning your face.</sentence>
-   </loadingResponses>
-   <autonomous/>
    <permissions/>
   </behaviorContent>
  </contents>

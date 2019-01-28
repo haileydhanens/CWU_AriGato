@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<package uuid="weather-3ae350" version="0.0.0">
+<package uuid="whattimeisit-ac895b" version="0.0.0">
  <names>
-  <name lang="en_US">Weather</name>
+  <name lang="en_US">WhatTimeIsIt</name>
  </names>
  <supportedLanguages>
   <language>en_US</language>
@@ -14,15 +14,15 @@
    <userRequestable/>
    <nature>interactive</nature>
    <descriptions>
-    <description lang="en_US">NAO will say the current weather in Ellensburg in fahrenheit.</description>
+    <description lang="en_US">NAO will say the current time.</description>
    </descriptions>
    <triggerSentences>
-    <sentence lang="en_US">What's the current temperature of Ellensburg</sentence>
-    <sentence lang="en_US">whats the current temperature</sentence>
+    <sentence lang="en_US">what time is it</sentence>
+    <sentence lang="en_US">do you know the time</sentence>
    </triggerSentences>
    <autonomous>
     <condition purpose="launchTrigger"><![CDATA[(('Launchpad/NumPeopleZone2' > 0) ~ 5)
-&& ('Launchpad/PreviousActivity' !="weather-3ae350")]]></condition>
+&& ('Launchpad/PreviousActivity' !="whattimeisit-ac895b")]]></condition>
    </autonomous>
    <permissions/>
   </behaviorContent>
