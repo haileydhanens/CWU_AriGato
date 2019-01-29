@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<package uuid="weather-3ae350" version="0.0.0">
+<package version="0.0.0" uuid="weather-3ae350">
  <names>
-  <name lang="en_US">Weather</name>
+  <name lang="en_US">Temperature</name>
  </names>
  <supportedLanguages>
   <language>en_US</language>

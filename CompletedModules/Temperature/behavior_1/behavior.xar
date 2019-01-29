@@ -15,11 +15,12 @@
       <BehaviorLayer name="behavior_layer1">
         <BehaviorKeyframe name="keyframe1" index="1">
           <Diagram>
-            <Box name="Weather" id="1" localization="8" tooltip="NAO will say current weather of Ellensburg in degrees." x="179" y="181">
+            <Box name="Weather" id="1" localization="8" tooltip="NAO will say current weather of Ellensburg in degrees." x="506" y="287">
               <bitmap>media/images/box/internet/weather.png</bitmap>
               <script language="4">
                 <content>
-                  <![CDATA[import requests, json
+                  <![CDATA[#module by Hailey Dhanens and Angie Quach
+import requests, json
 
 class MyClass(GeneratedClass):
     def __init__(self):
@@ -46,8 +47,8 @@ class MyClass(GeneratedClass):
 
         # x has dictionaries
         # check value of cod key
-        # if cod key is 404, a city is found
-        if x["cod"] != 404:
+        # if cod key is not, a city is found
+        if x["cod"] == 200:
 
             # store the value of main key in y
             y = x["main"]
@@ -61,9 +62,9 @@ class MyClass(GeneratedClass):
 
         # city not found
         else:
-            proxy.say("City not found")
+            proxy.say("I'm not sure what the temperature is right now")
 
-        pass
+        self.onStopped()
 
     def onInput_onStop(self):
         self.onUnload() #it is recommended to reuse the clean-up as the box is stopped
