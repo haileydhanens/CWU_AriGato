@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<package uuid="singtheanthem-8043c5" version="0.0.0">
+<package version="0.0.0" uuid="singtheanthem-8043c5">
  <names>
   <name lang="en_US">SingTheAnthem</name>
  </names>
@@ -27,7 +27,6 @@
     <sentence lang="en_US">can you please sing the anthem</sentence>
     <sentence lang="en_US">nao sing the anthem</sentence>
    </triggerSentences>
-   <loadingResponses/>
    <autonomous>
     <condition purpose="launchTrigger"><![CDATA[(('Launchpad/NumPeopleZone2' > 0) ~ 5)
 && ('Launchpad/PreviousActivity' !="singtheanthem-8043c5/behavior_1")]]></condition>
