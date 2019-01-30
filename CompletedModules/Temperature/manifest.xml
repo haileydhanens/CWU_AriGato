@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<package version="0.0.0" uuid="weather-3ae350">
+<package uuid="weather-3ae350" version="0.0.0">
  <names>
   <name lang="en_US">Temperature</name>
  </names>
@@ -13,16 +13,22 @@
   <behaviorContent path="behavior_1">
    <userRequestable/>
    <nature>interactive</nature>
+   <names>
+    <name lang="en_US">temperature</name>
+   </names>
    <descriptions>
     <description lang="en_US">NAO will say the current weather in Ellensburg in fahrenheit.</description>
    </descriptions>
    <triggerSentences>
     <sentence lang="en_US">What's the current temperature of Ellensburg</sentence>
     <sentence lang="en_US">whats the current temperature</sentence>
+    <sentence lang="en_US">what is the temperature</sentence>
+    <sentence lang="en_US">how hot is it outside?</sentence>
+    <sentence lang="en_US">how cold is it outside?</sentence>
    </triggerSentences>
    <autonomous>
     <condition purpose="launchTrigger"><![CDATA[(('Launchpad/NumPeopleZone2' > 0) ~ 5)
-&& ('Launchpad/PreviousActivity' !="weather-3ae350")]]></condition>
+&& ('Launchpad/PreviousActivity' !="weather-3ae350/behavior_1")]]></condition>
    </autonomous>
    <permissions/>
   </behaviorContent>

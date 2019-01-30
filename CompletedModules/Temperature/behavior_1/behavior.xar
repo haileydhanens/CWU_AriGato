@@ -15,7 +15,7 @@
       <BehaviorLayer name="behavior_layer1">
         <BehaviorKeyframe name="keyframe1" index="1">
           <Diagram>
-            <Box name="Weather" id="1" localization="8" tooltip="NAO will say current weather of Ellensburg in degrees." x="506" y="287">
+            <Box name="Weather" id="1" localization="8" tooltip="NAO will say current weather of Ellensburg in degrees." x="563" y="306">
               <bitmap>media/images/box/internet/weather.png</bitmap>
               <script language="4">
                 <content>
@@ -56,9 +56,10 @@ class MyClass(GeneratedClass):
             # store the current temp and convert the temp
             current_temperature = y["temp"]
             converted_temperature = (current_temperature - 273.15) * 9 / 5 + 32
+            string_temperature = "It is " + str(int(converted_temperature)) + " degrees fahrenheit in Ellensburg right now."
 
             # print out temp
-            proxy.say("It is " + str(converted_temperature) + " degrees fahrenheit in Ellensburg right now.")
+            proxy.say(string_temperature)
 
         # city not found
         else:
