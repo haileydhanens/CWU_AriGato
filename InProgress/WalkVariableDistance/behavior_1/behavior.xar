@@ -188,16 +188,18 @@ class MyClass(GeneratedClass):
     def onInput_onStart(self):
         global x
         global y
+        global dist
         global dT
 
         # set up proxies
         tts = ALProxy("ALTextToSpeech")
         mtn = ALProxy("ALMotion")
 
-        inch = 1.0 * dT #if feet times 12
+        inch = dist * dT #if inches dT is 1, if feet dT is 12
         mtrs = inch / 39.37 #inches to meters
 
-        response = "X is " + str(x) + ", Y is " + str(y) + ", dT is " + str(dT) + ", dist is " + str(inch) + " inches"
+
+        response = "X is " + str(x) + ", Y is " + str(y) + ", dT is " + str(dT) + ", dist is " + str(dist)
         tts.say(response)
 
         mtn.moveTo(x * mtrs, y * mtrs, 0)
