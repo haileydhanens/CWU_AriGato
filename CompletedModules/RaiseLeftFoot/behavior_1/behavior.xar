@@ -32,6 +32,8 @@
         pass
 
     def onInput_onStart(self):
+        import almath
+
         # Create initial proxies:
         motionProxy = ALProxy("ALMotion")
         postureProxy = ALProxy("ALRobotPosture")
@@ -101,9 +103,6 @@
 
         # Send NAO back to "Stand Init" position:
         postureProxy.goToPosture("StandInit", 0.3)
-
-        # Send NAO to rest position:
-        motionProxy.rest()
 
         self.onStopped() # End function
 
