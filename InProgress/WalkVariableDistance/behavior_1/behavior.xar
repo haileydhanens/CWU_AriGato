@@ -15,7 +15,7 @@
       <BehaviorLayer name="behavior_layer1">
         <BehaviorKeyframe name="keyframe1" index="1">
           <Diagram scale="84.0896">
-            <Box name="SR Direction" id="2" localization="8" tooltip="Recognize a word from a list of words set in the box parameters.&#x0A;&#x0A;V1.1.0&#x0A;" x="336" y="31">
+            <Box name="SR Direction" id="2" localization="8" tooltip="Recognize a word from a list of words set in the box parameters.&#x0A;&#x0A;V1.1.0&#x0A;" x="241" y="181">
               <bitmap>media/images/box/interaction/ear.png</bitmap>
               <script language="4">
                 <content>
@@ -98,7 +98,7 @@ class MyClass(GeneratedClass):
               <Parameter name="Enable word spotting" inherits_from_parent="0" content_type="0" value="1" default_value="0" tooltip="If this option is not activated the robot will only understand exact expressions. If it is, he will spot the exact expressions even in the middle of a sentence.&#x0A;&#x0A;!!Warning!! This option is only available with the speech recognition module using Nuance (ie in Atom version of the robot)." id="9" />
               <Resource name="Speech recognition" type="Lock" timeout="0" />
             </Box>
-            <Box name="Switch Case" id="1" localization="8" tooltip="Test input value and stimulate the output matching to this value. If there is no&#x0A;matching output, the default output (onDefault) is stimulated.&#x0A;&#x0A;You can edit a case by left double-clicking on the line. You can add a&#x0A;case by right clicking on a line and selecting &apos;Insert a row&apos;. You can delete&#x0A;a case by right clicking on a line and selecting &apos;Remove a row&apos;." plugin="dispatcher_plugin" x="505" y="51">
+            <Box name="Switch Case" id="1" localization="8" tooltip="Test input value and stimulate the output matching to this value. If there is no&#x0A;matching output, the default output (onDefault) is stimulated.&#x0A;&#x0A;You can edit a case by left double-clicking on the line. You can add a&#x0A;case by right clicking on a line and selecting &apos;Insert a row&apos;. You can delete&#x0A;a case by right clicking on a line and selecting &apos;Remove a row&apos;." plugin="dispatcher_plugin" x="202" y="349">
               <bitmap>media/images/box/interaction/choice.png</bitmap>
               <script language="4">
                 <content>
@@ -112,19 +112,19 @@ class MyClass(GeneratedClass):
 
 	def onInput_onStart(self, p):
 		p = self.typeConversion(p)
-		if(p == self.typeConversion("Forwards")):
+		if(p == self.typeConversion("forwards")):
 			self.output_1(p)
-		elif(p == self.typeConversion("Backwards")):
+		elif(p == self.typeConversion("backwards")):
 			self.output_2(p)
-		elif(p == self.typeConversion("Left")):
+		elif(p == self.typeConversion("Lleft")):
 			self.output_3(p)
-		elif(p == self.typeConversion("Right")):
+		elif(p == self.typeConversion("right")):
 			self.output_4(p)
-		elif(p == self.typeConversion("Exit")):
+		elif(p == self.typeConversion("exit")):
 			self.output_5(p)
-		elif(p == self.typeConversion("Cancel")):
+		elif(p == self.typeConversion("cancel")):
 			self.output_6(p)
-		elif(p == self.typeConversion("Stop")):
+		elif(p == self.typeConversion("stop")):
 			self.output_7(p)
 		else:
 			self.onDefault()
@@ -142,13 +142,13 @@ class MyClass(GeneratedClass):
               </script>
               <pluginContent>
                 <keywords>
-                  <keyword>&quot;Forwards&quot;</keyword>
-                  <keyword>&quot;Backwards&quot;</keyword>
-                  <keyword>&quot;Left&quot;</keyword>
-                  <keyword>&quot;Right&quot;</keyword>
-                  <keyword>&quot;Exit&quot;</keyword>
-                  <keyword>&quot;Cancel&quot;</keyword>
-                  <keyword>&quot;Stop&quot;</keyword>
+                  <keyword>&quot;forwards&quot;</keyword>
+                  <keyword>&quot;backwards&quot;</keyword>
+                  <keyword>&quot;Lleft&quot;</keyword>
+                  <keyword>&quot;right&quot;</keyword>
+                  <keyword>&quot;exit&quot;</keyword>
+                  <keyword>&quot;cancel&quot;</keyword>
+                  <keyword>&quot;stop&quot;</keyword>
                   <keyword></keyword>
                 </keywords>
               </pluginContent>
@@ -199,7 +199,7 @@ class MyClass(GeneratedClass):
         mtrs = inch / 39.37 #inches to meters
 
 
-        response = "X is " + str(x) + ", Y is " + str(y) + ", dT is " + str(dT) + ", dist is " + str(dist)
+        response = "X is " + str(x) + ", Y is " + str(y) + ", dT is " + str(dT) + ", dist is " + str(mtrs) + " meters"
         tts.say(response)
 
         mtn.moveTo(x * mtrs, y * mtrs, 0)
@@ -208,30 +208,30 @@ class MyClass(GeneratedClass):
         self.onUnload() #it is recommended to reuse the clean-up as the box is stopped
         self.onStopped() #activate the output of the box
 
-    def onInput_Direction(self, p):
+    def onInput_direction(self, p):
         global x
         global y
 
-        if p == "Forwards":
+        if p == "forwards":
             x = 1
-        elif p == "Backwards":
+        elif p == "backwards":
             x = -1
-        elif p == "Left":
+        elif p == "left":
             y = 1
-        elif p == "Right":
+        elif p == "right":
             y = -1
 
     def onInput_distType(self, p):
         global dT
 
         if p == "feet":
-            dT = 12
+            dT = 12.0
         elif p == "foot":
-            dT = 12
+            dT = 12.0
         elif p == "inches":
-            dT = 1
+            dT = 1.0
         elif p == "inch":
-            dT = 1
+            dT = 1.0
 
     def onInput_distance(self, p):
         global dist
@@ -270,7 +270,7 @@ class MyClass(GeneratedClass):
               <Input name="distance" type="3" type_size="1" nature="2" inner="0" tooltip="" id="6" />
               <Output name="onStopped" type="1" type_size="1" nature="1" inner="0" tooltip="Signal sent when box behavior is finished." id="7" />
             </Box>
-            <Box name="Say" id="5" localization="8" tooltip="Say some text. The text can be localized." x="785" y="46">
+            <Box name="Say" id="5" localization="8" tooltip="Say some text. The text can be localized." x="444" y="31">
               <bitmap>media/images/box/interaction/say.png</bitmap>
               <script language="4">
                 <content>
@@ -324,10 +324,10 @@ class MyClass(GeneratedClass):
               <Output name="onStopped" type="1" type_size="1" nature="1" inner="0" tooltip="Signal sent when Box behavior is finished." id="4" />
               <Parameter name="Voice shaping (%)" inherits_from_parent="1" content_type="1" value="100" default_value="100" min="50" max="150" tooltip='Used to modify at runtime the voice feature (tone, speed). In a slighty&#x0A;different way than pitch and speed, it gives a kind of &quot;gender or age&#x0A;modification&quot; effect.&#x0A;&#x0A;For instance, a quite good male derivation of female voice can be&#x0A;obtained setting this parameter to 78%.&#x0A;&#x0A;Note: For a better effect, you can compensate this parameter with the&#x0A;speed parameter. For example, if you want to decrease by 20% the voice&#x0A;shaping, you will have to increase by 20% the speed to keep a constant&#x0A;average speed.' id="5" />
               <Parameter name="Speed (%)" inherits_from_parent="1" content_type="1" value="100" default_value="100" min="50" max="200" tooltip="Changes the speed of the voice.&#x0A;&#x0A;Note: For a better effect, you can compensate this parameter with the voice&#x0A;shaping parameter. For example, if you want to increase by 20% the speed, you&#x0A;will have to decrease by 20% the voice shaping to keep a constant average&#x0A;speed." id="6" />
-              <Parameter name="Text" inherits_from_parent="0" content_type="5" value="How far do you want me to walk?" default_value="" tooltip="The text you want to say. Don&apos;t forget to translate it!" id="7" />
+              <Parameter name="Text" inherits_from_parent="0" content_type="5" value="Are we using feet or inches?" default_value="" tooltip="The text you want to say. Don&apos;t forget to translate it!" id="7" />
               <Resource name="Speech" type="Lock" timeout="0" />
             </Box>
-            <Box name="Dir Prompt" id="6" localization="8" tooltip="Say some text. The text can be localized." x="247" y="171">
+            <Box name="Dir Prompt" id="6" localization="8" tooltip="Say some text. The text can be localized." x="235" y="20">
               <bitmap>media/images/box/interaction/say.png</bitmap>
               <script language="4">
                 <content>
@@ -463,7 +463,7 @@ class MyClass(GeneratedClass):
               </Timeline>
               <Resource name="All motors" type="Lock" timeout="0" />
             </Box>
-            <Box name="SR Dist Type" id="8" localization="8" tooltip="Determines if feet or inches are being used" x="409" y="245">
+            <Box name="SR Dist Type" id="8" localization="8" tooltip="Determines if feet or inches are being used" x="470" y="178">
               <bitmap>media/images/box/interaction/ear.png</bitmap>
               <script language="4">
                 <content>
@@ -546,7 +546,7 @@ class MyClass(GeneratedClass):
               <Parameter name="Enable word spotting" inherits_from_parent="0" content_type="0" value="1" default_value="0" tooltip="If this option is not activated the robot will only understand exact expressions. If it is, he will spot the exact expressions even in the middle of a sentence.&#x0A;&#x0A;!!Warning!! This option is only available with the speech recognition module using Nuance (ie in Atom version of the robot)." id="9" />
               <Resource name="Speech recognition" type="Lock" timeout="0" />
             </Box>
-            <Box name="Switch Case (1)" id="9" localization="8" tooltip="Test input value and stimulate the output matching to this value. If there is no&#x0A;matching output, the default output (onDefault) is stimulated.&#x0A;&#x0A;You can edit a case by left double-clicking on the line. You can add a&#x0A;case by right clicking on a line and selecting &apos;Insert a row&apos;. You can delete&#x0A;a case by right clicking on a line and selecting &apos;Remove a row&apos;." plugin="dispatcher_plugin" x="590" y="319">
+            <Box name="Switch Case (1)" id="9" localization="8" tooltip="Test input value and stimulate the output matching to this value. If there is no&#x0A;matching output, the default output (onDefault) is stimulated.&#x0A;&#x0A;You can edit a case by left double-clicking on the line. You can add a&#x0A;case by right clicking on a line and selecting &apos;Insert a row&apos;. You can delete&#x0A;a case by right clicking on a line and selecting &apos;Remove a row&apos;." plugin="dispatcher_plugin" x="725" y="262">
               <bitmap>media/images/box/interaction/choice.png</bitmap>
               <script language="4">
                 <content>
@@ -631,7 +631,7 @@ class MyClass(GeneratedClass):
               <Output name="output_11" type="0" type_size="1" nature="2" inner="0" tooltip="This IO has been automatically added by box. Read box tooltip for more information." id="14" />
               <Output name="output_12" type="0" type_size="1" nature="2" inner="0" tooltip="This IO has been automatically added by box. Read box tooltip for more information." id="15" />
             </Box>
-            <Box name="SR Dist Type (1)" id="10" localization="8" tooltip="Determines if feet or inches are being used" x="416" y="395">
+            <Box name="SR Dist Type (1)" id="10" localization="8" tooltip="Determines if feet or inches are being used" x="720" y="142">
               <bitmap>media/images/box/interaction/ear.png</bitmap>
               <script language="4">
                 <content>
@@ -714,7 +714,7 @@ class MyClass(GeneratedClass):
               <Parameter name="Enable word spotting" inherits_from_parent="0" content_type="0" value="1" default_value="0" tooltip="If this option is not activated the robot will only understand exact expressions. If it is, he will spot the exact expressions even in the middle of a sentence.&#x0A;&#x0A;!!Warning!! This option is only available with the speech recognition module using Nuance (ie in Atom version of the robot)." id="9" />
               <Resource name="Speech recognition" type="Lock" timeout="0" />
             </Box>
-            <Box name="Stand Up" id="3" localization="8" tooltip="the robot tries to stand up from any position for a number of tries.&#x0A;&#x0A;Note: The number of tries can be set in parameters." x="965" y="308">
+            <Box name="Stand Up" id="3" localization="8" tooltip="the robot tries to stand up from any position for a number of tries.&#x0A;&#x0A;Note: The number of tries can be set in parameters." x="988" y="550">
               <bitmap>media/images/box/movement/stand.png</bitmap>
               <script language="4">
                 <content>
@@ -793,6 +793,63 @@ class MyClass(GeneratedClass):
               </Timeline>
               <Resource name="All motors" type="Lock" timeout="0" />
             </Box>
+            <Box name="Say (1)" id="11" localization="8" tooltip="Say some text. The text can be localized." x="656" y="27">
+              <bitmap>media/images/box/interaction/say.png</bitmap>
+              <script language="4">
+                <content>
+                  <![CDATA[import time
+
+class MyClass(GeneratedClass):
+    def __init__(self):
+        GeneratedClass.__init__(self, False)
+
+    def onLoad(self):
+        self.tts = self.session().service('ALTextToSpeech')
+        self.ttsStop = self.session().service('ALTextToSpeech') #Create another service as wait is blocking if audioout is remote
+        self.bIsRunning = False
+        self.ids = []
+
+    def onUnload(self):
+        for id in self.ids:
+            try:
+                self.ttsStop.stop(id)
+            except:
+                pass
+        while( self.bIsRunning ):
+            time.sleep( 0.2 )
+
+    def onInput_onStart(self):
+        self.bIsRunning = True
+        try:
+            sentence = "\RSPD="+ str( self.getParameter("Speed (%)") ) + "\ "
+            sentence += "\VCT="+ str( self.getParameter("Voice shaping (%)") ) + "\ "
+            sentence += self.getParameter("Text")
+            sentence +=  "\RST\ "
+            id = self.tts.pCall("say",str(sentence))
+            self.ids.append(id)
+            self.tts.wait(id)
+        finally:
+            try:
+                self.ids.remove(id)
+            except:
+                pass
+            if( self.ids == [] ):
+                self.onStopped() # activate output of the box
+                self.bIsRunning = False
+
+    def onInput_onStop(self):
+        self.onUnload()]]>
+                </content>
+              </script>
+              <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when Diagram is loaded." id="1" />
+              <Input name="onStart" type="1" type_size="1" nature="2" inner="0" tooltip="Box behavior starts when a signal is received on this Input." id="2" />
+              <Input name="onStop" type="1" type_size="1" nature="3" inner="0" tooltip="Box behavior stops when a signal is received on this Input." id="3" />
+              <Output name="onStopped" type="1" type_size="1" nature="1" inner="0" tooltip="Signal sent when Box behavior is finished." id="4" />
+              <Parameter name="Voice shaping (%)" inherits_from_parent="1" content_type="1" value="100" default_value="100" min="50" max="150" tooltip='Used to modify at runtime the voice feature (tone, speed). In a slighty&#x0A;different way than pitch and speed, it gives a kind of &quot;gender or age&#x0A;modification&quot; effect.&#x0A;&#x0A;For instance, a quite good male derivation of female voice can be&#x0A;obtained setting this parameter to 78%.&#x0A;&#x0A;Note: For a better effect, you can compensate this parameter with the&#x0A;speed parameter. For example, if you want to decrease by 20% the voice&#x0A;shaping, you will have to increase by 20% the speed to keep a constant&#x0A;average speed.' id="5" />
+              <Parameter name="Speed (%)" inherits_from_parent="1" content_type="1" value="100" default_value="100" min="50" max="200" tooltip="Changes the speed of the voice.&#x0A;&#x0A;Note: For a better effect, you can compensate this parameter with the voice&#x0A;shaping parameter. For example, if you want to increase by 20% the speed, you&#x0A;will have to decrease by 20% the voice shaping to keep a constant average&#x0A;speed." id="6" />
+              <Parameter name="Text" inherits_from_parent="0" content_type="5" value="How far do you want me to walk?" default_value="" tooltip="The text you want to say. Don&apos;t forget to translate it!" id="7" />
+              <Resource name="Speech" type="Lock" timeout="0" />
+            </Box>
             <Link inputowner="2" indexofinput="2" outputowner="2" indexofoutput="6" />
             <Link inputowner="1" indexofinput="2" outputowner="2" indexofoutput="5" />
             <Link inputowner="0" indexofinput="4" outputowner="4" indexofoutput="7" />
@@ -804,12 +861,10 @@ class MyClass(GeneratedClass):
             <Link inputowner="5" indexofinput="2" outputowner="1" indexofoutput="5" />
             <Link inputowner="5" indexofinput="2" outputowner="1" indexofoutput="6" />
             <Link inputowner="5" indexofinput="2" outputowner="1" indexofoutput="7" />
-            <Link inputowner="4" indexofinput="2" outputowner="5" indexofoutput="4" />
             <Link inputowner="2" indexofinput="2" outputowner="6" indexofoutput="4" />
             <Link inputowner="7" indexofinput="2" outputowner="0" indexofoutput="2" />
             <Link inputowner="6" indexofinput="2" outputowner="7" indexofoutput="4" />
             <Link inputowner="8" indexofinput="2" outputowner="8" indexofoutput="6" />
-            <Link inputowner="8" indexofinput="2" outputowner="6" indexofoutput="4" />
             <Link inputowner="4" indexofinput="5" outputowner="8" indexofoutput="5" />
             <Link inputowner="4" indexofinput="6" outputowner="9" indexofoutput="4" />
             <Link inputowner="4" indexofinput="6" outputowner="9" indexofoutput="5" />
@@ -824,12 +879,25 @@ class MyClass(GeneratedClass):
             <Link inputowner="4" indexofinput="6" outputowner="9" indexofoutput="14" />
             <Link inputowner="4" indexofinput="6" outputowner="9" indexofoutput="15" />
             <Link inputowner="10" indexofinput="2" outputowner="10" indexofoutput="6" />
-            <Link inputowner="10" indexofinput="2" outputowner="6" indexofoutput="4" />
             <Link inputowner="9" indexofinput="2" outputowner="10" indexofoutput="5" />
             <Link inputowner="3" indexofinput="2" outputowner="1" indexofoutput="10" />
             <Link inputowner="3" indexofinput="2" outputowner="1" indexofoutput="9" />
             <Link inputowner="3" indexofinput="2" outputowner="1" indexofoutput="8" />
             <Link inputowner="0" indexofinput="4" outputowner="3" indexofoutput="4" />
+            <Link inputowner="8" indexofinput="2" outputowner="5" indexofoutput="4" />
+            <Link inputowner="10" indexofinput="2" outputowner="11" indexofoutput="4" />
+            <Link inputowner="11" indexofinput="2" outputowner="8" indexofoutput="5" />
+            <Link inputowner="4" indexofinput="2" outputowner="9" indexofoutput="4" />
+            <Link inputowner="4" indexofinput="2" outputowner="9" indexofoutput="5" />
+            <Link inputowner="4" indexofinput="2" outputowner="9" indexofoutput="7" />
+            <Link inputowner="4" indexofinput="2" outputowner="9" indexofoutput="8" />
+            <Link inputowner="4" indexofinput="2" outputowner="9" indexofoutput="9" />
+            <Link inputowner="4" indexofinput="2" outputowner="9" indexofoutput="10" />
+            <Link inputowner="4" indexofinput="2" outputowner="9" indexofoutput="11" />
+            <Link inputowner="4" indexofinput="2" outputowner="9" indexofoutput="12" />
+            <Link inputowner="4" indexofinput="2" outputowner="9" indexofoutput="13" />
+            <Link inputowner="4" indexofinput="2" outputowner="9" indexofoutput="14" />
+            <Link inputowner="4" indexofinput="2" outputowner="9" indexofoutput="15" />
           </Diagram>
         </BehaviorKeyframe>
       </BehaviorLayer>
