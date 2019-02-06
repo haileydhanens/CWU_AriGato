@@ -12,7 +12,10 @@
  <contents>
   <behaviorContent path="behavior_1">
    <userRequestable/>
-   <nature>interactive</nature>
+   <nature></nature>
+   <names>
+    <name lang="en_US">Jazz Hands</name>
+   </names>
    <triggerSentences>
     <sentence lang="en_US">jazz hands</sentence>
     <sentence lang="en_US">do jazz hands</sentence>
@@ -22,13 +25,8 @@
    <loadingResponses>
     <sentence lang="en_US">I love jazz!</sentence>
    </loadingResponses>
-   <autonomous>
-    <condition purpose="launchTrigger"><![CDATA[('Launchpad/NumPeopleZone2'>0)&&('Launchpad/PreviousActivity'!= 'jazzhands-c32de8/behavior_1')]]></condition>
-   </autonomous>
-   <permissions>
-    <canRunOnPod/>
-    <canStandUp/>
-   </permissions>
+   <autonomous/>
+   <permissions/>
   </behaviorContent>
  </contents>
 </package>
