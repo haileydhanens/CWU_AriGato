@@ -23,9 +23,7 @@
    <loadingResponses>
     <sentence lang="en_US">Let me think</sentence>
    </loadingResponses>
-   <autonomous>
-    <condition purpose="launchTrigger"><![CDATA[(('Launchpad/NumPeopleZone2' > 0) ~ 5) && ('Launchpad/PreviousActivity' !="howoldareyou-f18fe4/age")]]></condition>
-   </autonomous>
+   <autonomous/>
    <permissions/>
   </behaviorContent>
  </contents>

@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<package uuid="weather-3ae350" version="0.0.0">
+<package version="0.0.0" uuid="weather-3ae350">
  <names>
   <name lang="en_US">Temperature</name>
  </names>
@@ -25,11 +25,13 @@
     <sentence lang="en_US">what is the temperature</sentence>
     <sentence lang="en_US">how hot is it outside?</sentence>
     <sentence lang="en_US">how cold is it outside?</sentence>
+    <sentence lang="en_US">how hot is it</sentence>
+    <sentence lang="en_US">how cold is it</sentence>
    </triggerSentences>
-   <autonomous>
-    <condition purpose="launchTrigger"><![CDATA[(('Launchpad/NumPeopleZone2' > 0) ~ 5)
-&& ('Launchpad/PreviousActivity' !="weather-3ae350/behavior_1")]]></condition>
-   </autonomous>
+   <loadingResponses>
+    <sentence lang="en_US">Let me check</sentence>
+   </loadingResponses>
+   <autonomous/>
    <permissions/>
   </behaviorContent>
  </contents>
