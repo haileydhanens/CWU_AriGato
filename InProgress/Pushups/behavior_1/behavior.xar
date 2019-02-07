@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ChoregrapheProject xmlns="http://www.ald.softbankrobotics.com/schema/choregraphe/project.xsd" xar_version="3">
+  <Box name="root" id="-1" localization="8" tooltip="Root box of Choregraphe&apos;s behavior. Highest level possible." x="0" y="0">
+    <bitmap>media/images/box/root.png</bitmap>
+    <script language="4">
+      <content>
+        <![CDATA[]]>
+      </content>
+    </script>
+    <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when diagram is loaded." id="1" />
+    <Input name="onStart" type="1" type_size="1" nature="2" inner="0" tooltip="Box behavior starts when a signal is received on this input." id="2" />
+    <Input name="onStop" type="1" type_size="1" nature="3" inner="0" tooltip="Box behavior stops when a signal is received on this input." id="3" />
+    <Output name="onStopped" type="1" type_size="1" nature="1" inner="0" tooltip="Signal sent when box behavior is finished." id="4" />
+    <Timeline enable="0">
+      <BehaviorLayer name="behavior_layer1">
+        <BehaviorKeyframe name="keyframe1" index="1">
+          <Diagram>
+            <Box name="Pushups" id="1" localization="8" tooltip="Has the robot do pushups" x="208" y="88">
+              <bitmap>media/images/box/box-python-script.png</bitmap>
+              <script language="4">
+                <content>
+                  <![CDATA[import almath
+from time import sleep
+
+class MyClass(GeneratedClass):
+    def __init__(self):
+        GeneratedClass.__init__(self)
+
+    def onLoad(self):
+        #put initialization code here
+        pass
+
+    def onUnload(self):
+        #put clean-up code here
+        pass
+
+    def onInput_onStart(self):
+
+        # connect to proxies
+        motionProxy = ALProxy("ALMotion")
+        tts = ALProxy("ALTextToSpeech")
+
+
+        # wake the robot up
+        motionProxy.wakeUp()
+
+        # have the robot crouch
+        #Get all the joints
+        joints = []
+        joints.append("RHipYawPitch") # Right Leg
+        joints.append("RHipRoll")
+        joints.append("RHipPitch")
+        joints.append("RKneePitch")
+        joints.append("RAnklePitch")
+        joints.append("RAnkleRoll")
+        joints.append("LHipYawPitch") # Left Leg
+        joints.append("LHipRoll")
+        joints.append("LHipPitch")
+        joints.append("LKneePitch")
+        joints.append("LAnklePitch")
+        joints.append("LAnkleRoll")
+
+        # set the angles
+        angles = []
+
+
+        #start the pushups
+
+
+
+        #arms out
+        joints = ["RShoulderPitch", "RShoulderRoll", "RElbowYaw", "RElbowRoll", "RWristYaw", "RHand", "LShoulderPitch", "LShoulderRoll", "LElbowYaw", "LElbowRoll", "LWristYaw", "LHand"]
+
+        angles = []
+
+        # Right Arm
+        angles.append(0.0 * almath.TO_RAD)   #RShoulderPitch
+        angles.append(0.0 * almath.TO_RAD)   #RShoulderRoll
+        angles.append(0.0 * almath.TO_RAD)   #RElbowYaw
+        angles.append(2.0 * almath.TO_RAD)   #RElbowRoll
+        angles.append(0.0 * almath.TO_RAD)   #RWristYaw
+        angles.append(0.0 * almath.TO_RAD)   #RHand
+
+        # Left Arm
+        angles.append(0.0 * almath.TO_RAD)   #LShoulderPitch
+        angles.append(0.0 * almath.TO_RAD)   #LShoulderRoll
+        angles.append(0.0 * almath.TO_RAD)   #LElbowYaw
+        angles.append(2.0 * almath.TO_RAD)   #LElbowRoll
+        angles.append(0.0 * almath.TO_RAD)   #lWristYaw
+        angles.append(0.0 * almath.TO_RAD)   #LHand
+
+        moveSpeed = 0.2
+
+        motionProxy.setStiffnesses(joints, 1.0)
+        motionProxy.angleInterpolationWithSpeed(joints, angles, moveSpeed)
+
+        tts.say("one")
+        time.sleep(5)
+        tts.say("two")
+
+        # Lean forwards
+        # LHipYawPitch and RHipYawPitch are the same
+        joint = "LHipYawPitch"
+        angle = -30.0 * almath.TO_RAD
+        moveSpeed = 0.1
+        motionProxy.angleInterpolationWithSpeed(joint, angle, moveSpeed)
+
+        tts.say("three")
+        self.onStopped()
+
+
+    def onInput_onStop(self):
+        self.onUnload() #it is recommended to reuse the clean-up as the box is stopped
+        self.onStopped() #activate the output of the box]]>
+                </content>
+              </script>
+              <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when diagram is loaded." id="1" />
+              <Input name="onStart" type="1" type_size="1" nature="2" inner="0" tooltip="Box behavior starts when a signal is received on this input." id="2" />
+              <Input name="onStop" type="1" type_size="1" nature="3" inner="0" tooltip="Box behavior stops when a signal is received on this input." id="3" />
+              <Output name="onStopped" type="1" type_size="1" nature="1" inner="0" tooltip="Signal sent when box behavior is finished." id="4" />
+            </Box>
+            <Link inputowner="1" indexofinput="2" outputowner="0" indexofoutput="2" />
+            <Link inputowner="0" indexofinput="4" outputowner="1" indexofoutput="4" />
+          </Diagram>
+        </BehaviorKeyframe>
+      </BehaviorLayer>
+    </Timeline>
+  </Box>
+</ChoregrapheProject>
