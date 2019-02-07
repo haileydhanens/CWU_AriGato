@@ -6,7 +6,7 @@
         <message>
             <source>Hello</source>
             <comment>Text</comment>
-            <translation>Hello</translation>
+            <translation type="vanished">Hello</translation>
         </message>
     </context>
 </TS>
