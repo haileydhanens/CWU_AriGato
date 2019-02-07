@@ -25,9 +25,6 @@
    <loadingResponses>
     <sentence lang="en_US">Raising my left foot</sentence>
    </loadingResponses>
-   <autonomous>
-    <condition purpose="launchTrigger"><![CDATA[(('Launchpad/NumPeopleZone2' > 0) ~ 5) && ('Launchpad/PreviousActivity' != "raiseleftfoot-d0a6ff/behavior_1")]]></condition>
-   </autonomous>
    <permissions/>
   </behaviorContent>
  </contents>
