@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<package uuid="walkbackwards-d41603" version="0.0.0">
+<package version="0.0.0" uuid="walkbackwards-d41603">
  <names>
   <name lang="en_US">Walk Backwards</name>
  </names>
@@ -18,6 +18,7 @@
     <sentence lang="en_US">Move backwards</sentence>
     <sentence lang="en_US">step back</sentence>
     <sentence lang="en_US">take a step back</sentence>
+    <sentence lang="en_US">walk back</sentence>
    </triggerSentences>
    <autonomous/>
    <permissions/>

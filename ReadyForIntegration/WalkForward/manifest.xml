@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<package uuid="walkforward-d5392d" version="0.0.0">
+<package version="0.0.0" uuid="walkforward-d5392d">
  <names>
   <name lang="en_US">Walk Forward</name>
  </names>
@@ -14,11 +14,11 @@
    <userRequestable/>
    <nature>interactive</nature>
    <triggerSentences>
-    <sentence lang="en_US">Walk forwards</sentence>
     <sentence lang="en_US">Walk forward</sentence>
     <sentence lang="en_US">Move forwards</sentence>
     <sentence lang="en_US">Move forward</sentence>
     <sentence lang="en_US">step forwad</sentence>
+    <sentence lang="en_US">step up</sentence>
    </triggerSentences>
    <autonomous/>
    <permissions/>

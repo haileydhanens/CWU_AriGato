@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<package uuid="walkleft-4a4508" version="0.0.0">
+<package version="0.0.0" uuid="walkleft-4a4508">
  <names>
   <name lang="en_US">Walk Left</name>
  </names>
@@ -23,6 +23,9 @@
     <sentence lang="en_US">walk left</sentence>
     <sentence lang="en_US">move left</sentence>
     <sentence lang="en_US">step left</sentence>
+    <sentence lang="en_US">step to the left</sentence>
+    <sentence lang="en_US">walk to the left</sentence>
+    <sentence lang="en_US">move to the left</sentence>
    </triggerSentences>
    <autonomous/>
    <permissions/>

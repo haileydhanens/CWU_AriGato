@@ -25,6 +25,7 @@
     <sentence lang="en_US">step right</sentence>
     <sentence lang="en_US">walk to the right</sentence>
     <sentence lang="en_US">move to the right</sentence>
+    <sentence lang="en_US">step to the right</sentence>
    </triggerSentences>
    <autonomous/>
    <permissions/>
