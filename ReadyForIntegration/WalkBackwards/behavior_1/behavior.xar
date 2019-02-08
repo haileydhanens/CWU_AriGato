@@ -15,7 +15,7 @@
       <BehaviorLayer name="behavior_layer1">
         <BehaviorKeyframe name="keyframe1" index="1">
           <Diagram>
-            <Box name="Walk Backwards" id="1" localization="8" tooltip="Has the robot walk backwards 0.2 meters." x="360" y="162">
+            <Box name="Walk Backwards" id="1" localization="8" tooltip="Has the robot walk backwards 0.2 meters." x="516" y="183">
               <bitmap>media/images/box/box-python-script.png</bitmap>
               <script language="4">
                 <content>

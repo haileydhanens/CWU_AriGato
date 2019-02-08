@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<package version="0.0.0" uuid="developers-501208">
+<package uuid="developers-501208" version="0.0.0">
  <names>
   <name lang="en_US">Developers</name>
  </names>
@@ -25,10 +25,7 @@
     <sentence lang="en_US">Who is working on you?</sentence>
     <sentence lang="en_US">Who is in the Capstone project?</sentence>
    </triggerSentences>
-   <autonomous>
-    <condition purpose="launchTrigger"><![CDATA[(('Launchpad/NumPeopleZone2' > 0) -5)
-&& ('Launchpad/PreviousActivity' != "<501208>/developers")]]></condition>
-   </autonomous>
+   <autonomous/>
    <permissions/>
   </behaviorContent>
  </contents>

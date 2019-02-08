@@ -423,7 +423,7 @@ class MyClass(GeneratedClass):
               <Parameter name="Animation" inherits_from_parent="0" content_type="3" value="Stand/Gestures/Hey_2" default_value="" custom_choice="0" tooltip="The animation to play" id="9" />
               <Resource name="Speech" type="Lock" timeout="0" />
             </Box>
-            <Box name="Animated Say (4)" id="7" localization="8" tooltip="Say some text with animations. The text can be localized." x="518" y="616">
+            <Box name="Animated Say (4)" id="7" localization="8" tooltip="Say some text with animations. The text can be localized." x="612" y="582">
               <bitmap>media/images/box/interaction/say.png</bitmap>
               <script language="4">
                 <content>

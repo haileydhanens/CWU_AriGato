@@ -63,6 +63,11 @@
             <comment>Text</comment>
             <translation type="obsolete">I don't think we've met before.</translation>
         </message>
+        <message>
+            <source>I do not recognise you</source>
+            <comment>Text</comment>
+            <translation type="obsolete">I do not recognise you</translation>
+        </message>
     </context>
     <context>
         <name>behavior_1/behavior.xar:/Say</name>

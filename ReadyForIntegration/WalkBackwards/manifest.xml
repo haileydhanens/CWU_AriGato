@@ -16,10 +16,10 @@
    <triggerSentences>
     <sentence lang="en_US">Walk backwards</sentence>
     <sentence lang="en_US">Move backwards</sentence>
+    <sentence lang="en_US">step back</sentence>
+    <sentence lang="en_US">take a step back</sentence>
    </triggerSentences>
-   <autonomous>
-    <condition purpose="launchTrigger"><![CDATA[(('Launchpad/NumPeopleZone2' > 0) ~ 5) && ('Launchpad/PreviousActivity' != "walkbackwards-d41603/walkbackwards")]]></condition>
-   </autonomous>
+   <autonomous/>
    <permissions/>
   </behaviorContent>
  </contents>

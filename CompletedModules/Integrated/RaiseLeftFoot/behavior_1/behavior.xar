@@ -15,7 +15,7 @@
       <BehaviorLayer name="behavior_layer1">
         <BehaviorKeyframe name="keyframe1" index="1">
           <Diagram>
-            <Box name="RaiseLeftFoot" id="1" localization="8" tooltip="NAO raises its left foot into the air." x="278" y="160">
+            <Box name="RaiseLeftFoot" id="1" localization="8" tooltip="NAO raises its left foot into the air." x="577" y="132">
               <bitmap>media/images/box/box-python-script.png</bitmap>
               <script language="4">
                 <content>
