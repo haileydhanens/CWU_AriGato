@@ -103,10 +103,9 @@ class MyClass(GeneratedClass):
         isEnabled = False
         motionProxy.wbEnable(isEnabled)
 
-        # Send NAO back to "Stand Init" position:
-        postureProxy.goToPosture("StandInit", 0.3)
+        postureProxy.goToPosture("Stand", 0.5)
 
-        self.onStopped() # End function.
+        self.onStopped() # End function
 
     def onInput_onStop(self):
         self.onUnload() #it is recommended to reuse the clean-up as the box is stopped

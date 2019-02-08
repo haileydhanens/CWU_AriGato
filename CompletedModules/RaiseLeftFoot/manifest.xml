@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<package version="0.0.0" uuid="raiseleftfoot-d0a6ff">
+<package uuid="raiseleftfoot-d0a6ff" version="0.0.0">
  <names>
   <name lang="en_US">Untitled</name>
  </names>
@@ -25,6 +25,7 @@
    <loadingResponses>
     <sentence lang="en_US">Raising my left foot</sentence>
    </loadingResponses>
+   <autonomous/>
    <permissions/>
   </behaviorContent>
  </contents>
