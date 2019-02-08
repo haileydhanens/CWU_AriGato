@@ -20,8 +20,8 @@
     <description lang="en_US">NAO attempts to guess the age of an user by using face analyzing features.</description>
    </descriptions>
    <triggerSentences>
-    <sentence lang="en_US">Can you guess my age</sentence>
     <sentence lang="en_US">Can you guess how old i am</sentence>
+    <sentence lang="en_US">Guess my age</sentence>
    </triggerSentences>
    <autonomous/>
    <permissions/>
