@@ -31,14 +31,8 @@
    <loadingResponses>
     <sentence lang="en_US">okay</sentence>
    </loadingResponses>
-   <autonomous>
-    <condition purpose="launchTrigger"><![CDATA[('Launchpad/NumPeopleZone2' > 0) && ('Launchpad/PreviousActivity' != "turnheadright-fbea7f/behavior_!")]]></condition>
-   </autonomous>
-   <permissions>
-    <canRunOnPod/>
-    <canStandUp/>
-    <canSitDown/>
-   </permissions>
+   <autonomous/>
+   <permissions/>
   </behaviorContent>
  </contents>
 </package>

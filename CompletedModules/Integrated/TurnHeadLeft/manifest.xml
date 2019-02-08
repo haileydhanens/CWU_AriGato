@@ -30,14 +30,8 @@
     <sentence lang="en_US">alright</sentence>
     <sentence lang="en_US">okay</sentence>
    </loadingResponses>
-   <autonomous>
-    <condition purpose="launchTrigger"><![CDATA[('Launchpad/NumPeopleZone2' > 0) && ('Launchpad/PreviousActivity' != "turnheadleft-8dd2a9/behavior_1" )]]></condition>
-   </autonomous>
-   <permissions>
-    <canStandUp/>
-    <canSitDown/>
-    <canRunOnPod/>
-   </permissions>
+   <autonomous/>
+   <permissions/>
   </behaviorContent>
  </contents>
 </package>

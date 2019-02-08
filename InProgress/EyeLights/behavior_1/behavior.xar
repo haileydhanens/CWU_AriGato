@@ -15,7 +15,7 @@
       <BehaviorLayer name="behavior_layer1">
         <BehaviorKeyframe name="keyframe1" index="1">
           <Diagram>
-            <Box name="say something" id="1" localization="8" tooltip="yep" x="142" y="291">
+            <Box name="say something" id="1" localization="8" tooltip="yep" x="486" y="197">
               <bitmap>media/images/box/box-python-script.png</bitmap>
               <script language="4">
                 <content>
@@ -34,9 +34,13 @@
     def onInput_onStart(self):
         #self.onStopped() #activate the output of the box
         leds = ALProxy("ALLeds")
-        names = ["Face/Led/Blue/Right/135Deg", "Face/Led/Blue/Left/225Deg"]
-        #leds.createGroup("MyGroup", names)
-        #leds.on("MyGroup")
+        names = [
+"Face/Led/Red/Left/0Deg/Actuator/Value",
+"Face/Led/Red/Left/90Deg/Actuator/Value",
+"Face/Led/Red/Left/180Deg/Actuator/Value",
+"Face/Led/Red/Left/270Deg/Actuator/Value"]
+        leds.createGroup("MyGroup", names)
+        leds.on("MyGroup")
 
         self.onStopped()
 
@@ -51,6 +55,7 @@
               <Output name="onStopped" type="1" type_size="1" nature="1" inner="0" tooltip="Signal sent when box behavior is finished." id="4" />
             </Box>
             <Link inputowner="1" indexofinput="2" outputowner="0" indexofoutput="2" />
+            <Link inputowner="0" indexofinput="4" outputowner="1" indexofoutput="4" />
           </Diagram>
         </BehaviorKeyframe>
       </BehaviorLayer>
