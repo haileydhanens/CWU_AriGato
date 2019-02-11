@@ -125,18 +125,9 @@
     def onInput_p(self, p):
 
         tts = ALProxy("ALTextToSpeech")
-        bool = False
-        string = ""
-        list = [str("Angie"), str("Hailey"), str("Casey"), str("Derek"), str("Matthew Harker")]
 
-        for names in list:
-            if p = names:
-                bool = True
+        string = "hello " + p
 
-        if bool:
-            string = "Hello " + p
-        else:
-            string = "I do not recognise you"
         tts.say(string)
 
 
