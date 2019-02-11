@@ -38,74 +38,63 @@ class MyClass(GeneratedClass):
 
         # connect to proxies
         motionProxy = ALProxy("ALMotion")
+        postureProxy = ALProxy("ALRobotPosture")
         tts = ALProxy("ALTextToSpeech")
 
 
         # wake the robot up
         motionProxy.wakeUp()
 
-        # have the robot crouch
-        #Get all the joints
-        joints = []
-        joints.append("RHipYawPitch") # Right Leg
-        joints.append("RHipRoll")
-        joints.append("RHipPitch")
-        joints.append("RKneePitch")
-        joints.append("RAnklePitch")
-        joints.append("RAnkleRoll")
-        joints.append("LHipYawPitch") # Left Leg
-        joints.append("LHipRoll")
-        joints.append("LHipPitch")
-        joints.append("LKneePitch")
-        joints.append("LAnklePitch")
-        joints.append("LAnkleRoll")
+        # enable whole body balance
+        isEnabled = True
+        motionProxy.wbEnable(isEnabled)
 
-        # set the angles
-        angles = []
+        #create base arrays
+        jArray = []  # array of joints
+        aArray = []  # array of angles
 
-
-        #start the pushups
 
 
 
         #arms out
-        joints = ["RShoulderPitch", "RShoulderRoll", "RElbowYaw", "RElbowRoll", "RWristYaw", "RHand", "LShoulderPitch", "LShoulderRoll", "LElbowYaw", "LElbowRoll", "LWristYaw", "LHand"]
+        jArmsOut = ["RShoulderPitch", "RShoulderRoll", "RElbowYaw", "RElbowRoll", "RWristYaw", "RHand", "LShoulderPitch", "LShoulderRoll", "LElbowYaw", "LElbowRoll", "LWristYaw", "LHand"]
+        jArray.append(jArmsOut)
 
-        angles = []
-
-        # Right Arm
-        angles.append(0.0 * almath.TO_RAD)   #RShoulderPitch
-        angles.append(0.0 * almath.TO_RAD)   #RShoulderRoll
-        angles.append(0.0 * almath.TO_RAD)   #RElbowYaw
-        angles.append(2.0 * almath.TO_RAD)   #RElbowRoll
-        angles.append(0.0 * almath.TO_RAD)   #RWristYaw
-        angles.append(0.0 * almath.TO_RAD)   #RHand
+        # angles for setAngles
+        aArmsOutS = []
+        aArmsOutS.append(20.0 * almath.TO_RAD)   #RShoulderPitch
+        aArmsOutS.append(0.0 * almath.TO_RAD)   #RShoulderRoll
+        aArmsOutS.append(0.0 * almath.TO_RAD)   #RElbowYaw
+        aArmsOutS.append(-2.0 * almath.TO_RAD)  #RElbowRoll
+        aArmsOutS.append(0.0 * almath.TO_RAD)   #RWristYaw
+        aArmsOutS.append(0.0 * almath.TO_RAD)   #RHand
 
         # Left Arm
-        angles.append(0.0 * almath.TO_RAD)   #LShoulderPitch
-        angles.append(0.0 * almath.TO_RAD)   #LShoulderRoll
-        angles.append(0.0 * almath.TO_RAD)   #LElbowYaw
-        angles.append(2.0 * almath.TO_RAD)   #LElbowRoll
-        angles.append(0.0 * almath.TO_RAD)   #lWristYaw
-        angles.append(0.0 * almath.TO_RAD)   #LHand
+        aArmsOutS.append(20.0 * almath.TO_RAD)   #LShoulderPitch
+        aArmsOutS.append(0.0 * almath.TO_RAD)   #LShoulderRoll
+        aArmsOutS.append(0.0 * almath.TO_RAD)   #LElbowYaw
+        aArmsOutS.append(-2.0 * almath.TO_RAD)  #LElbowRoll
+        aArmsOutS.append(0.0 * almath.TO_RAD)   #lWristYaw
+        aArmsOutS.append(0.0 * almath.TO_RAD)   #LHand
 
-        moveSpeed = 0.2
 
-        motionProxy.setStiffnesses(joints, 1.0)
-        motionProxy.angleInterpolationWithSpeed(joints, angles, moveSpeed)
+        #crouch down
+        postureProxy.goToPosture("StandInit", .5)
+        time.sleep(1)
+        postureProxy.goToPosture("Crouch", .5)
 
-        tts.say("one")
-        time.sleep(5)
-        tts.say("two")
+        #arms out
+        motionProxy.setAngles(jArmsOut, aArmsOutS, 0.2)
+
 
         # Lean forwards
         # LHipYawPitch and RHipYawPitch are the same
         joint = "LHipYawPitch"
-        angle = -30.0 * almath.TO_RAD
+        angle = -40.0 * almath.TO_RAD
         moveSpeed = 0.1
-        motionProxy.angleInterpolationWithSpeed(joint, angle, moveSpeed)
+        motionProxy.setAngles(joint, angle, 0.1)
 
-        tts.say("three")
+#        tts.say("three")
         self.onStopped()
 
 
