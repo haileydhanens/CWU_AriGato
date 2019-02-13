@@ -56,7 +56,8 @@ class MyClass(GeneratedClass):
               <bitmap>media/images/box/box-python-script.png</bitmap>
               <script language="4">
                 <content>
-                  <![CDATA[from omdb import OMDBClient
+                  <![CDATA[import json
+import requests
 
 class MyClass(GeneratedClass):
     def __init__(self):
@@ -76,7 +77,17 @@ class MyClass(GeneratedClass):
     def onInput_movieTitle(self, p):
         proxy = ALProxy("ALTextToSpeech")
 
-        proxy.say("you said " + p)
+        baseurl = "http://www.omdbapi.com/?apikey=9c941672&t=" + p
+
+        response = requests.get(baseurl)
+
+        dictionary = json.loads(response.text)
+
+        rating = dictionary.values()[3][1].values()[1]
+
+        proxy.say(p + "'s rotten tomatoes rating is " + str(rating))
+
+        #proxy.say("you said " + p)
 
         self.onStopped()
 
@@ -141,9 +152,11 @@ class MyClass(GeneratedClass):
                 self.asr.pushContexts()
             self.hasPushed = True
             if self.asr:
-                f = open("movielist.txt", "r")
-                words = f.readlines()
-                f.close()
+                #f = open("movielist.txt", "r")
+                #words = f.readlines()
+               # f.close()
+
+                words = ["The Terminator", "I Robot", "Wall E", "The Matrix"]
 
                 self.asr.setVocabulary( words, self.getParameter("Enable word spotting") )
             self.memory.subscribeToEvent("WordRecognized", self.getName(), "onWordRecognized")
@@ -179,10 +192,11 @@ class MyClass(GeneratedClass):
             </Box>
             <Link inputowner="3" indexofinput="2" outputowner="1" indexofoutput="4" />
             <Link inputowner="0" indexofinput="4" outputowner="2" indexofoutput="5" />
-            <Link inputowner="3" indexofinput="2" outputowner="3" indexofoutput="4" />
-            <Link inputowner="3" indexofinput="3" outputowner="3" indexofoutput="6" />
             <Link inputowner="1" indexofinput="2" outputowner="0" indexofoutput="2" />
             <Link inputowner="2" indexofinput="4" outputowner="3" indexofoutput="5" />
+            <Link inputowner="3" indexofinput="2" outputowner="3" indexofoutput="6" />
+            <Link inputowner="3" indexofinput="3" outputowner="3" indexofoutput="5" />
+            <Link inputowner="2" indexofinput="2" outputowner="3" indexofoutput="4" />
           </Diagram>
         </BehaviorKeyframe>
       </BehaviorLayer>
