@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<package uuid="howoldareyou-f18fe4" version="0.0.0">
+<package version="0.0.0" uuid="howoldareyou-f18fe4">
  <names>
   <name lang="en_US">dialog_how_old_are_you</name>
  </names>
@@ -23,7 +23,6 @@
    <loadingResponses>
     <sentence lang="en_US">Let me think</sentence>
    </loadingResponses>
-   <autonomous/>
    <permissions/>
   </behaviorContent>
  </contents>
