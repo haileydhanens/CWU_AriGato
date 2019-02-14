@@ -1,8 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<package version="0.0.0" uuid="pushups-72dd44">
+<package uuid="pushups-45c348" version="0.0.0">
  <names>
-  <name lang="en_US">Untitled</name>
+  <name lang="en_US">Pushups</name>
  </names>
+ <descriptions>
+  <description lang="en_US">The robot will prompt the user for a number (1-10) and will perform that many pushups</description>
+ </descriptions>
  <supportedLanguages>
   <language>en_US</language>
  </supportedLanguages>
@@ -12,7 +15,16 @@
  <contents>
   <behaviorContent path="behavior_1">
    <userRequestable/>
-   <nature>interactive</nature>
+   <nature></nature>
+   <names>
+    <name lang="en_US">Pushups</name>
+   </names>
+   <triggerSentences>
+    <sentence lang="en_US">Pushups</sentence>
+    <sentence lang="en_US">Do some pushups</sentence>
+    <sentence lang="en_US">Do pushups</sentence>
+   </triggerSentences>
+   <autonomous/>
    <permissions/>
   </behaviorContent>
  </contents>

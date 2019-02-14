@@ -15,12 +15,15 @@
       <BehaviorLayer name="behavior_layer1">
         <BehaviorKeyframe name="keyframe1" index="1">
           <Diagram>
-            <Box name="Pushups" id="1" localization="8" tooltip="Has the robot do pushups" x="208" y="88">
+            <Box name="Pushups" id="2" localization="8" tooltip="Has the robot do pushups" x="602" y="14">
               <bitmap>media/images/box/box-python-script.png</bitmap>
               <script language="4">
                 <content>
                   <![CDATA[import almath
 from time import sleep
+from copy import copy, deepcopy
+
+count = 0
 
 class MyClass(GeneratedClass):
     def __init__(self):
@@ -36,80 +39,695 @@ class MyClass(GeneratedClass):
 
     def onInput_onStart(self):
 
+        global count  # the number of pushups it will do
+
         # connect to proxies
         motionProxy = ALProxy("ALMotion")
         postureProxy = ALProxy("ALRobotPosture")
         tts = ALProxy("ALTextToSpeech")
+        al = ALProxy("ALAutonomousLife")
 
+        tts.say(str(count) + " it is")
 
-        # wake the robot up
-        motionProxy.wakeUp()
+        # turns off autonomous life
+        al.setState("disabled")
 
-        # enable whole body balance
-        isEnabled = True
-        motionProxy.wbEnable(isEnabled)
+        #!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        #!!! TURNS OFF FALL MANAGER !!!!!!!!!!!!!!!!!!!!
+        #!!! ENABLE THIS AT THE END OF THE PROGRAM !!!!!
+        #!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        DISENGAGE = "ENABLE_DISACTIVATION_OF_FALL_MANAGER"
+        motionProxy.setMotionConfig([[DISENGAGE, True]])
+        motionProxy.setFallManagerEnabled(False)
 
-        #create base arrays
-        jArray = []  # array of joints
-        aArray = []  # array of angles
-
-
-
-
-        #arms out
-        jArmsOut = ["RShoulderPitch", "RShoulderRoll", "RElbowYaw", "RElbowRoll", "RWristYaw", "RHand", "LShoulderPitch", "LShoulderRoll", "LElbowYaw", "LElbowRoll", "LWristYaw", "LHand"]
-        jArray.append(jArmsOut)
-
-        # angles for setAngles
-        aArmsOutS = []
-        aArmsOutS.append(20.0 * almath.TO_RAD)   #RShoulderPitch
-        aArmsOutS.append(0.0 * almath.TO_RAD)   #RShoulderRoll
-        aArmsOutS.append(0.0 * almath.TO_RAD)   #RElbowYaw
-        aArmsOutS.append(-2.0 * almath.TO_RAD)  #RElbowRoll
-        aArmsOutS.append(0.0 * almath.TO_RAD)   #RWristYaw
-        aArmsOutS.append(0.0 * almath.TO_RAD)   #RHand
-
-        # Left Arm
-        aArmsOutS.append(20.0 * almath.TO_RAD)   #LShoulderPitch
-        aArmsOutS.append(0.0 * almath.TO_RAD)   #LShoulderRoll
-        aArmsOutS.append(0.0 * almath.TO_RAD)   #LElbowYaw
-        aArmsOutS.append(-2.0 * almath.TO_RAD)  #LElbowRoll
-        aArmsOutS.append(0.0 * almath.TO_RAD)   #lWristYaw
-        aArmsOutS.append(0.0 * almath.TO_RAD)   #LHand
 
 
         #crouch down
-        postureProxy.goToPosture("StandInit", .5)
-        time.sleep(1)
         postureProxy.goToPosture("Crouch", .5)
 
+        # arm joints
+        jArms = []
+        jArms.append("RShoulderPitch")
+        jArms.append("RShoulderRoll")
+        jArms.append("RElbowYaw")
+        jArms.append("RElbowRoll")
+        jArms.append("RWristYaw")
+        jArms.append("RHand")
+        jArms.append("LShoulderPitch")
+        jArms.append("LShoulderRoll")
+        jArms.append("LElbowYaw")
+        jArms.append("LElbowRoll")
+        jArms.append("LWristYaw")
+        jArms.append("LHand")
+
+        # angles for arms
+        aArms = []
+        aArms.append(  20.0 * almath.TO_RAD)  #RShoulderPitch  0
+        aArms.append(   0.0 * almath.TO_RAD)  #RShoulderRoll   1
+        aArms.append( 100.0 * almath.TO_RAD)  #RElbowYaw       2
+        aArms.append(  -2.0 * almath.TO_RAD)  #RElbowRoll      3
+        aArms.append(  75.0 * almath.TO_RAD)  #RWristYaw       4
+        aArms.append(   0.0 * almath.TO_RAD)  #RHand           5
+
+        # Left Arm
+        aArms.append(  20.0 * almath.TO_RAD)  #LShoulderPitch  6
+        aArms.append(   0.0 * almath.TO_RAD)  #LShoulderRoll   7
+        aArms.append(-100.0 * almath.TO_RAD)  #LElbowYaw       8
+        aArms.append(  -2.0 * almath.TO_RAD)  #LElbowRoll      9
+        aArms.append( -75.0 * almath.TO_RAD)  #lWristYaw       10
+        aArms.append(   0.0 * almath.TO_RAD)  #LHand           11
+
         #arms out
-        motionProxy.setAngles(jArmsOut, aArmsOutS, 0.2)
+        motionProxy.setAngles(jArms, aArms, 0.2)
+
 
 
         # Lean forwards
-        # LHipYawPitch and RHipYawPitch are the same
-        joint = "LHipYawPitch"
-        angle = -40.0 * almath.TO_RAD
-        moveSpeed = 0.1
-        motionProxy.setAngles(joint, angle, 0.1)
+        # array of leg joints
+        jLegs = []
+        jLegs.append("LHipYawPitch")
+        jLegs.append("LHipRoll")
+        jLegs.append("LHipPitch")
+        jLegs.append("LKneePitch")
+        jLegs.append("LAnklePitch")
+        jLegs.append("LAnkleRoll")
 
-#        tts.say("three")
+        jLegs.append("RHipRoll")
+        jLegs.append("RHipPitch")
+        jLegs.append("RKneePitch")
+        jLegs.append("RAnklePitch")
+        jLegs.append("RAnkleRoll")
+
+        # array of leg angles
+        aLegs = []
+        aLegs.append(-30.0 * almath.TO_RAD)  #LHipYawPitch  0
+        aLegs.append( 10.0 * almath.TO_RAD)  #LHipRoll      1
+        aLegs.append(-60.0 * almath.TO_RAD)  #LHipPitch     2
+        aLegs.append(151.0 * almath.TO_RAD)  #LKneePitch    3
+        aLegs.append(-50.0 * almath.TO_RAD)  #LAnklePitch   4
+        aLegs.append( -8.0 * almath.TO_RAD)  #LAnkleRoll    5
+
+        aLegs.append(-10.0 * almath.TO_RAD)  #RHipRoll      6
+        aLegs.append(-60.0 * almath.TO_RAD)  #RHipPitch     7
+        aLegs.append(115.0 * almath.TO_RAD)  #RKneePitch    8
+        aLegs.append(-50.0 * almath.TO_RAD)  #RAnklePitch   9
+        aLegs.append(  8.0 * almath.TO_RAD)  #RAnkleRoll    10
+
+        # prepare for fall
+        motionProxy.setAngles(jLegs, aLegs, 0.1)
+        time.sleep(2)
+
+        # fall
+        aLegs[0] = -60.0 * almath.TO_RAD  #LHipYawPitch
+        motionProxy.setAngles(jLegs, aLegs, 0.1)
+        time.sleep(2)
+
+
+
+        # legs together
+        aLegs[0] = 0.0 * almath.TO_RAD  #LHipYawPitch
+        motionProxy.setAngles(jLegs, aLegs, 0.15)
+        time.sleep(1)
+
+        # extend legs
+        aLegs[2] =   0.0 * almath.TO_RAD  #LHipPitch
+        aLegs[3] =   0.0 * almath.TO_RAD  #LKneePitch
+        aLegs[4] =   0.0 * almath.TO_RAD  #LAnklePitch
+        aLegs[7] =   0.0 * almath.TO_RAD  #RHipPitch
+        aLegs[8] =   0.0 * almath.TO_RAD  #RKneePitch
+        aLegs[9] =   0.0 * almath.TO_RAD  #RAnklePitch
+        motionProxy.setAngles(jLegs, aLegs, 0.2)
+
+        # fix arms
+        aArms[0]  =   17.0 * almath.TO_RAD  #RShoulderPitch
+        aArms[2]  =    0.0 * almath.TO_RAD  #RElbowYaw
+        aArms[4]  =   90.0 * almath.TO_RAD  #RWristYaw
+
+        aArms[6]  =   17.0 * almath.TO_RAD  #LShoulderPitch
+        aArms[8]  =    0.0 * almath.TO_RAD  #LElbowYaw
+        aArms[10] =  -90.0 * almath.TO_RAD  #LWristYaw
+
+        motionProxy.setAngles(jArms, aArms, 0.25)
+        time.sleep(2)
+
+
+
+        # angles for down position
+        aArmsDown = deepcopy(aArms)
+        aArmsDown[1] = -45.0 * almath.TO_RAD  #RShoulderRoll
+        aArmsDown[3] =  85.0 * almath.TO_RAD  #RElbowRoll
+        aArmsDown[7] =  45.0 * almath.TO_RAD  #LShoulderRoll
+        aArmsDown[9] = -85.0 * almath.TO_RAD  #LElbowRoll
+
+        #angles for up position
+        aArmsUp = deepcopy(aArms)
+        aArms[1] =  0.0 * almath.TO_RAD
+        aArms[3] =  2.0 * almath.TO_RAD
+        aArms[7] =  0.0 * almath.TO_RAD
+        aArms[9] = -2.0 * almath.TO_RAD
+
+        puSpeed = 0.5
+        time.sleep(1)
+
+        # do the pushups
+        n = 0
+        while n < count:  #runs "count" times
+            motionProxy.angleInterpolationWithSpeed(jArms, aArmsDown, puSpeed)
+            time.sleep(.5)
+
+            motionProxy.angleInterpolationWithSpeed(jArms, aArmsUp, puSpeed)
+
+            n += 1
+            tts.say(str(n))
+
+
+        # resets autonomous life and fall manager
+        postureProxy.goToPosture("Crouch", 0.5)
+        postureProxy.goToPosture("Stand", 0.5)
+        al.setState("solitary")
+        motionProxy.setFallManagerEnabled(True)
+
         self.onStopped()
 
 
+
+    def onInput_pushups(self, p):
+        global count
+
+        if p == "one":
+            count = 1
+        elif p == "two":
+            count = 2
+        elif p == "three":
+            count = 3
+        elif p == "four":
+            count = 4
+        elif p == "five":
+            count = 5
+        elif p == "six":
+            count = 6
+        elif p == "seven":
+            count = 7
+        elif p == "eight":
+            count = 8
+        elif p == "nine":
+            count = 9
+        elif p == "ten":
+            count = 10]]>
+                </content>
+              </script>
+              <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when diagram is loaded." id="1" />
+              <Input name="onStart" type="1" type_size="1" nature="2" inner="0" tooltip="Box behavior starts when a signal is received on this input." id="2" />
+              <Input name="onStop" type="1" type_size="1" nature="3" inner="0" tooltip="Box behavior stops when a signal is received on this input." id="3" />
+              <Input name="pushups" type="3" type_size="1" nature="1" inner="0" tooltip="The number of pushups the robot will perform" id="4" />
+              <Output name="onStopped" type="1" type_size="1" nature="1" inner="0" tooltip="Signal sent when box behavior is finished." id="5" />
+            </Box>
+            <Box name="Say" id="3" localization="8" tooltip="Say some text. The text can be localized." x="134" y="174">
+              <bitmap>media/images/box/interaction/say.png</bitmap>
+              <script language="4">
+                <content>
+                  <![CDATA[import time
+
+class MyClass(GeneratedClass):
+    def __init__(self):
+        GeneratedClass.__init__(self, False)
+
+    def onLoad(self):
+        self.tts = self.session().service('ALTextToSpeech')
+        self.ttsStop = self.session().service('ALTextToSpeech') #Create another service as wait is blocking if audioout is remote
+        self.bIsRunning = False
+        self.ids = []
+
+    def onUnload(self):
+        for id in self.ids:
+            try:
+                self.ttsStop.stop(id)
+            except:
+                pass
+        while( self.bIsRunning ):
+            time.sleep( 0.2 )
+
+    def onInput_onStart(self):
+        self.bIsRunning = True
+        try:
+            sentence = "\RSPD="+ str( self.getParameter("Speed (%)") ) + "\ "
+            sentence += "\VCT="+ str( self.getParameter("Voice shaping (%)") ) + "\ "
+            sentence += self.getParameter("Text")
+            sentence +=  "\RST\ "
+            id = self.tts.pCall("say",str(sentence))
+            self.ids.append(id)
+            self.tts.wait(id)
+        finally:
+            try:
+                self.ids.remove(id)
+            except:
+                pass
+            if( self.ids == [] ):
+                self.onStopped() # activate output of the box
+                self.bIsRunning = False
+
     def onInput_onStop(self):
-        self.onUnload() #it is recommended to reuse the clean-up as the box is stopped
-        self.onStopped() #activate the output of the box]]>
+        self.onUnload()]]>
+                </content>
+              </script>
+              <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when Diagram is loaded." id="1" />
+              <Input name="onStart" type="1" type_size="1" nature="2" inner="0" tooltip="Box behavior starts when a signal is received on this Input." id="2" />
+              <Input name="onStop" type="1" type_size="1" nature="3" inner="0" tooltip="Box behavior stops when a signal is received on this Input." id="3" />
+              <Output name="onStopped" type="1" type_size="1" nature="1" inner="0" tooltip="Signal sent when Box behavior is finished." id="4" />
+              <Parameter name="Voice shaping (%)" inherits_from_parent="1" content_type="1" value="100" default_value="100" min="50" max="150" tooltip='Used to modify at runtime the voice feature (tone, speed). In a slighty&#x0A;different way than pitch and speed, it gives a kind of &quot;gender or age&#x0A;modification&quot; effect.&#x0A;&#x0A;For instance, a quite good male derivation of female voice can be&#x0A;obtained setting this parameter to 78%.&#x0A;&#x0A;Note: For a better effect, you can compensate this parameter with the&#x0A;speed parameter. For example, if you want to decrease by 20% the voice&#x0A;shaping, you will have to increase by 20% the speed to keep a constant&#x0A;average speed.' id="5" />
+              <Parameter name="Speed (%)" inherits_from_parent="1" content_type="1" value="100" default_value="100" min="50" max="200" tooltip="Changes the speed of the voice.&#x0A;&#x0A;Note: For a better effect, you can compensate this parameter with the voice&#x0A;shaping parameter. For example, if you want to increase by 20% the speed, you&#x0A;will have to decrease by 20% the voice shaping to keep a constant average&#x0A;speed." id="6" />
+              <Parameter name="Text" inherits_from_parent="0" content_type="5" value="How many pushups do you want me to do?" default_value="" tooltip="The text you want to say. Don&apos;t forget to translate it!" id="7" />
+              <Resource name="Speech" type="Lock" timeout="0" />
+            </Box>
+            <Box name="Speech Reco." id="4" localization="8" tooltip="Recognize a word from a list of words set in the box parameters.&#x0A;&#x0A;V1.1.0&#x0A;" x="116" y="33">
+              <bitmap>media/images/box/interaction/ear.png</bitmap>
+              <script language="4">
+                <content>
+                  <![CDATA[
+
+class MyClass(GeneratedClass):
+    def __init__(self):
+        GeneratedClass.__init__(self, False)
+
+    def onLoad(self):
+        try:
+            self.asr = self.session().service("ALSpeechRecognition")
+        except Exception as e:
+            self.asr = None
+            self.logger.error(e)
+        self.memory = self.session().service("ALMemory")
+        from threading import Lock
+        self.bIsRunning = False
+        self.mutex = Lock()
+        self.hasPushed = False
+        self.hasSubscribed = False
+        self.BIND_PYTHON(self.getName(), "onWordRecognized")
+
+    def onUnload(self):
+        from threading import Lock
+        self.mutex.acquire()
+        try:
+            if (self.bIsRunning):
+                if (self.hasSubscribed):
+                    self.memory.unsubscribeToEvent("WordRecognized", self.getName())
+                if (self.hasPushed and self.asr):
+                    self.asr.popContexts()
+        except RuntimeError, e:
+            self.mutex.release()
+            raise e
+        self.bIsRunning = False;
+        self.mutex.release()
+
+    def onInput_onStart(self):
+        from threading import Lock
+        self.mutex.acquire()
+        if(self.bIsRunning):
+            self.mutex.release()
+            return
+        self.bIsRunning = True
+        try:
+            if self.asr:
+                self.asr.pushContexts()
+            self.hasPushed = True
+            if self.asr:
+                self.asr.setVocabulary( self.getParameter("Word list").split(';'), self.getParameter("Enable word spotting") )
+            self.memory.subscribeToEvent("WordRecognized", self.getName(), "onWordRecognized")
+            self.hasSubscribed = True
+        except RuntimeError, e:
+            self.mutex.release()
+            self.onUnload()
+            raise e
+        self.mutex.release()
+
+    def onInput_onStop(self):
+        if( self.bIsRunning ):
+            self.onUnload()
+            self.onStopped()
+
+    def onWordRecognized(self, key, value, message):
+        if(len(value) > 1 and value[1] >= self.getParameter("Confidence threshold (%)")/100.):
+            self.wordRecognized(value[0]) #~ activate output of the box
+        else:
+            self.onNothing()]]>
                 </content>
               </script>
               <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when diagram is loaded." id="1" />
               <Input name="onStart" type="1" type_size="1" nature="2" inner="0" tooltip="Box behavior starts when a signal is received on this input." id="2" />
               <Input name="onStop" type="1" type_size="1" nature="3" inner="0" tooltip="Box behavior stops when a signal is received on this input." id="3" />
               <Output name="onStopped" type="1" type_size="1" nature="1" inner="0" tooltip="Signal sent when box behavior is finished." id="4" />
+              <Output name="wordRecognized" type="3" type_size="1" nature="2" inner="0" tooltip="Word recognized with a confidence higher than the threshold set in the box parameters." id="5" />
+              <Output name="onNothing" type="1" type_size="1" nature="2" inner="0" tooltip="Nothing has been understood." id="6" />
+              <Parameter name="Word list" inherits_from_parent="0" content_type="3" value="one;two;three;four;five;six;seven;eight;nine;ten;stop;exit;cancel;help" default_value="yes;no" custom_choice="0" tooltip="Try to recognize a word from a list of words set in the box parameters." id="7" />
+              <Parameter name="Confidence threshold (%)" inherits_from_parent="0" content_type="1" value="40" default_value="30" min="0" max="100" tooltip="If the confidence associated with the word recognized is below this threshold, the robot will consider that it is not recognized." id="8" />
+              <Parameter name="Enable word spotting" inherits_from_parent="0" content_type="0" value="0" default_value="0" tooltip="If this option is not activated the robot will only understand exact expressions. If it is, he will spot the exact expressions even in the middle of a sentence.&#x0A;&#x0A;!!Warning!! This option is only available with the speech recognition module using Nuance (ie in Atom version of the robot)." id="9" />
+              <Resource name="Speech recognition" type="Lock" timeout="0" />
             </Box>
-            <Link inputowner="1" indexofinput="2" outputowner="0" indexofoutput="2" />
+            <Box name="Switch Case" id="5" localization="8" tooltip="Test input value and stimulate the output matching to this value. If there is no&#x0A;matching output, the default output (onDefault) is stimulated.&#x0A;&#x0A;You can edit a case by left double-clicking on the line. You can add a&#x0A;case by right clicking on a line and selecting &apos;Insert a row&apos;. You can delete&#x0A;a case by right clicking on a line and selecting &apos;Remove a row&apos;." plugin="dispatcher_plugin" x="301" y="84">
+              <bitmap>media/images/box/interaction/choice.png</bitmap>
+              <script language="4">
+                <content>
+                  <![CDATA[# /!\ Generated content. Do not edit!
+class MyClass(GeneratedClass):
+	def __init__(self):
+		try: # disable autoBind
+		  GeneratedClass.__init__(self, False)
+		except TypeError: # if NAOqi < 1.14
+		  GeneratedClass.__init__( self )
+
+	def onInput_onStart(self, p):
+		p = self.typeConversion(p)
+		if(p == self.typeConversion("one")):
+			self.output_1(p)
+		elif(p == self.typeConversion("two")):
+			self.output_2(p)
+		elif(p == self.typeConversion("three")):
+			self.output_3(p)
+		elif(p == self.typeConversion("four")):
+			self.output_4(p)
+		elif(p == self.typeConversion("five")):
+			self.output_5(p)
+		elif(p == self.typeConversion("six")):
+			self.output_6(p)
+		elif(p == self.typeConversion("seven")):
+			self.output_7(p)
+		elif(p == self.typeConversion("eight")):
+			self.output_8(p)
+		elif(p == self.typeConversion("nine")):
+			self.output_9(p)
+		elif(p == self.typeConversion("ten")):
+			self.output_10(p)
+		elif(p == self.typeConversion("stop")):
+			self.output_11(p)
+		elif(p == self.typeConversion("exit")):
+			self.output_12(p)
+		elif(p == self.typeConversion("cancel")):
+			self.output_13(p)
+		elif(p == self.typeConversion("help")):
+			self.output_14(p)
+		else:
+			self.onDefault()
+
+	def typeConversion(self, p):
+		try:
+			p = float(p)
+			pint = int(p)
+			if( p == pint ):
+				p = pint
+		except:
+			p = str(p)
+		return p]]>
+                </content>
+              </script>
+              <pluginContent>
+                <keywords>
+                  <keyword>&quot;one&quot;</keyword>
+                  <keyword>&quot;two&quot;</keyword>
+                  <keyword>&quot;three&quot;</keyword>
+                  <keyword>&quot;four&quot;</keyword>
+                  <keyword>&quot;five&quot;</keyword>
+                  <keyword>&quot;six&quot;</keyword>
+                  <keyword>&quot;seven&quot;</keyword>
+                  <keyword>&quot;eight&quot;</keyword>
+                  <keyword>&quot;nine&quot;</keyword>
+                  <keyword>&quot;ten&quot;</keyword>
+                  <keyword>&quot;stop&quot;</keyword>
+                  <keyword>&quot;exit&quot;</keyword>
+                  <keyword>&quot;cancel&quot;</keyword>
+                  <keyword>&quot;help&quot;</keyword>
+                  <keyword></keyword>
+                </keywords>
+              </pluginContent>
+              <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when diagram is loaded." id="1" />
+              <Input name="onStart" type="0" type_size="1" nature="1" inner="0" tooltip="Value to test." id="2" />
+              <Output name="onDefault" type="1" type_size="1" nature="2" inner="0" tooltip="If the input value does not match any value set on the box." id="3" />
+              <Output name="output_1" type="0" type_size="1" nature="2" inner="0" tooltip="This IO has been automatically added by box. Read box tooltip for more information." id="4" />
+              <Output name="output_2" type="0" type_size="1" nature="2" inner="0" tooltip="This IO has been automatically added by box. Read box tooltip for more information." id="5" />
+              <Output name="output_3" type="0" type_size="1" nature="2" inner="0" tooltip="This IO has been automatically added by box. Read box tooltip for more information." id="6" />
+              <Output name="output_4" type="0" type_size="1" nature="2" inner="0" tooltip="This IO has been automatically added by box. Read box tooltip for more information." id="7" />
+              <Output name="output_5" type="0" type_size="1" nature="2" inner="0" tooltip="This IO has been automatically added by box. Read box tooltip for more information." id="8" />
+              <Output name="output_6" type="0" type_size="1" nature="2" inner="0" tooltip="This IO has been automatically added by box. Read box tooltip for more information." id="9" />
+              <Output name="output_7" type="0" type_size="1" nature="2" inner="0" tooltip="This IO has been automatically added by box. Read box tooltip for more information." id="10" />
+              <Output name="output_8" type="0" type_size="1" nature="2" inner="0" tooltip="This IO has been automatically added by box. Read box tooltip for more information." id="11" />
+              <Output name="output_9" type="0" type_size="1" nature="2" inner="0" tooltip="This IO has been automatically added by box. Read box tooltip for more information." id="12" />
+              <Output name="output_10" type="0" type_size="1" nature="2" inner="0" tooltip="This IO has been automatically added by box. Read box tooltip for more information." id="13" />
+              <Output name="output_11" type="0" type_size="1" nature="2" inner="0" tooltip="This IO has been automatically added by box. Read box tooltip for more information." id="14" />
+              <Output name="output_12" type="0" type_size="1" nature="2" inner="0" tooltip="This IO has been automatically added by box. Read box tooltip for more information." id="15" />
+              <Output name="output_13" type="0" type_size="1" nature="2" inner="0" tooltip="This IO has been automatically added by box. Read box tooltip for more information." id="16" />
+              <Output name="output_14" type="0" type_size="1" nature="2" inner="0" tooltip="This IO has been automatically added by box. Read box tooltip for more information." id="17" />
+            </Box>
+            <Box name="Stop" id="1" localization="8" tooltip="Say some text. The text can be localized." x="595" y="159">
+              <bitmap>media/images/box/interaction/say.png</bitmap>
+              <script language="4">
+                <content>
+                  <![CDATA[import time
+
+class MyClass(GeneratedClass):
+    def __init__(self):
+        GeneratedClass.__init__(self, False)
+
+    def onLoad(self):
+        self.tts = self.session().service('ALTextToSpeech')
+        self.ttsStop = self.session().service('ALTextToSpeech') #Create another service as wait is blocking if audioout is remote
+        self.bIsRunning = False
+        self.ids = []
+
+    def onUnload(self):
+        for id in self.ids:
+            try:
+                self.ttsStop.stop(id)
+            except:
+                pass
+        while( self.bIsRunning ):
+            time.sleep( 0.2 )
+
+    def onInput_onStart(self):
+        self.bIsRunning = True
+        try:
+            sentence = "\RSPD="+ str( self.getParameter("Speed (%)") ) + "\ "
+            sentence += "\VCT="+ str( self.getParameter("Voice shaping (%)") ) + "\ "
+            sentence += self.getParameter("Text")
+            sentence +=  "\RST\ "
+            id = self.tts.pCall("say",str(sentence))
+            self.ids.append(id)
+            self.tts.wait(id)
+        finally:
+            try:
+                self.ids.remove(id)
+            except:
+                pass
+            if( self.ids == [] ):
+                self.onStopped() # activate output of the box
+                self.bIsRunning = False
+
+    def onInput_onStop(self):
+        self.onUnload()]]>
+                </content>
+              </script>
+              <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when Diagram is loaded." id="1" />
+              <Input name="onStart" type="1" type_size="1" nature="2" inner="0" tooltip="Box behavior starts when a signal is received on this Input." id="2" />
+              <Input name="onStop" type="1" type_size="1" nature="3" inner="0" tooltip="Box behavior stops when a signal is received on this Input." id="3" />
+              <Output name="onStopped" type="1" type_size="1" nature="1" inner="0" tooltip="Signal sent when Box behavior is finished." id="4" />
+              <Parameter name="Voice shaping (%)" inherits_from_parent="1" content_type="1" value="100" default_value="100" min="50" max="150" tooltip='Used to modify at runtime the voice feature (tone, speed). In a slighty&#x0A;different way than pitch and speed, it gives a kind of &quot;gender or age&#x0A;modification&quot; effect.&#x0A;&#x0A;For instance, a quite good male derivation of female voice can be&#x0A;obtained setting this parameter to 78%.&#x0A;&#x0A;Note: For a better effect, you can compensate this parameter with the&#x0A;speed parameter. For example, if you want to decrease by 20% the voice&#x0A;shaping, you will have to increase by 20% the speed to keep a constant&#x0A;average speed.' id="5" />
+              <Parameter name="Speed (%)" inherits_from_parent="1" content_type="1" value="100" default_value="100" min="50" max="200" tooltip="Changes the speed of the voice.&#x0A;&#x0A;Note: For a better effect, you can compensate this parameter with the voice&#x0A;shaping parameter. For example, if you want to increase by 20% the speed, you&#x0A;will have to decrease by 20% the voice shaping to keep a constant average&#x0A;speed." id="6" />
+              <Parameter name="Text" inherits_from_parent="0" content_type="5" value="Stopping pushups" default_value="" tooltip="The text you want to say. Don&apos;t forget to translate it!" id="7" />
+              <Resource name="Speech" type="Lock" timeout="0" />
+            </Box>
+            <Box name="Exit" id="6" localization="8" tooltip="Say some text. The text can be localized." x="593" y="282">
+              <bitmap>media/images/box/interaction/say.png</bitmap>
+              <script language="4">
+                <content>
+                  <![CDATA[import time
+
+class MyClass(GeneratedClass):
+    def __init__(self):
+        GeneratedClass.__init__(self, False)
+
+    def onLoad(self):
+        self.tts = self.session().service('ALTextToSpeech')
+        self.ttsStop = self.session().service('ALTextToSpeech') #Create another service as wait is blocking if audioout is remote
+        self.bIsRunning = False
+        self.ids = []
+
+    def onUnload(self):
+        for id in self.ids:
+            try:
+                self.ttsStop.stop(id)
+            except:
+                pass
+        while( self.bIsRunning ):
+            time.sleep( 0.2 )
+
+    def onInput_onStart(self):
+        self.bIsRunning = True
+        try:
+            sentence = "\RSPD="+ str( self.getParameter("Speed (%)") ) + "\ "
+            sentence += "\VCT="+ str( self.getParameter("Voice shaping (%)") ) + "\ "
+            sentence += self.getParameter("Text")
+            sentence +=  "\RST\ "
+            id = self.tts.pCall("say",str(sentence))
+            self.ids.append(id)
+            self.tts.wait(id)
+        finally:
+            try:
+                self.ids.remove(id)
+            except:
+                pass
+            if( self.ids == [] ):
+                self.onStopped() # activate output of the box
+                self.bIsRunning = False
+
+    def onInput_onStop(self):
+        self.onUnload()]]>
+                </content>
+              </script>
+              <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when Diagram is loaded." id="1" />
+              <Input name="onStart" type="1" type_size="1" nature="2" inner="0" tooltip="Box behavior starts when a signal is received on this Input." id="2" />
+              <Input name="onStop" type="1" type_size="1" nature="3" inner="0" tooltip="Box behavior stops when a signal is received on this Input." id="3" />
+              <Output name="onStopped" type="1" type_size="1" nature="1" inner="0" tooltip="Signal sent when Box behavior is finished." id="4" />
+              <Parameter name="Voice shaping (%)" inherits_from_parent="1" content_type="1" value="100" default_value="100" min="50" max="150" tooltip='Used to modify at runtime the voice feature (tone, speed). In a slighty&#x0A;different way than pitch and speed, it gives a kind of &quot;gender or age&#x0A;modification&quot; effect.&#x0A;&#x0A;For instance, a quite good male derivation of female voice can be&#x0A;obtained setting this parameter to 78%.&#x0A;&#x0A;Note: For a better effect, you can compensate this parameter with the&#x0A;speed parameter. For example, if you want to decrease by 20% the voice&#x0A;shaping, you will have to increase by 20% the speed to keep a constant&#x0A;average speed.' id="5" />
+              <Parameter name="Speed (%)" inherits_from_parent="1" content_type="1" value="100" default_value="100" min="50" max="200" tooltip="Changes the speed of the voice.&#x0A;&#x0A;Note: For a better effect, you can compensate this parameter with the voice&#x0A;shaping parameter. For example, if you want to increase by 20% the speed, you&#x0A;will have to decrease by 20% the voice shaping to keep a constant average&#x0A;speed." id="6" />
+              <Parameter name="Text" inherits_from_parent="0" content_type="5" value="Exiting program" default_value="" tooltip="The text you want to say. Don&apos;t forget to translate it!" id="7" />
+              <Resource name="Speech" type="Lock" timeout="0" />
+            </Box>
+            <Box name="Cancel" id="7" localization="8" tooltip="Say some text. The text can be localized." x="603" y="416">
+              <bitmap>media/images/box/interaction/say.png</bitmap>
+              <script language="4">
+                <content>
+                  <![CDATA[import time
+
+class MyClass(GeneratedClass):
+    def __init__(self):
+        GeneratedClass.__init__(self, False)
+
+    def onLoad(self):
+        self.tts = self.session().service('ALTextToSpeech')
+        self.ttsStop = self.session().service('ALTextToSpeech') #Create another service as wait is blocking if audioout is remote
+        self.bIsRunning = False
+        self.ids = []
+
+    def onUnload(self):
+        for id in self.ids:
+            try:
+                self.ttsStop.stop(id)
+            except:
+                pass
+        while( self.bIsRunning ):
+            time.sleep( 0.2 )
+
+    def onInput_onStart(self):
+        self.bIsRunning = True
+        try:
+            sentence = "\RSPD="+ str( self.getParameter("Speed (%)") ) + "\ "
+            sentence += "\VCT="+ str( self.getParameter("Voice shaping (%)") ) + "\ "
+            sentence += self.getParameter("Text")
+            sentence +=  "\RST\ "
+            id = self.tts.pCall("say",str(sentence))
+            self.ids.append(id)
+            self.tts.wait(id)
+        finally:
+            try:
+                self.ids.remove(id)
+            except:
+                pass
+            if( self.ids == [] ):
+                self.onStopped() # activate output of the box
+                self.bIsRunning = False
+
+    def onInput_onStop(self):
+        self.onUnload()]]>
+                </content>
+              </script>
+              <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when Diagram is loaded." id="1" />
+              <Input name="onStart" type="1" type_size="1" nature="2" inner="0" tooltip="Box behavior starts when a signal is received on this Input." id="2" />
+              <Input name="onStop" type="1" type_size="1" nature="3" inner="0" tooltip="Box behavior stops when a signal is received on this Input." id="3" />
+              <Output name="onStopped" type="1" type_size="1" nature="1" inner="0" tooltip="Signal sent when Box behavior is finished." id="4" />
+              <Parameter name="Voice shaping (%)" inherits_from_parent="1" content_type="1" value="100" default_value="100" min="50" max="150" tooltip='Used to modify at runtime the voice feature (tone, speed). In a slighty&#x0A;different way than pitch and speed, it gives a kind of &quot;gender or age&#x0A;modification&quot; effect.&#x0A;&#x0A;For instance, a quite good male derivation of female voice can be&#x0A;obtained setting this parameter to 78%.&#x0A;&#x0A;Note: For a better effect, you can compensate this parameter with the&#x0A;speed parameter. For example, if you want to decrease by 20% the voice&#x0A;shaping, you will have to increase by 20% the speed to keep a constant&#x0A;average speed.' id="5" />
+              <Parameter name="Speed (%)" inherits_from_parent="1" content_type="1" value="100" default_value="100" min="50" max="200" tooltip="Changes the speed of the voice.&#x0A;&#x0A;Note: For a better effect, you can compensate this parameter with the voice&#x0A;shaping parameter. For example, if you want to increase by 20% the speed, you&#x0A;will have to decrease by 20% the voice shaping to keep a constant average&#x0A;speed." id="6" />
+              <Parameter name="Text" inherits_from_parent="0" content_type="5" value="Canceling pushups" default_value="" tooltip="The text you want to say. Don&apos;t forget to translate it!" id="7" />
+              <Resource name="Speech" type="Lock" timeout="0" />
+            </Box>
+            <Box name="Help" id="8" localization="8" tooltip="Say some text. The text can be localized." x="198" y="475">
+              <bitmap>media/images/box/interaction/say.png</bitmap>
+              <script language="4">
+                <content>
+                  <![CDATA[import time
+
+class MyClass(GeneratedClass):
+    def __init__(self):
+        GeneratedClass.__init__(self, False)
+
+    def onLoad(self):
+        self.tts = self.session().service('ALTextToSpeech')
+        self.ttsStop = self.session().service('ALTextToSpeech') #Create another service as wait is blocking if audioout is remote
+        self.bIsRunning = False
+        self.ids = []
+
+    def onUnload(self):
+        for id in self.ids:
+            try:
+                self.ttsStop.stop(id)
+            except:
+                pass
+        while( self.bIsRunning ):
+            time.sleep( 0.2 )
+
+    def onInput_onStart(self):
+        self.bIsRunning = True
+        try:
+            sentence = "\RSPD="+ str( self.getParameter("Speed (%)") ) + "\ "
+            sentence += "\VCT="+ str( self.getParameter("Voice shaping (%)") ) + "\ "
+            sentence += self.getParameter("Text")
+            sentence +=  "\RST\ "
+            id = self.tts.pCall("say",str(sentence))
+            self.ids.append(id)
+            self.tts.wait(id)
+        finally:
+            try:
+                self.ids.remove(id)
+            except:
+                pass
+            if( self.ids == [] ):
+                self.onStopped() # activate output of the box
+                self.bIsRunning = False
+
+    def onInput_onStop(self):
+        self.onUnload()]]>
+                </content>
+              </script>
+              <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when Diagram is loaded." id="1" />
+              <Input name="onStart" type="1" type_size="1" nature="2" inner="0" tooltip="Box behavior starts when a signal is received on this Input." id="2" />
+              <Input name="onStop" type="1" type_size="1" nature="3" inner="0" tooltip="Box behavior stops when a signal is received on this Input." id="3" />
+              <Output name="onStopped" type="1" type_size="1" nature="1" inner="0" tooltip="Signal sent when Box behavior is finished." id="4" />
+              <Parameter name="Voice shaping (%)" inherits_from_parent="1" content_type="1" value="100" default_value="100" min="50" max="150" tooltip='Used to modify at runtime the voice feature (tone, speed). In a slighty&#x0A;different way than pitch and speed, it gives a kind of &quot;gender or age&#x0A;modification&quot; effect.&#x0A;&#x0A;For instance, a quite good male derivation of female voice can be&#x0A;obtained setting this parameter to 78%.&#x0A;&#x0A;Note: For a better effect, you can compensate this parameter with the&#x0A;speed parameter. For example, if you want to decrease by 20% the voice&#x0A;shaping, you will have to increase by 20% the speed to keep a constant&#x0A;average speed.' id="5" />
+              <Parameter name="Speed (%)" inherits_from_parent="1" content_type="1" value="100" default_value="100" min="50" max="200" tooltip="Changes the speed of the voice.&#x0A;&#x0A;Note: For a better effect, you can compensate this parameter with the voice&#x0A;shaping parameter. For example, if you want to increase by 20% the speed, you&#x0A;will have to decrease by 20% the voice shaping to keep a constant average&#x0A;speed." id="6" />
+              <Parameter name="Text" inherits_from_parent="0" content_type="5" value="Say a number between one and ten and I will do that many pushups. How many do you want me to do?" default_value="" tooltip="The text you want to say. Don&apos;t forget to translate it!" id="7" />
+              <Resource name="Speech" type="Lock" timeout="0" />
+            </Box>
+            <Link inputowner="0" indexofinput="4" outputowner="2" indexofoutput="5" />
+            <Link inputowner="4" indexofinput="2" outputowner="3" indexofoutput="4" />
+            <Link inputowner="4" indexofinput="2" outputowner="4" indexofoutput="6" />
+            <Link inputowner="5" indexofinput="2" outputowner="4" indexofoutput="5" />
+            <Link inputowner="2" indexofinput="4" outputowner="5" indexofoutput="4" />
+            <Link inputowner="2" indexofinput="4" outputowner="5" indexofoutput="5" />
+            <Link inputowner="2" indexofinput="4" outputowner="5" indexofoutput="6" />
+            <Link inputowner="2" indexofinput="4" outputowner="5" indexofoutput="7" />
+            <Link inputowner="2" indexofinput="4" outputowner="5" indexofoutput="8" />
+            <Link inputowner="2" indexofinput="4" outputowner="5" indexofoutput="9" />
+            <Link inputowner="2" indexofinput="4" outputowner="5" indexofoutput="10" />
+            <Link inputowner="2" indexofinput="4" outputowner="5" indexofoutput="11" />
+            <Link inputowner="2" indexofinput="4" outputowner="5" indexofoutput="12" />
+            <Link inputowner="2" indexofinput="4" outputowner="5" indexofoutput="13" />
+            <Link inputowner="3" indexofinput="2" outputowner="0" indexofoutput="2" />
+            <Link inputowner="4" indexofinput="3" outputowner="4" indexofoutput="5" />
+            <Link inputowner="2" indexofinput="2" outputowner="4" indexofoutput="4" />
+            <Link inputowner="7" indexofinput="2" outputowner="5" indexofoutput="16" />
+            <Link inputowner="0" indexofinput="4" outputowner="7" indexofoutput="4" />
+            <Link inputowner="1" indexofinput="2" outputowner="5" indexofoutput="14" />
             <Link inputowner="0" indexofinput="4" outputowner="1" indexofoutput="4" />
+            <Link inputowner="6" indexofinput="2" outputowner="5" indexofoutput="15" />
+            <Link inputowner="0" indexofinput="4" outputowner="6" indexofoutput="4" />
+            <Link inputowner="8" indexofinput="2" outputowner="5" indexofoutput="17" />
+            <Link inputowner="4" indexofinput="2" outputowner="8" indexofoutput="4" />
           </Diagram>
         </BehaviorKeyframe>
       </BehaviorLayer>
