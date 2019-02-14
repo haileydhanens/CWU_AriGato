@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<package uuid="pushups-45c348" version="0.0.0">
+<package version="0.0.0" uuid="pushups-45c348">
  <names>
   <name lang="en_US">Pushups</name>
  </names>
@@ -15,7 +15,7 @@
  <contents>
   <behaviorContent path="behavior_1">
    <userRequestable/>
-   <nature></nature>
+   <nature>interactive</nature>
    <names>
     <name lang="en_US">Pushups</name>
    </names>
@@ -23,6 +23,8 @@
     <sentence lang="en_US">Pushups</sentence>
     <sentence lang="en_US">Do some pushups</sentence>
     <sentence lang="en_US">Do pushups</sentence>
+    <sentence lang="en_US">can you do pushups</sentence>
+    <sentence lang="en_US">do you know how to do pushups?</sentence>
    </triggerSentences>
    <autonomous/>
    <permissions/>
