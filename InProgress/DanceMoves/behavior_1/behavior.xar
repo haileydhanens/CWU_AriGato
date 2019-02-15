@@ -774,13 +774,15 @@
         leftJoints = ['LShoulderPitch', 'LShoulderRoll', 'LElbowYaw', 'LElbowRoll', 'LWristYaw']
         rightJoints = ['RShoulderPitch', 'RShoulderRoll', 'RElbowYaw', 'RElbowRoll', 'RWristYaw']
 
-        # start moving
         # first frame: rest right arm at hip, move left arm in front of chest
         moveLeftArmFrame0 = [1.059415,0.0191986,-1.548107,-1.30027,1.603958]
         restRightArmOnHip = [1.50971, -0.6440265, 0.15708, 1.387537,-0.0523599]
 
+        # start moving by setAngles
         motionProxy.setAngles(leftJoints, moveLeftArmFrame0, 0.1)
         motionProxy.setAngles(rightJoints, restRightArmOnHip, 0.2)
+
+        # set up list for repetitive left arm waving
         moveLeftArmFrame1 = [0.925025,0.20944,-1.209513,-0.4328417,0.1117011]
         moveLeftArmFrame2 = [1.206023,0.118682,-0.7539822,-0.2059489,0.118682]
         halfBeatx5 = [0.5,0.5,0.5,0.5,0.5]
@@ -793,12 +795,28 @@
             motionProxy.angleInterpolation(leftJoints, moveLeftArmFrame2, halfBeatx5, True)
             motionProxy.angleInterpolation(leftJoints, moveLeftArmFrame0, halfBeatx5, True)
 
-        # beginning first verse 'put your hands up!'
-        # nao raises arms
+        # nao raises arms 'put your hands up!'
         raiseArms = [-0.7609636, 0.165806, 0.2199115, -0.1902409, 0.0802851,-0.7609636, 0.165806, 0.2199115, -0.1902409, 0.0802851]
         motionProxy.angleInterpolation(arms, raiseArms, halfBeatx10, True)
 
+        # hands on hips
+        restArmsOnHip = [1.50971, -0.6440265, 0.15708, 1.387537,-0.0523599,1.50971, -0.6440265, 0.15708, 1.387537,-0.0523599]
+        motionProxy.angleInterpolation(arms, restArmsonHip, halfBeatx10, True)
 
+        # sassy hips?
+
+        # dip motions
+
+        # point at audience
+        # point at NAO face
+        # hands at sides and shake legs
+        # hands down and shake hips
+        # if you like it you shoulda put a ring on it
+        # point at audience like napolean dynamite
+        # do the arm thing like back and forth
+        # x arms
+        # hip movements
+        # end : cute pose
 
         self.onStopped() #activate the output of the box
         pass
@@ -813,7 +831,7 @@
               <Input name="onStop" type="1" type_size="1" nature="3" inner="0" tooltip="Box behavior stops when a signal is received on this input." id="3" />
               <Output name="onStopped" type="1" type_size="1" nature="1" inner="0" tooltip="Signal sent when box behavior is finished." id="4" />
             </Box>
-            <Box name="Play Sound" id="3" localization="8" tooltip="Play a sound file. Select the file in parameters. The format of the file can be wav or ogg (on virtual robot) and also mp3 (on a real robot).&#x0A;&#x0A;Note: There can be some delay to play ogg or mp3 (on a robot) files. We advise you to use wav if&#x0A;you want a fast play of the file." x="626" y="325">
+            <Box name="Play Sound" id="3" localization="8" tooltip="Play a sound file. Select the file in parameters. The format of the file can be wav or ogg (on virtual robot) and also mp3 (on a real robot).&#x0A;&#x0A;Note: There can be some delay to play ogg or mp3 (on a robot) files. We advise you to use wav if&#x0A;you want a fast play of the file." x="355" y="306">
               <bitmap>media/images/box/interaction/play_music.png</bitmap>
               <script language="4">
                 <content>
