@@ -16,7 +16,6 @@
    <triggerSentences>
     <sentence lang="en_US">Can you tell me about a class</sentence>
    </triggerSentences>
-   <autonomous/>
    <permissions/>
   </behaviorContent>
  </contents>
