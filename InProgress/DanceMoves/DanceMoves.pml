@@ -7,6 +7,7 @@
     <Dialogs />
     <Resources>
         <File name="single ladies" src="single ladies.mp3" />
+        <File name="singleladies-edited to 30 sec" src="singleladies-edited to 30 sec.mp3" />
     </Resources>
     <Topics />
     <IgnoredPaths />
