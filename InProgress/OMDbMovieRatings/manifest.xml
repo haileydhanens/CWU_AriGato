@@ -17,9 +17,9 @@
     <name lang="en_US">movie_ratings</name>
    </names>
    <triggerSentences>
-    <sentence lang="en_US">give me rotten tomato ratings</sentence>
-    <sentence lang="en_US">tell me rotten tomato ratings</sentence>
+    <sentence lang="en_US">tell me about a movie</sentence>
    </triggerSentences>
+   <autonomous/>
    <permissions/>
   </behaviorContent>
  </contents>
