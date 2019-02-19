@@ -802,7 +802,7 @@ class MyClass(GeneratedClass):
               <Input name="onStop" type="1" type_size="1" nature="3" inner="0" tooltip="Box behavior stops when a signal is received on this input." id="2" />
               <Input name="onStart" type="1" type_size="1" nature="2" inner="0" tooltip="" id="3" />
               <Output name="onStopped" type="1" type_size="1" nature="1" inner="0" tooltip="Signal sent when box behavior is finished." id="4" />
-              <Timeline enable="1" fps="10" start_frame="1" end_frame="-1" size="150">
+              <Timeline enable="1" fps="10" start_frame="1" end_frame="-1" size="158">
                 <ActuatorList model="nao">
                   <ActuatorCurve name="" actuator="LElbowRoll" mute="0" unit="0">
                     <Key frame="5" value="-85.692" />
@@ -834,7 +834,7 @@ class MyClass(GeneratedClass):
                     <Key frame="135" value="-88.153" />
                     <Key frame="140" value="-87.5378" />
                     <Key frame="145" value="-88.153" />
-                    <Key frame="150" value="-82.7" />
+                    <Key frame="158" value="-82.7" />
                   </ActuatorCurve>
                   <ActuatorCurve name="" actuator="LElbowYaw" mute="0" unit="0">
                     <Key frame="5" value="-111.273" />
@@ -866,7 +866,7 @@ class MyClass(GeneratedClass):
                     <Key frame="135" value="-95.0134" />
                     <Key frame="140" value="-90.443" />
                     <Key frame="145" value="-95.0134" />
-                    <Key frame="150" value="-5.7" />
+                    <Key frame="158" value="-5.7" />
                   </ActuatorCurve>
                   <ActuatorCurve name="" actuator="LHand" mute="0" unit="1">
                     <Key frame="5" value="0.6476" />
@@ -898,7 +898,7 @@ class MyClass(GeneratedClass):
                     <Key frame="135" value="0.64" />
                     <Key frame="140" value="0.64" />
                     <Key frame="145" value="0.64" />
-                    <Key frame="150" value="0.02" />
+                    <Key frame="158" value="0.02" />
                   </ActuatorCurve>
                   <ActuatorCurve name="" actuator="LShoulderPitch" mute="0" unit="0">
                     <Key frame="5" value="35.2422" />
@@ -930,7 +930,7 @@ class MyClass(GeneratedClass):
                     <Key frame="135" value="26.6288" />
                     <Key frame="140" value="18.8943" />
                     <Key frame="145" value="26.6288" />
-                    <Key frame="150" value="83.2" />
+                    <Key frame="158" value="83.2" />
                   </ActuatorCurve>
                   <ActuatorCurve name="" actuator="LShoulderRoll" mute="0" unit="0">
                     <Key frame="5" value="4.91954" />
@@ -962,7 +962,7 @@ class MyClass(GeneratedClass):
                     <Key frame="135" value="1.0523" />
                     <Key frame="140" value="8.69887" />
                     <Key frame="145" value="1.0523" />
-                    <Key frame="150" value="49.8" />
+                    <Key frame="158" value="49.8" />
                   </ActuatorCurve>
                   <ActuatorCurve name="" actuator="LWristYaw" mute="0" unit="0">
                     <Key frame="5" value="87.362" />
@@ -994,7 +994,7 @@ class MyClass(GeneratedClass):
                     <Key frame="135" value="-92.904" />
                     <Key frame="140" value="103.534" />
                     <Key frame="145" value="-92.904" />
-                    <Key frame="150" value="-3.6" />
+                    <Key frame="158" value="-3.6" />
                   </ActuatorCurve>
                   <ActuatorCurve name="value" actuator="RElbowRoll" mute="0" unit="0">
                     <Key frame="5" value="85.1695" />
