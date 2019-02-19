@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <package version="0.0.0" uuid="turnheadleft-8dd2a9">
  <names>
-  <name lang="en_US">Untitled</name>
+  <name lang="en_US">Turn head left</name>
  </names>
  <supportedLanguages>
   <language>en_US</language>
@@ -30,7 +30,6 @@
     <sentence lang="en_US">alright</sentence>
     <sentence lang="en_US">okay</sentence>
    </loadingResponses>
-   <autonomous/>
    <permissions/>
   </behaviorContent>
  </contents>

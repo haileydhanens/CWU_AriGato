@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<package version="0.0.0" uuid="howoldareyou-f18fe4">
+<package version="0.0.0" uuid="classknowledge-2ffc20">
  <names>
-  <name lang="en_US">dialog_how_old_are_you</name>
+  <name lang="en_US">class knowledge</name>
  </names>
  <supportedLanguages>
   <language>en_US</language>
@@ -13,16 +13,10 @@
   <behaviorContent path="behavior_1">
    <userRequestable/>
    <nature>interactive</nature>
-   <names>
-    <name lang="en_US">Age</name>
-   </names>
    <triggerSentences>
-    <sentence lang="en_US">How old are you</sentence>
-    <sentence lang="en_US">What is your age</sentence>
+    <sentence lang="en_US">Can you tell me about a class</sentence>
    </triggerSentences>
-   <loadingResponses>
-    <sentence lang="en_US">Let me think</sentence>
-   </loadingResponses>
+   <autonomous/>
    <permissions/>
   </behaviorContent>
  </contents>

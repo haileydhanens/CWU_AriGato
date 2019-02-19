@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <package version="0.0.0" uuid="walkright-5e07f1">
  <names>
-  <name lang="en_US">Untitled</name>
+  <name lang="en_US">walk right</name>
  </names>
  <supportedLanguages>
   <language>en_US</language>
@@ -27,7 +27,6 @@
     <sentence lang="en_US">move to the right</sentence>
     <sentence lang="en_US">step to the right</sentence>
    </triggerSentences>
-   <autonomous/>
    <permissions/>
   </behaviorContent>
  </contents>

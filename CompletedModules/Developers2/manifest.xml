@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<package version="0.0.0" uuid="howoldareyou-f18fe4">
+<package uuid="developers2-2ba4f1" version="0.0.0">
  <names>
-  <name lang="en_US">dialog_how_old_are_you</name>
+  <name lang="en_US">Developers2</name>
  </names>
  <supportedLanguages>
   <language>en_US</language>
@@ -13,16 +13,13 @@
   <behaviorContent path="behavior_1">
    <userRequestable/>
    <nature>interactive</nature>
-   <names>
-    <name lang="en_US">Age</name>
-   </names>
    <triggerSentences>
-    <sentence lang="en_US">How old are you</sentence>
-    <sentence lang="en_US">What is your age</sentence>
+    <sentence lang="en_US">who is developing you</sentence>
+    <sentence lang="en_US">who is developing your programs</sentence>
+    <sentence lang="en_US">who is on your capstone team</sentence>
+    <sentence lang="en_US">who is programming you</sentence>
    </triggerSentences>
-   <loadingResponses>
-    <sentence lang="en_US">Let me think</sentence>
-   </loadingResponses>
+   <autonomous/>
    <permissions/>
   </behaviorContent>
  </contents>

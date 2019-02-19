@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<package version="0.0.0" uuid="noswearing-e192eb">
+<package uuid="noswearing-e192eb" version="0.0.0">
  <names>
   <name lang="en_US">NoSwearing</name>
  </names>
@@ -14,12 +14,12 @@
    <userRequestable/>
    <nature>interactive</nature>
    <descriptions>
-    <description lang="en_US">Nao should tell the user not to swear when they use foul language
-*WARNING*
-foul language ahead
-list of swear words at:
-https://en.wiktionary.org/wiki/Category:English_swear_words
-*note*
+    <description lang="en_US">Nao should tell the user not to swear when they use foul language&#xd;
+*WARNING*&#xd;
+foul language ahead&#xd;
+list of swear words at:&#xd;
+https://en.wiktionary.org/wiki/Category:English_swear_words&#xd;
+*note*&#xd;
 some of these are really bad, so i mean, if someone says them, nao should certainly be offended by them, but i also feel bad typing them? also, what if Nao mishears someone and they ask him to repeat what they says, and he says something nasty to them? i dont know... like, what if NAO mistakenly drops the the n bomb on somebody? I just have concerns</description>
    </descriptions>
    <triggerSentences>
@@ -37,10 +37,9 @@ some of these are really bad, so i mean, if someone says them, nao should certai
     <sentence lang="en_US">nigger</sentence>
     <sentence lang="en_US">shit</sentence>
     <sentence lang="en_US">whore</sentence>
+    <sentence lang="en_US">what the fuck is going on</sentence>
    </triggerSentences>
-   <autonomous>
-    <condition purpose="launchTrigger"><![CDATA[('Launchpad/NumPeopleZone3'>0)&&('Launchpad/PreviousActivity' != 'noswearing-e192eb/behavior_1')]]></condition>
-   </autonomous>
+   <autonomous/>
    <permissions/>
   </behaviorContent>
  </contents>
