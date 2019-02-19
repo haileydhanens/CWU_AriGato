@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<package version="0.0.0" uuid="singanthem-b411a5">
+ <names>
+  <name lang="en_US">StarSpangledBanner</name>
+ </names>
+ <supportedLanguages>
+  <language>en_US</language>
+ </supportedLanguages>
+ <descriptionLanguages>
+  <language>en_US</language>
+ </descriptionLanguages>
+ <contents>
+  <behaviorContent path="behavior_1">
+   <userRequestable/>
+   <nature>interactive</nature>
+   <triggerSentences>
+    <sentence lang="en_US">sing the anthem</sentence>
+    <sentence lang="en_US">sing anthem</sentence>
+    <sentence lang="en_US">can you sing the anthem</sentence>
+    <sentence lang="en_US">do you know the anthem</sentence>
+    <sentence lang="en_US">sing the national anthem</sentence>
+    <sentence lang="en_US">sing national anthem</sentence>
+    <sentence lang="en_US">can you sing the national anthem</sentence>
+    <sentence lang="en_US">do you know the national anthem</sentence>
+    <sentence lang="en_US">sing the star spangled banner</sentence>
+   </triggerSentences>
+   <autonomous/>
+   <permissions/>
+  </behaviorContent>
+ </contents>
+</package>
