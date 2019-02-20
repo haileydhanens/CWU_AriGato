@@ -36,8 +36,7 @@ class MyClass(GeneratedClass):
     def onInput_onStart(self):
         proxy = ALProxy("ALTextToSpeech")
 
-        proxy.say("what movie would you like rotten tomatoes ratings about")
-        #proxy.say(os.getcwd())
+        proxy.say("what movie would you like to know about")
 
         self.onStopped() #activate the output of the box
 
@@ -84,10 +83,10 @@ class MyClass(GeneratedClass):
         dictionary = json.loads(response.text)
 
         rating = dictionary.values()[3][1].values()[1]
+        year = dictionary.values()[24]
+        stars = dictionary.values()[7]
 
-        proxy.say(p + "'s rotten tomatoes rating is " + str(rating))
-
-        #proxy.say("you said " + p)
+        proxy.say(p + " was released in " + str(year) + " and stars " + str(stars) + " and its rotten tomatoes rating is " + str(rating))
 
         self.onStopped()
 
@@ -152,13 +151,9 @@ class MyClass(GeneratedClass):
                 self.asr.pushContexts()
             self.hasPushed = True
             if self.asr:
-                #f = open("movielist.txt", "r")
-                #words = f.readlines()
-               # f.close()
+                movies = ["The Terminator", "I Robot", "Wall E", "Robots", "The Matrix", "Blade Runner", "Transformers", "Pacific Rim", "Robocop"]
 
-                words = ["The Terminator", "I Robot", "Wall E", "The Matrix"]
-
-                self.asr.setVocabulary( words, self.getParameter("Enable word spotting") )
+                self.asr.setVocabulary( movies, self.getParameter("Enable word spotting") )
             self.memory.subscribeToEvent("WordRecognized", self.getName(), "onWordRecognized")
             self.hasSubscribed = True
         except RuntimeError, e:
