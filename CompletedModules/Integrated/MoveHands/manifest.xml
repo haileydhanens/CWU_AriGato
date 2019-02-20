@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<package version="0.0.0" uuid="movehands-1c7166">
+ <names>
+  <name lang="en_US">moveFingers</name>
+ </names>
+ <descriptions>
+  <description lang="en_US">make nao wiggle his fingers</description>
+ </descriptions>
+ <supportedLanguages>
+  <language>en_US</language>
+ </supportedLanguages>
+ <descriptionLanguages>
+  <language>en_US</language>
+ </descriptionLanguages>
+ <contents>
+  <behaviorContent path="behavior_1">
+   <userRequestable/>
+   <nature>interactive</nature>
+   <names>
+    <name lang="en_US">WiggleFingers</name>
+   </names>
+   <triggerSentences>
+    <sentence lang="en_US">nao wiggle your fingers</sentence>
+    <sentence lang="en_US">move fingers</sentence>
+    <sentence lang="en_US">can you wiggle your fingers</sentence>
+    <sentence lang="en_US">do your fingers move</sentence>
+    <sentence lang="en_US">move your fingers</sentence>
+   </triggerSentences>
+   <loadingResponses>
+    <sentence lang="en_US">I can wiggle my fingers</sentence>
+   </loadingResponses>
+   <autonomous/>
+   <permissions/>
+  </behaviorContent>
+ </contents>
+</package>

@@ -15,7 +15,7 @@
       <BehaviorLayer name="behavior_layer1">
         <BehaviorKeyframe name="keyframe1" index="1">
           <Diagram>
-            <Box name="say something" id="1" localization="8" tooltip="yep" x="486" y="197">
+            <Box name="TurnHeadRight" id="1" localization="8" tooltip="turn head to right" x="548" y="266">
               <bitmap>media/images/box/box-python-script.png</bitmap>
               <script language="4">
                 <content>
@@ -32,17 +32,21 @@
         pass
 
     def onInput_onStart(self):
-        #self.onStopped() #activate the output of the box
-        leds = ALProxy("ALLeds")
-        names = [
-"Face/Led/Red/Left/0Deg/Actuator/Value",
-"Face/Led/Red/Left/90Deg/Actuator/Value",
-"Face/Led/Red/Left/180Deg/Actuator/Value",
-"Face/Led/Red/Left/270Deg/Actuator/Value"]
-        leds.createGroup("MyGroup", names)
-        leds.on("MyGroup")
 
-        self.onStopped()
+        proxy = ALProxy("ALMotion")
+
+        names = ['HeadYaw', 'HeadPitch']
+
+        times = [[0.5], [0.5]]
+
+        proxy.angleInterpolation(names, [0.0, 0.0], times, True)
+
+        for i in range(3):
+            proxy.angleInterpolation(names, [-1.0, 0.0], [[1.5],[1.5]], True)
+
+        proxy.angleInterpolation(names, [0.0, 0.0], times, True)
+
+        self.onStopped() #activate the output of the box
 
     def onInput_onStop(self):
         self.onUnload() #it is recommended to reuse the clean-up as the box is stopped

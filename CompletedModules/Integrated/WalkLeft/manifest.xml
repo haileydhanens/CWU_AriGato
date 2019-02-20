@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<package version="0.0.0" uuid="walkleft-4a4508">
+ <names>
+  <name lang="en_US">Walk Left</name>
+ </names>
+ <supportedLanguages>
+  <language>en_US</language>
+ </supportedLanguages>
+ <descriptionLanguages>
+  <language>en_US</language>
+ </descriptionLanguages>
+ <contents>
+  <behaviorContent path="behavior_1">
+   <userRequestable/>
+   <nature>interactive</nature>
+   <names>
+    <name lang="en_US">Walk Left</name>
+   </names>
+   <descriptions>
+    <description lang="en_US">NAO will step to the left when prompted</description>
+   </descriptions>
+   <triggerSentences>
+    <sentence lang="en_US">walk left</sentence>
+    <sentence lang="en_US">move left</sentence>
+    <sentence lang="en_US">step left</sentence>
+    <sentence lang="en_US">step to the left</sentence>
+    <sentence lang="en_US">walk to the left</sentence>
+    <sentence lang="en_US">move to the left</sentence>
+   </triggerSentences>
+   <autonomous/>
+   <permissions/>
+  </behaviorContent>
+ </contents>
+</package>

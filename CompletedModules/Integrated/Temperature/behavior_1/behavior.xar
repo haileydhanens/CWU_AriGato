@@ -15,11 +15,14 @@
       <BehaviorLayer name="behavior_layer1">
         <BehaviorKeyframe name="keyframe1" index="1">
           <Diagram>
-            <Box name="say something" id="1" localization="8" tooltip="yep" x="486" y="197">
-              <bitmap>media/images/box/box-python-script.png</bitmap>
+            <Box name="Weather" id="1" localization="8" tooltip="NAO will say current weather of Ellensburg in degrees." x="499" y="215">
+              <bitmap>media/images/box/internet/weather.png</bitmap>
               <script language="4">
                 <content>
-                  <![CDATA[class MyClass(GeneratedClass):
+                  <![CDATA[#module by Hailey Dhanens and Angie Quach
+import requests, json
+
+class MyClass(GeneratedClass):
     def __init__(self):
         GeneratedClass.__init__(self)
 
@@ -33,14 +36,34 @@
 
     def onInput_onStart(self):
         #self.onStopped() #activate the output of the box
-        leds = ALProxy("ALLeds")
-        names = [
-"Face/Led/Red/Left/0Deg/Actuator/Value",
-"Face/Led/Red/Left/90Deg/Actuator/Value",
-"Face/Led/Red/Left/180Deg/Actuator/Value",
-"Face/Led/Red/Left/270Deg/Actuator/Value"]
-        leds.createGroup("MyGroup", names)
-        leds.on("MyGroup")
+
+        proxy = ALProxy("ALTextToSpeech")
+
+        # get response object
+        response = requests.get("http://api.openweathermap.org/data/2.5/weather?appid=33d6e073a153d55dea7b80db0456ddcc&q=Ellensburg")
+
+        # convert json format into python data
+        x = response.json()
+
+        # x has dictionaries
+        # check value of cod key
+        # if cod key is not, a city is found
+        if x["cod"] == 200:
+
+            # store the value of main key in y
+            y = x["main"]
+
+            # store the current temp and convert the temp
+            current_temperature = y["temp"]
+            converted_temperature = (current_temperature - 273.15) * 9 / 5 + 32
+            string_temperature = "It is " + str(int(converted_temperature)) + " degrees fahrenheit in Ellensburg right now."
+
+            # print out temp
+            proxy.say(string_temperature)
+
+        # city not found
+        else:
+            proxy.say("I'm not sure what the temperature is right now")
 
         self.onStopped()
 

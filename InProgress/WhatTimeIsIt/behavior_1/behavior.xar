@@ -15,11 +15,14 @@
       <BehaviorLayer name="behavior_layer1">
         <BehaviorKeyframe name="keyframe1" index="1">
           <Diagram>
-            <Box name="say something" id="1" localization="8" tooltip="yep" x="486" y="197">
-              <bitmap>media/images/box/box-python-script.png</bitmap>
+            <Box name="Time" id="1" localization="8" tooltip="NAO will say the current time.&#x0A;" x="577" y="159">
+              <bitmap>media/images/box/interaction/choice.png</bitmap>
               <script language="4">
                 <content>
-                  <![CDATA[class MyClass(GeneratedClass):
+                  <![CDATA[import datetime
+import pytz
+
+class MyClass(GeneratedClass):
     def __init__(self):
         GeneratedClass.__init__(self)
 
@@ -32,17 +35,17 @@
         pass
 
     def onInput_onStart(self):
-        #self.onStopped() #activate the output of the box
-        leds = ALProxy("ALLeds")
-        names = [
-"Face/Led/Red/Left/0Deg/Actuator/Value",
-"Face/Led/Red/Left/90Deg/Actuator/Value",
-"Face/Led/Red/Left/180Deg/Actuator/Value",
-"Face/Led/Red/Left/270Deg/Actuator/Value"]
-        leds.createGroup("MyGroup", names)
-        leds.on("MyGroup")
 
-        self.onStopped()
+        # grab time from datetime
+        # use pytz for specific time zone
+        time = datetime.datetime.now(pytz.timezone('US / Pacific-New'))
+
+        # NAO says the time
+        proxy = ALProxy("ALTextToSpeech")
+        proxy.say("It is " + str(time.hour) + " " + str(time.minute))
+
+        #self.onStopped() #activate the output of the box
+        pass
 
     def onInput_onStop(self):
         self.onUnload() #it is recommended to reuse the clean-up as the box is stopped

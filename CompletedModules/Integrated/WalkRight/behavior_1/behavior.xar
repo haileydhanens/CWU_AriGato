@@ -15,7 +15,7 @@
       <BehaviorLayer name="behavior_layer1">
         <BehaviorKeyframe name="keyframe1" index="1">
           <Diagram>
-            <Box name="say something" id="1" localization="8" tooltip="yep" x="486" y="197">
+            <Box name="Walk Right" id="1" localization="8" tooltip="Has the robot walk right 0.2 meters" x="498" y="291">
               <bitmap>media/images/box/box-python-script.png</bitmap>
               <script language="4">
                 <content>
@@ -32,15 +32,8 @@
         pass
 
     def onInput_onStart(self):
-        #self.onStopped() #activate the output of the box
-        leds = ALProxy("ALLeds")
-        names = [
-"Face/Led/Red/Left/0Deg/Actuator/Value",
-"Face/Led/Red/Left/90Deg/Actuator/Value",
-"Face/Led/Red/Left/180Deg/Actuator/Value",
-"Face/Led/Red/Left/270Deg/Actuator/Value"]
-        leds.createGroup("MyGroup", names)
-        leds.on("MyGroup")
+        motionProxy = ALProxy("ALMotion")
+        motionProxy.moveTo(0.0, -0.2, 0.0)
 
         self.onStopped()
 

@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<package version="0.0.0" uuid="eyelights-c36a70">
+<package version="0.0.0" uuid="classknowledge-2ffc20">
  <names>
-  <name lang="en_US">Untitled</name>
+  <name lang="en_US">class knowledge</name>
  </names>
  <supportedLanguages>
   <language>en_US</language>
@@ -13,6 +13,10 @@
   <behaviorContent path="behavior_1">
    <userRequestable/>
    <nature>interactive</nature>
+   <triggerSentences>
+    <sentence lang="en_US">Can you tell me about a class</sentence>
+   </triggerSentences>
+   <autonomous/>
    <permissions/>
   </behaviorContent>
  </contents>

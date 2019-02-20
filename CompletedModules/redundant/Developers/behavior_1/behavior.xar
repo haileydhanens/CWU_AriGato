@@ -15,7 +15,7 @@
       <BehaviorLayer name="behavior_layer1">
         <BehaviorKeyframe name="keyframe1" index="1">
           <Diagram>
-            <Box name="say something" id="1" localization="8" tooltip="yep" x="486" y="197">
+            <Box name="Developers" id="1" localization="8" tooltip="Have the robot list the names of the people on the Capstone project" x="481" y="164">
               <bitmap>media/images/box/box-python-script.png</bitmap>
               <script language="4">
                 <content>
@@ -32,15 +32,12 @@
         pass
 
     def onInput_onStart(self):
-        #self.onStopped() #activate the output of the box
-        leds = ALProxy("ALLeds")
-        names = [
-"Face/Led/Red/Left/0Deg/Actuator/Value",
-"Face/Led/Red/Left/90Deg/Actuator/Value",
-"Face/Led/Red/Left/180Deg/Actuator/Value",
-"Face/Led/Red/Left/270Deg/Actuator/Value"]
-        leds.createGroup("MyGroup", names)
-        leds.on("MyGroup")
+        proxy = ALProxy("ALTextToSpeech")
+
+        response = "The people who are developing my projects are Casey Chen, Hailey Dayninz, Matthew Harker, Angie Quach, and Derek Vaughan"
+        #Casey Chen, Hailer Dhanens, Matthew Harker, Angie Quach, Derek Vaughan
+
+        proxy.say(response)
 
         self.onStopped()
 

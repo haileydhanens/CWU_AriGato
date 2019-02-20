@@ -15,11 +15,13 @@
       <BehaviorLayer name="behavior_layer1">
         <BehaviorKeyframe name="keyframe1" index="1">
           <Diagram>
-            <Box name="say something" id="1" localization="8" tooltip="yep" x="486" y="197">
+            <Box name="Jazz Hands" id="1" localization="8" tooltip="make Nao do jazz hands&#x0A;-basic non repeating&#x0A;-will stop after certain number of iterations" x="537" y="247">
               <bitmap>media/images/box/box-python-script.png</bitmap>
               <script language="4">
                 <content>
-                  <![CDATA[class MyClass(GeneratedClass):
+                  <![CDATA[import time
+
+class MyClass(GeneratedClass):
     def __init__(self):
         GeneratedClass.__init__(self)
 
@@ -32,17 +34,39 @@
         pass
 
     def onInput_onStart(self):
-        #self.onStopped() #activate the output of the box
-        leds = ALProxy("ALLeds")
-        names = [
-"Face/Led/Red/Left/0Deg/Actuator/Value",
-"Face/Led/Red/Left/90Deg/Actuator/Value",
-"Face/Led/Red/Left/180Deg/Actuator/Value",
-"Face/Led/Red/Left/270Deg/Actuator/Value"]
-        leds.createGroup("MyGroup", names)
-        leds.on("MyGroup")
 
-        self.onStopped()
+        proxy = ALProxy("ALMotion")
+
+#        joint name groups
+        names = ['LShoulderPitch', 'LShoulderRoll', 'LElbowYaw', 'LElbowRoll', 'LWristYaw', 'RShoulderPitch', 'RShoulderRoll', 'RElbowYaw', 'RElbowRoll', 'RWristYaw']
+
+        wrists = ['LWristYaw','RWristYaw']
+#        fix arm angles
+#        joint position sets
+        upStart = [1.22, 0.11, -2.0, -1.32, 0, 1.22, -0.11, 2.0, 1.32, 0 ]
+        wrists1 = [0.82, -0.82]
+        wrists2 = [-1.5, 1.5]
+
+#        times for angle interpolation
+        timesTen = [0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5]
+        timesTwo = [0.5, 0.5]
+
+#        do movements
+
+#        MOVES ARMS UP WAY TOO FAST
+        proxy.setAngles(names, upStart, 0.2)
+
+        for i in range(3):
+
+            proxy.angleInterpolation(wrists, wrists1,[0.5, 0.5], True)
+
+            proxy.angleInterpolation(wrists, wrists2,[0.5, 0.5], True)
+
+
+
+
+        self.onStopped() #activate the output of the box
+        pass
 
     def onInput_onStop(self):
         self.onUnload() #it is recommended to reuse the clean-up as the box is stopped

@@ -15,7 +15,7 @@
       <BehaviorLayer name="behavior_layer1">
         <BehaviorKeyframe name="keyframe1" index="1">
           <Diagram>
-            <Box name="say something" id="1" localization="8" tooltip="yep" x="486" y="197">
+            <Box name="say box" id="1" localization="8" tooltip="" x="348" y="133">
               <bitmap>media/images/box/box-python-script.png</bitmap>
               <script language="4">
                 <content>
@@ -32,17 +32,14 @@
         pass
 
     def onInput_onStart(self):
-        #self.onStopped() #activate the output of the box
-        leds = ALProxy("ALLeds")
-        names = [
-"Face/Led/Red/Left/0Deg/Actuator/Value",
-"Face/Led/Red/Left/90Deg/Actuator/Value",
-"Face/Led/Red/Left/180Deg/Actuator/Value",
-"Face/Led/Red/Left/270Deg/Actuator/Value"]
-        leds.createGroup("MyGroup", names)
-        leds.on("MyGroup")
 
-        self.onStopped()
+        tts = ALProxy("ALTextToSpeech")
+
+        #Casey Chen, Hailer Dhanens, Matthew Harker, Angie Quach, Derek Vaughan
+
+        tts.say("The people who are developing my projects are Casey Chen, Hailey Dayninz, Matthew Harker, Angie Quach, and Derek Vaughan")
+        self.onStopped() #activate the output of the box
+
 
     def onInput_onStop(self):
         self.onUnload() #it is recommended to reuse the clean-up as the box is stopped

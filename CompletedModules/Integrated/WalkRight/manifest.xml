@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<package version="0.0.0" uuid="walkright-5e07f1">
+ <names>
+  <name lang="en_US">walk right</name>
+ </names>
+ <supportedLanguages>
+  <language>en_US</language>
+ </supportedLanguages>
+ <descriptionLanguages>
+  <language>en_US</language>
+ </descriptionLanguages>
+ <contents>
+  <behaviorContent path="behavior_1">
+   <userRequestable/>
+   <nature>interactive</nature>
+   <names>
+    <name lang="en_US">Walk Right</name>
+   </names>
+   <descriptions>
+    <description lang="en_US">Nao will move half a yard to the left when prompted</description>
+   </descriptions>
+   <triggerSentences>
+    <sentence lang="en_US">Walk right</sentence>
+    <sentence lang="en_US">Move right</sentence>
+    <sentence lang="en_US">step right</sentence>
+    <sentence lang="en_US">walk to the right</sentence>
+    <sentence lang="en_US">move to the right</sentence>
+    <sentence lang="en_US">step to the right</sentence>
+   </triggerSentences>
+   <permissions/>
+  </behaviorContent>
+ </contents>
+</package>
