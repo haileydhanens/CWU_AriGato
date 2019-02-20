@@ -247,6 +247,7 @@ class MyClass(GeneratedClass):
             <Link inputowner="0" indexofinput="4" outputowner="3" indexofoutput="4" />
             <Link inputowner="2" indexofinput="2" outputowner="0" indexofoutput="2" />
             <Link inputowner="1" indexofinput="2" outputowner="2" indexofoutput="6" />
+            <Link inputowner="2" indexofinput="3" outputowner="1" indexofoutput="4" />
           </Diagram>
         </BehaviorKeyframe>
       </BehaviorLayer>
