@@ -45,7 +45,7 @@
               <Input name="onStop" type="1" type_size="1" nature="3" inner="0" tooltip="Box behavior stops when a signal is received on this input." id="3" />
               <Output name="onStopped" type="1" type_size="1" nature="1" inner="0" tooltip="Signal sent when box behavior is finished." id="4" />
             </Box>
-            <Box name="Switch Case" id="2" localization="8" tooltip="Test input value and stimulate the output matching to this value. If there is no&#x0A;matching output, the default output (onDefault) is stimulated.&#x0A;&#x0A;You can edit a case by left double-clicking on the line. You can add a&#x0A;case by right clicking on a line and selecting &apos;Insert a row&apos;. You can delete&#x0A;a case by right clicking on a line and selecting &apos;Remove a row&apos;." plugin="dispatcher_plugin" x="414" y="233">
+            <Box name="Switch Case" id="2" localization="8" tooltip="Test input value and stimulate the output matching to this value. If there is no&#x0A;matching output, the default output (onDefault) is stimulated.&#x0A;&#x0A;You can edit a case by left double-clicking on the line. You can add a&#x0A;case by right clicking on a line and selecting &apos;Insert a row&apos;. You can delete&#x0A;a case by right clicking on a line and selecting &apos;Remove a row&apos;." plugin="dispatcher_plugin" x="434" y="161">
               <bitmap>media/images/box/interaction/choice.png</bitmap>
               <script language="4">
                 <content>
@@ -343,6 +343,232 @@ class MyClass(GeneratedClass):
               <Parameter name="Speed (%)" inherits_from_parent="1" content_type="1" value="100" default_value="100" min="50" max="200" tooltip="Changes the speed of the voice.&#x0A;&#x0A;Note: For a better effect, you can compensate this parameter with the voice&#x0A;shaping parameter. For example, if you want to increase by 20% the speed, you&#x0A;will have to decrease by 20% the voice shaping to keep a constant average&#x0A;speed." id="6" />
               <Parameter name="Text" inherits_from_parent="0" content_type="5" value="I didn&apos;t quite catch that. Please say the class again." default_value="" tooltip="The text you want to say. Don&apos;t forget to translate it!" id="7" />
               <Resource name="Speech" type="Lock" timeout="0" />
+            </Box>
+            <Box name="Describe Class" id="7" localization="8" tooltip="Gives the user a breif description about a requested class" x="780" y="419">
+              <bitmap>media/images/box/box-python-script.png</bitmap>
+              <script language="4">
+                <content>
+                  <![CDATA[import constant
+
+class MyClass(GeneratedClass):
+    def __init__(self):
+        GeneratedClass.__init__(self)
+
+    def onLoad(self):
+        #put initialization code here
+        pass
+
+    def onUnload(self):
+        #put clean-up code here
+        pass
+
+    def onInput_onStart(self):
+
+        #consts with the desription of the class
+        #100 level classes########################################
+        #101
+        COMPUTER_BASICS = "Integrated, project-based course using student-produced working materials in the form of a mini thesis. Microsoft Office tools are learned in a web-based practical application environment."
+        #102
+        HEALTH_AND_TECHNOLOGY = "Students will analyze the impact of health factors through construction of a personal health index calculator, create health analysis tools with instantaneous updating, and evaluate the pros and cons of technology in the health field."
+        #105
+        THE_LOGICAL_BASIS_OF_COMPUTING = "Students develop mathematical and quantitative reasoning skills by learning the fundamentals of computer programming. Students gain an understanding of possible connections between technology and artistic expression."
+        #107
+        MAKE_A_GAME_WITH_COMPUTER_SCIENCE = "This course provides an overview of gaming within the field of computer science including social, cultural, ethical, legal, and economic issues. Software engineering principles will be introduced and applied to a game development."
+        #108
+        QUANTITATIVE_REASONING_USING_PYTHON = "Students explore quantitative and statistical processes by implementing the popular programming language Python."
+        #110
+        PROGRAMMING_FUNDAMENTALS = "Fundamental concepts of programming from an object-oriented perspective. Classes, objects and methods, algorithm development, problem-solving techniques, basic control structures, primitive types and arrays."
+        #111
+        PROGRAMMING_FUNDAMENTALS_TWO = "Continuation of object-oriented programming concepts introduced in CS 110. Inheritance, exceptions, graphical user interfaces, recursion, and data structures."
+        #112
+        FOUNDATIONS_OF_COMPUTER_SCIENCE = "Overview of the computer science profession including basic computer organization, algorithm development and analysis, computer data representation, computer applications, and social issues."
+
+        #200 level classes#########################################
+        #250
+        WEB_DEVELOPMENT_TECHNOLOGIES_ONE = "Techniques for web software development including XHTML, style sheets, scripting languages, web databases, PHP, and ethical issues."
+        #290
+        COOPERATIVE_EDUCATION = "An individualized, contracted field experience with business, industry, government, or social service agencies. This contractual arrangement involves a student-learning plan, cooperating employer supervision, and faculty coordination."
+        #298
+        SPECIAL_TOPICS_TWO_HUNDRED = "No Description Provided"
+        #299
+        SEMINAR_TWO_HUNDRED = "No Description Provided"
+
+        #300 level classes#########################################
+        #301
+        DATA_STRUCTURES = "Introduction to data structures, simple list processing, basic searching and sorting techniques, stacks, queues, and trees."
+        #302
+        ADVANCED_DATA_STRUCTURES_AND_FILE_PROCESSING = "Sequential, random access and indexed file organizations; B-trees; external searching and sorting; I/O buffering."
+        #311
+        COMPUTER_ARCHITECTURE_ONE = "Introduction to computer architecture, data representations, assembly language, addressing techniques. Course will be offered every year."
+        #312
+        COMPUTER_ARCHITECTURE_TWO = "Introduction to the structure of computers. Digital circuits, central processing units, memory, input/output processing, parallel architectures."
+        #325
+        TECHNICAL_WRITING_IN_COMPUTER_SCIENCE = "Writing and editing technical material in computer science."
+        #351
+        WEB_DEVELOPMENT_TECHNOLOGIES_TWO = "Server-side technologies for web software development including programming languages, database access, e-commerce, testing, and ethical issues related to the web."
+        #352
+        WEB_DEVELOPMENT_TECHNOLOGIES_THREE = "Advanced technologies for web software development, including XML and its related technologies: DTD, XML Schema, XSL, and XSLT, and other emerging technologies."
+        #361
+        PRINCIPLES_OF_LANGUAGE_DESIGN_ONE = "Topics will include evolution of programming languages, syntax and semantics, bindings, scoping, data types, assignment, control, and subprograms."
+        #362
+        PRINCIPLES_OF_LANGUAGE_DESIGN_TWO = "Topics will include abstract data types, parallel processing, object-oriented programming, exception handling functional programming, and logic programming."
+        #367
+        ADVANCED_VISUAL_BASIC_PROGRAMING = "Visual Basic programming and applications. Topics will include advanced data structures, error trapping and debugging, advanced VB and ActiveX controls, macros and databases. Not intended for CS majors."
+        #370
+        INTRODUCTION_TO_THE_UNIX_OPERATING_SYSTEM = "The fundamental requirements, features and functions of the UNIX operating system. A UNIX-compatible OS will be used as a working model. Installation, configuration, setup, shell operations, and program development with the UNIX operating system. "
+        #380
+        INTRODUCTION_TO_SOFTWARE_ENGINEERING = "An introduction to the principles and practices of software engineering, including object-oriented analysis and design, design patterns, and testing."
+        #392
+        LAB_EXPERIENCE_IN_TEACHING_COMPUTER_SCIENCE_THREE_HUNDRED = "Supervised experience in developing procedures and techniques in teaching computer science."
+        #396
+        INDIVIDUAL_STUDY_THREE_HUNDRED = "No Description Provided"
+        #397
+        HONORS_THREE_HUNDRED = "No Description Provided"
+        #398
+        SPECIAL_TOPICS_THREE_HUNDRED = "No Description Provided"
+        #399
+        SEMINAR_THREE_HUNDRED = "No Description Provided"
+
+        #400 level classes#########################################
+        #420
+        DATABASE_MANAGEMENT_SYSTEMS = "Logical aspects of database processing; concepts of organizing data into integrated databases; hierarchical, network, and relational approaches."
+        #427
+        ALGORITHM_ANALYSIS = "Topics will include basic algorithmic analysis, algorithmic strategies, fundamental computing algorithms, basic computability, the complexity classes P and NP, and advanced algorithmic analysis."
+        #428
+        INTRODUCTION_TO_GRAPH_ALGORITHMS = "This course gives a wide introduction to the field of graph algorithms. Students will learn how to recognize and analyze algorithmic graph problems, as well as how to develop practical approaches for solving them."
+        #430
+        INTRODUCTION_TO_COMPUTER_SECURITY = "Introduction to the principles of computer security. Discussion of threats, intrusion, trust, protection, access control, and cryptography and implementation of security, confidentiality, and integrity policies."
+        #440
+        COMPUTER_GRAPHICS = "Graphic I/O devices, two-dimensional and three-dimensional display techniques, display processors, clipping and windowing, hidden line removal, data structures for graphics."
+        #441
+        COMPUTER_GRAPHICS_TWO = "Advanced graphics in 3-D with vector tools. Topics include: transformations, affine transformations, changing coordinate system, drawing scenes, modeling shapes, solid modeling, and smooth objects. (Put on reserve 9/16/17. Will go inactive 8/24/2020.)"
+        #445
+        DATA_AND_INFORMATION_VISUALIZATION = "Data visualization includes the visualization pipeline, basic and advanced visual data representations, fundamental and advanced visualization algorithms, visualization on the web, applications and software tools."
+        #446
+        USER_INTERFACE_DESIGN_AND_DEVELOPMENT = "The relationship of user interface design to human-computer interaction. Types of user interfaces, methods of evaluation, user-centered design and task analysis, programming tools and environments, and hardware devices."
+        #450
+        COMPUTER_NETWORK_AND_DATA_COMMUNICATIONS = "Device protocols; network configurations; encryption; data compression and security; satellite networks."
+        #445
+        ARTIFICIAL_INTELLIGENCE = "Introduction to the principles of artificial intelligence. Pattern matching, knowledge representation, natural language processing, expert systems."
+        #456
+        DATA_MINING = "Introducing concepts, models, algorithms, and tools for solving data mining tasks; decision trees, time series, Bayesian methods, k-nearest neighbors, and relational databases."
+        #457
+        COMPUTATIONAL_INTELLIGENCE_AND_MACHINE_LEARNING = "Introducing intelligent systems: artificial neural networks, deep learning, evolutionary computation, fuzzy systems, swarm intelligence, and hybridizations of the above techniques. We will look at these techniques from a machine learning perspective."
+        #460
+        SOFTWARE_ENGINEERING_FOR_MOBILE_DEVICES = "Development of stand-alone applications (apps) intended to be downloaded onto and run on mobile devices. Android and iOS is taught. Topics include XML, data and control flow diagrams, IDEs, layout design, etc."
+        #470
+        OPERATING_SYSTEMS = "Topics will include principles of operating systems, concurrency, scheduling and dispatch, memory management, processes and threads, device management, security and protection, and file systems."
+        #471
+        OPTIMIZATION = "Unimodal and Multimodal problems; combinatorial optimization problems; deterministic algorithms; Hill climbing algorithm; Tabu Search Algorithm; Evolutionary algorithms; Particle swarm optimization; Differential evolution; Single and Mutli-objective optimization."
+        #473
+        PARALLEL_COMPUTING = "Major parallel architectures and languages. Parallel programming methodologies and applications."
+        #475 ON RESERVE!!!!!!
+        PROGRAMMING_FOR_DISTRIBUTED_SYSTEMS = "An introduction to technologies used for creating applications that run in a distributed computing environment, such as across local/wide area networks (LAN/WAN) and the internet. (Put on reserve 9/16/18, will go inactive 8/24/21)"
+        #476 ON RESERVE!!!!!!
+        SOCIAL_INFORMATICS_FOR_COMPUTER_SCIENCE = "This course provides a survey of the critical issues related to computer and/or information systems design, development, implementation, use and management. It focuses on the critical analysis of social, cultural, philosophical, ethical, legal, public policy, and economic issues relating to computer and information systems and how these interactions shape workplace decisions and use of those systems. (Put on reserve 9/16/18, will go inactive 8/24/21)"
+        #480
+        ADVANCED_SOFTWARE_ENGINEERING = "Advanced principles and practices of software engineering, including project management, requirements gathering and specification, design, coding, testing, maintenance and documentation. Students work in teams to develop a large software project."
+        #481
+        SOFTWARE_ENGINEERING_PROJECT = "Continuation of coding, testing, and implementation phases of project begun in CS 480."
+        #489
+        SENIOR_COLLOQUIUM = "Introduction to research in computer science through investigation of ethical and historical topics in the field. End-of-major assessment activities."
+        #490
+        COOPERATIVE_EDUCATION = "An individualized contracted field experience with business, industry, government, or social service agencies. This contractual arrangement involves a student learning plan, cooperating employer supervision, and faculty coordination. By permission."
+        #491
+        WORKSHOP_FOUR_HUNDRED = "No Description Provided"
+        #492
+        LABORATORY_EXPERIENCE_IN_TEACHING_COMPUTER_SCIENCE_FOUR_HUNDRED = "Supervised progressive experience in developing procedures and techniques in teaching computer science."
+        #493
+        PRACTICUM = "Supervised progressive experience in management, operation, programming, or systems work in one of the university’s computing centers."
+        #495
+        DIRECTED_RESEARCH_FOUR_HUNDRED = "No Description Provided"
+        #496
+        INDIVIDUAL_STUDY_FOUR_HUNDRED = "No Description Provided"
+        #497
+        HONORS_FOUR_HUNDRED = "No Description Provided"
+        #498
+        SPECIAL_TOPICS_FOUR_HUNDRED = "No Description Provided"
+        #499
+        SEMINAR_FOUR_HUNDRED = "No Description Provided"
+
+
+        classes = {
+            "cs101" : COMPUTER_BASICS,
+            "cs102" : HEALTH_AND_TECHNOLOGY,
+            "cs105" : THE_LOGICAL_BASIS_OF_COMPUTING,
+            "cs107" : MAKE_A_GAME_WITH_COMPUTER_SCIENCE,
+            "cs109" : QUANTITATIVE_REASONING_USING_PYTHON,
+            "cs110" : PROGRAMMING_FUNDAMENTALS,
+            "cs111" : PROGRAMMING_FUNDAMENTALS_TWO,
+            "cs112" : FOUNDATIONS_OF_COMPUTER_SCIENCE,
+            "cs250" : WEB_DEVELOPMENT_TECHNOLOGIES_ONE,
+            "cs290" : COOPERATIVE_EDUCATION,
+            "cs298" : SPECIAL_TOPICS_TWO_HUNDRED,
+            "cs299" : SEMINAR_TWO_HUNDRED,
+            "cs301" : DATA_STRUCTURES,
+            "cs302" : ADVANCED_DATA_STRUCTURES_AND_FILE_PROCESSING,
+            "cs311" : COMPUTER_ARCHITECTURE_ONE,
+            "cs312" : COMPUTER_ARCHITECTURE_TWO,
+            "cs325" : TECHNICAL_WRITING_IN_COMPUTER_SCIENCE,
+            "cs351" : WEB_DEVELOPMENT_TECHNOLOGIES_TWO,
+            "cs352" : WEB_DEVELOPMENT_TECHNOLOGIES_THREE,
+            "cs361" : PRINCIPLES_OF_LANGUAGE_DESIGN_ONE,
+            "cs362" : PRINCIPLES_OF_LANGUAGE_DESIGN_TWO,
+            "cs367" : ADVANCED_VISUAL_BASIC_PROGRAMING,
+            "cs370" : INTRODUCTION_TO_THE_UNIX_OPERATING_SYSTEM,
+            "cs380" : INTRODUCTION_TO_SOFTWARE_ENGINEERING,
+            "cs392" : LAB_EXPERIENCE_IN_TEACHING_COMPUTER_SCIENCE_THREE_HUNDRED,
+            "cs396" : INDIVIDUAL_STUDY_THREE_HUNDRED,
+            "cs397" : HONORS_THREE_HUNDRED,
+            "cs398" : SPECIAL_TOPICS_THREE_HUNDRED,
+            "cs399" : SEMINAR_THREE_HUNDRED,
+            "cs420" : DATABASE_MANAGEMENT_SYSTEMS,
+            "cs427" : ALGORITHM_ANALYSIS,
+            "cs428" : INTRODUCTION_TO_GRAPH_ALGORITHMS,
+            "cs430" : INTRODUCTION_TO_COMPUTER_SECURITY,
+            "cs440" : COMPUTER_GRAPHICS,
+            "cs441" : COMPUTER_GRAPHICS_TWO,
+            "cs445" : DATA_AND_INFORMATION_VISUALIZATION,
+            "cs446" : USER_INTERFACE_DESIGN_AND_DEVELOPMENT,
+            "cs450" : COMPUTER_NETWORK_AND_DATA_COMMUNICATIONS,
+            "cs455" : ARTIFICIAL_INTELLIGENCE,
+            "cs456" : DATA_MINING,
+            "cs457" : COMPUTATIONAL_INTELLIGENCE_AND_MACHINE_LEARNING,
+            "cs460" : SOFTWARE_ENGINEERING_FOR_MOBILE_DEVICES,
+            "cs470" : OPERATING_SYSTEMS,
+            "cs471" : OPTIMIZATION,
+            "cs473" : PARALLEL_COMPUTING,
+            "cs475" : PROGRAMMING_FOR_DISTRIBUTED_SYSTEMS,
+            "cs476" : SOCIAL_INFORMATICS_FOR_COMPUTER_SCIENCE,
+            "cs480" : ADVANCED_SOFTWARE_ENGINEERING,
+            "cs481" : SOFTWARE_ENGINEERING_PROJECT,
+            "cs489" : SENIOR_COLLOQUIUM,
+            "cs490" : COOPERATIVE_EDUCATION,
+            "cs491" : WORKSHOP_FOUR_HUNDRED,
+            "cs492" : LABORATORY_EXPERIENCE_IN_TEACHING_COMPUTER_SCIENCE_FOUR_HUNDRED,
+            "cs493" : PRACTICUM,
+            "cs495" : DIRECTED_RESEARCH_FOUR_HUNDRED,
+            "cs496" : INDIVIDUAL_STUDY_FOUR_HUNDRED,
+            "cs497" : HONORS_FOUR_HUNDRED,
+            "cs498" : SPECIAL_TOPICS_FOUR_HUNDRED,
+            "cs499" : SEMINAR_FOUR_HUNDRED
+        }
+
+        self.onStopped()
+
+    def onInput_onStop(self):
+        self.onUnload() #it is recommended to reuse the clean-up as the box is stopped
+        self.onStopped() #activate the output of the box
+
+    def onInput_className(self, p):
+        pass]]>
+                </content>
+              </script>
+              <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when diagram is loaded." id="1" />
+              <Input name="onStart" type="1" type_size="1" nature="2" inner="0" tooltip="Box behavior starts when a signal is received on this input." id="2" />
+              <Input name="onStop" type="1" type_size="1" nature="3" inner="0" tooltip="Box behavior stops when a signal is received on this input." id="3" />
+              <Input name="className" type="3" type_size="1" nature="1" inner="0" tooltip="The name of the class being requested" id="4" />
+              <Output name="onStopped" type="1" type_size="1" nature="1" inner="0" tooltip="Signal sent when box behavior is finished." id="5" />
             </Box>
             <Link inputowner="1" indexofinput="2" outputowner="0" indexofoutput="2" />
             <Link inputowner="2" indexofinput="2" outputowner="4" indexofoutput="5" />
