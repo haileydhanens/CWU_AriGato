@@ -46,94 +46,7 @@
               <Input name="onStop" type="1" type_size="1" nature="3" inner="0" tooltip="Box behavior stops when a signal is received on this input." id="3" />
               <Output name="onStopped" type="1" type_size="1" nature="1" inner="0" tooltip="Signal sent when box behavior is finished." id="4" />
             </Box>
-            <Box name="Switch Case" id="2" localization="8" tooltip="Test input value and stimulate the output matching to this value. If there is no&#x0A;matching output, the default output (onDefault) is stimulated.&#x0A;&#x0A;You can edit a case by left double-clicking on the line. You can add a&#x0A;case by right clicking on a line and selecting &apos;Insert a row&apos;. You can delete&#x0A;a case by right clicking on a line and selecting &apos;Remove a row&apos;." plugin="dispatcher_plugin" x="339" y="103">
-              <bitmap>media/images/box/interaction/choice.png</bitmap>
-              <script language="4">
-                <content>
-                  <![CDATA[# /!\ Generated content. Do not edit!
-class MyClass(GeneratedClass):
-	def __init__(self):
-		try: # disable autoBind
-		  GeneratedClass.__init__(self, False)
-		except TypeError: # if NAOqi < 1.14
-		  GeneratedClass.__init__( self )
-
-	def onInput_onStart(self, p):
-		p = self.typeConversion(p)
-		if(p == self.typeConversion("one ten")):
-			self.output_1(p)
-		elif(p == self.typeConversion("one eleven")):
-			self.output_2(p)
-		elif(p == self.typeConversion("one twelve")):
-			self.output_3(p)
-		elif(p == self.typeConversion("two fifty")):
-			self.output_4(p)
-		elif(p == self.typeConversion("three oh one")):
-			self.output_5(p)
-		elif(p == self.typeConversion("three oh two")):
-			self.output_6(p)
-		elif(p == self.typeConversion("three eleven")):
-			self.output_7(p)
-		elif(p == self.typeConversion("three twelve")):
-			self.output_8(p)
-		elif(p == self.typeConversion("three twenty five")):
-			self.output_9(p)
-		else:
-			self.onDefault()
-
-	def typeConversion(self, p):
-		try:
-			p = float(p)
-			pint = int(p)
-			if( p == pint ):
-				p = pint
-		except:
-			p = str(p)
-		return p]]>
-                </content>
-              </script>
-              <pluginContent>
-                <keywords>
-                  <keyword>&quot;one ten&quot;</keyword>
-                  <keyword>&quot;one eleven&quot;</keyword>
-                  <keyword>&quot;one twelve&quot;</keyword>
-                  <keyword>&quot;two fifty&quot;</keyword>
-                  <keyword>&quot;three oh one&quot;</keyword>
-                  <keyword>&quot;three oh two&quot;</keyword>
-                  <keyword>&quot;three eleven&quot;</keyword>
-                  <keyword>&quot;three twelve&quot;</keyword>
-                  <keyword>&quot;three twenty five&quot;</keyword>
-                  <keyword></keyword>
-                  <keyword></keyword>
-                  <keyword></keyword>
-                  <keyword></keyword>
-                  <keyword></keyword>
-                  <keyword></keyword>
-                  <keyword></keyword>
-                  <keyword></keyword>
-                </keywords>
-              </pluginContent>
-              <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when diagram is loaded." id="1" />
-              <Input name="onStart" type="0" type_size="1" nature="1" inner="0" tooltip="Value to test." id="2" />
-              <Output name="onDefault" type="1" type_size="1" nature="2" inner="0" tooltip="If the input value does not match any value set on the box." id="3" />
-              <Output name="output_1" type="0" type_size="1" nature="2" inner="0" tooltip="This IO has been automatically added by box. Read box tooltip for more information." id="4" />
-              <Output name="output_2" type="0" type_size="1" nature="2" inner="0" tooltip="This IO has been automatically added by box. Read box tooltip for more information." id="5" />
-              <Output name="output_3" type="0" type_size="1" nature="2" inner="0" tooltip="This IO has been automatically added by box. Read box tooltip for more information." id="6" />
-              <Output name="output_4" type="0" type_size="1" nature="2" inner="0" tooltip="This IO has been automatically added by box. Read box tooltip for more information." id="7" />
-              <Output name="output_5" type="0" type_size="1" nature="2" inner="0" tooltip="This IO has been automatically added by box. Read box tooltip for more information." id="8" />
-              <Output name="output_6" type="0" type_size="1" nature="2" inner="0" tooltip="This IO has been automatically added by box. Read box tooltip for more information." id="9" />
-              <Output name="output_7" type="0" type_size="1" nature="2" inner="0" tooltip="This IO has been automatically added by box. Read box tooltip for more information." id="10" />
-              <Output name="output_8" type="0" type_size="1" nature="2" inner="0" tooltip="This IO has been automatically added by box. Read box tooltip for more information." id="11" />
-              <Output name="output_9" type="0" type_size="1" nature="2" inner="0" tooltip="This IO has been automatically added by box. Read box tooltip for more information." id="12" />
-              <Output name="output_10" type="0" type_size="1" nature="2" inner="0" tooltip="This IO has been automatically added by box. Read box tooltip for more information." id="13" />
-              <Output name="output_11" type="0" type_size="1" nature="2" inner="0" tooltip="This IO has been automatically added by box. Read box tooltip for more information." id="14" />
-              <Output name="output_12" type="0" type_size="1" nature="2" inner="0" tooltip="This IO has been automatically added by box. Read box tooltip for more information." id="15" />
-              <Output name="output_13" type="0" type_size="1" nature="2" inner="0" tooltip="This IO has been automatically added by box. Read box tooltip for more information." id="16" />
-              <Output name="output_14" type="0" type_size="1" nature="2" inner="0" tooltip="This IO has been automatically added by box. Read box tooltip for more information." id="17" />
-              <Output name="output_15" type="0" type_size="1" nature="2" inner="0" tooltip="This IO has been automatically added by box. Read box tooltip for more information." id="18" />
-              <Output name="output_16" type="0" type_size="1" nature="2" inner="0" tooltip="This IO has been automatically added by box. Read box tooltip for more information." id="19" />
-            </Box>
-            <Box name="Speech Reco." id="4" localization="8" tooltip="Recognize a word from a list of words set in the box parameters.&#x0A;&#x0A;V1.1.0&#x0A;" x="197" y="105">
+            <Box name="Speech Reco." id="4" localization="8" tooltip="Recognize a word from a list of words set in the box parameters.&#x0A;&#x0A;V1.1.0&#x0A;" x="176" y="212">
               <bitmap>media/images/box/interaction/ear.png</bitmap>
               <script language="4">
                 <content>
@@ -184,7 +97,65 @@ class MyClass(GeneratedClass):
                 self.asr.pushContexts()
             self.hasPushed = True
             if self.asr:
-                self.asr.setVocabulary( self.getParameter("Word list").split(';'), self.getParameter("Enable word spotting") )
+                classList = [
+                    "one oh one",
+                    "one oh two",
+                    "one oh five",
+                    "one oh seven",
+                    "one oh nine",
+                    "one ten",
+                    "one eleven",
+                    "one twelve",
+                    "two fifty",
+                    "two ninety",
+                    "two ninety eight",
+                    "two ninety nine",
+                    "three oh one",
+                    "three oh two",
+                    "three eleven",
+                    "three twelve",
+                    "three twenty five",
+                    "three fifty one",
+                    "three fifty two",
+                    "three sixty one",
+                    "three sixty two",
+                    "three sixty seven",
+                    "three seventy",
+                    "three eighty",
+                    "three ninety two",
+                    "three ninety six",
+                    "three ninety seven",
+                    "three ninety eight",
+                    "three ninety nine",
+                    "four twenty",
+                    "four twenty seven",
+                    "four twenty eight",
+                    "four thirty",
+                    "four fourty",
+                    "four fourty one",
+                    "four fourty five",
+                    "four fourty six",
+                    "four fifty",
+                    "four fifty five",
+                    "four fifty six",
+                    "four fifty seven",
+                    "four sixty",
+                    "four seventy",
+                    "four seventy one",
+                    "four sevety three",
+                    "four seventy five",
+                    "four seventy six",
+                    "four eigthy",
+                    "four eighty one",
+                    "four eighty nine",
+                    "four ninety",
+                    "four ninety one",
+                    "four ninety two",
+                    "exit",
+                    "quit",
+                    "stop"
+                ]
+                self.asr.setVocabulary( classList, self.getParameter("Enable word spotting") )
             self.memory.subscribeToEvent("WordRecognized", self.getName(), "onWordRecognized")
             self.hasSubscribed = True
         except RuntimeError, e:
@@ -211,12 +182,370 @@ class MyClass(GeneratedClass):
               <Output name="onStopped" type="1" type_size="1" nature="1" inner="0" tooltip="Signal sent when box behavior is finished." id="4" />
               <Output name="wordRecognized" type="3" type_size="1" nature="2" inner="0" tooltip="Word recognized with a confidence higher than the threshold set in the box parameters." id="5" />
               <Output name="onNothing" type="1" type_size="1" nature="2" inner="0" tooltip="Nothing has been understood." id="6" />
-              <Parameter name="Word list" inherits_from_parent="0" content_type="3" value="one ten;one eleven;one twelve;two fifty;three oh one;three oh two;three eleven;three twelve;three twenty five;" default_value="yes;no" custom_choice="0" tooltip="Try to recognize a word from a list of words set in the box parameters." id="7" />
-              <Parameter name="Confidence threshold (%)" inherits_from_parent="0" content_type="1" value="45" default_value="30" min="0" max="100" tooltip="If the confidence associated with the word recognized is below this threshold, the robot will consider that it is not recognized." id="8" />
+              <Parameter name="Word list" inherits_from_parent="0" content_type="3" value="" default_value="yes;no" custom_choice="0" tooltip="Try to recognize a word from a list of words set in the box parameters." id="7" />
+              <Parameter name="Confidence threshold (%)" inherits_from_parent="0" content_type="1" value="30" default_value="30" min="0" max="100" tooltip="If the confidence associated with the word recognized is below this threshold, the robot will consider that it is not recognized." id="8" />
               <Parameter name="Enable word spotting" inherits_from_parent="0" content_type="0" value="0" default_value="0" tooltip="If this option is not activated the robot will only understand exact expressions. If it is, he will spot the exact expressions even in the middle of a sentence.&#x0A;&#x0A;!!Warning!! This option is only available with the speech recognition module using Nuance (ie in Atom version of the robot)." id="9" />
               <Resource name="Speech recognition" type="Lock" timeout="0" />
             </Box>
-            <Box name="CS110" id="3" localization="8" tooltip="Say some text. The text can be localized." x="833" y="13">
+            <Box name="Switch Case" id="3" localization="8" tooltip="" x="234" y="40">
+              <bitmap>media/images/box/box-python-script.png</bitmap>
+              <script language="4">
+                <content>
+                  <![CDATA[class MyClass(GeneratedClass):
+    def __init__(self):
+        try: # disable autoBind
+          GeneratedClass.__init__(self, False)
+        except TypeError: # if NAOqi < 1.14
+          GeneratedClass.__init__( self )
+
+    def onLoad(self):
+        #put initialization code here
+        pass
+
+    def onUnload(self):
+        #put clean-up code here
+        pass
+
+    def onInput_onStart(self, p):
+        p = self.typeConversion(p)
+
+        stop_commands = [
+            "stop",
+            "exit",
+            "quit"
+            ]
+
+        if(p in stop_commands):
+            self.exit()
+        else:
+            self.onDefault(p)
+            self.onStopped()
+
+    def typeConversion(self, p):
+        try:
+            p = float(p)
+            pint = int(p)
+            if( p == pint ):
+                p = pint
+        except:
+            p = str(p)
+        return p
+
+    def onInput_onStop(self):
+        self.onUnload() #it is recommended to reuse the clean-up as the box is stopped
+        self.onStopped() #activate the output of the box]]>
+                </content>
+              </script>
+              <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when diagram is loaded." id="1" />
+              <Input name="onStart" type="3" type_size="1" nature="1" inner="0" tooltip="Runs when a string is input" id="2" />
+              <Output name="onDefault" type="3" type_size="1" nature="2" inner="0" tooltip="When any other string was input" id="3" />
+              <Output name="exit" type="1" type_size="1" nature="2" inner="0" tooltip='activates when &quot;exit&quot; &quot;stop&quot; or &quot;quit&quot; was called' id="4" />
+              <Output name="onStopped" type="1" type_size="1" nature="1" inner="0" tooltip="" id="5" />
+            </Box>
+            <Box name="Describe Class" id="7" localization="8" tooltip="Gives the user a breif description about a requested class" x="503" y="176">
+              <bitmap>media/images/box/box-python-script.png</bitmap>
+              <script language="4">
+                <content>
+                  <![CDATA[
+className = ""
+
+class MyClass(GeneratedClass):
+    def __init__(self):
+        GeneratedClass.__init__(self)
+
+    def onLoad(self):
+        #put initialization code here
+        pass
+
+    def onUnload(self):
+        #put clean-up code here
+        pass
+
+    def onInput_onStart(self):
+
+        global className
+
+        #consts with the desription of the class
+        #100 level classes########################################
+        #101
+        COMPUTER_BASICS = "Integrated, project-based course using student-produced working materials in the form of a mini thesis. Microsoft Office tools are learned in a web-based practical application environment."
+        #102
+        HEALTH_AND_TECHNOLOGY = "Students will analyze the impact of health factors through construction of a personal health index calculator, create health analysis tools with instantaneous updating, and evaluate the pros and cons of technology in the health field."
+        #105
+        THE_LOGICAL_BASIS_OF_COMPUTING = "Students develop mathematical and quantitative reasoning skills by learning the fundamentals of computer programming. Students gain an understanding of possible connections between technology and artistic expression."
+        #107
+        MAKE_A_GAME_WITH_COMPUTER_SCIENCE = "This course provides an overview of gaming within the field of computer science including social, cultural, ethical, legal, and economic issues. Software engineering principles will be introduced and applied to a game development."
+        #109
+        QUANTITATIVE_REASONING_USING_PYTHON = "Students explore quantitative and statistical processes by implementing the popular programming language Python."
+        #110
+        PROGRAMMING_FUNDAMENTALS = "Fundamental concepts of programming from an object-oriented perspective. Classes, objects and methods, algorithm development, problem-solving techniques, basic control structures, primitive types and arrays."
+        #111
+        PROGRAMMING_FUNDAMENTALS_TWO = "Continuation of object-oriented programming concepts introduced in CS 110. Inheritance, exceptions, graphical user interfaces, recursion, and data structures."
+        #112
+        FOUNDATIONS_OF_COMPUTER_SCIENCE = "Overview of the computer science profession including basic computer organization, algorithm development and analysis, computer data representation, computer applications, and social issues."
+
+        #200 level classes#########################################
+        #250
+        WEB_DEVELOPMENT_TECHNOLOGIES_ONE = "Techniques for web software development including XHTML, style sheets, scripting languages, web databases, PHP, and ethical issues."
+        #290
+        COOPERATIVE_EDUCATION = "An individualized, contracted field experience with business, industry, government, or social service agencies. This contractual arrangement involves a student-learning plan, cooperating employer supervision, and faculty coordination."
+
+        #300 level classes#########################################
+        #301
+        DATA_STRUCTURES = "Introduction to data structures, simple list processing, basic searching and sorting techniques, stacks, queues, and trees."
+        #302
+        ADVANCED_DATA_STRUCTURES_AND_FILE_PROCESSING = "Sequential, random access and indexed file organizations; B-trees; external searching and sorting; I/O buffering."
+        #311
+        COMPUTER_ARCHITECTURE_ONE = "Introduction to computer architecture, data representations, assembly language, addressing techniques. Course will be offered every year."
+        #312
+        COMPUTER_ARCHITECTURE_TWO = "Introduction to the structure of computers. Digital circuits, central processing units, memory, input/output processing, parallel architectures."
+        #325
+        TECHNICAL_WRITING_IN_COMPUTER_SCIENCE = "Writing and editing technical material in computer science."
+        #351
+        WEB_DEVELOPMENT_TECHNOLOGIES_TWO = "Server-side technologies for web software development including programming languages, database access, e-commerce, testing, and ethical issues related to the web."
+        #352
+        WEB_DEVELOPMENT_TECHNOLOGIES_THREE = "Advanced technologies for web software development, including XML and its related technologies: DTD, XML Schema, XSL, and XSLT, and other emerging technologies."
+        #361
+        PRINCIPLES_OF_LANGUAGE_DESIGN_ONE = "Topics will include evolution of programming languages, syntax and semantics, bindings, scoping, data types, assignment, control, and subprograms."
+        #362
+        PRINCIPLES_OF_LANGUAGE_DESIGN_TWO = "Topics will include abstract data types, parallel processing, object-oriented programming, exception handling functional programming, and logic programming."
+        #367
+        ADVANCED_VISUAL_BASIC_PROGRAMING = "Visual Basic programming and applications. Topics will include advanced data structures, error trapping and debugging, advanced VB and ActiveX controls, macros and databases. Not intended for CS majors."
+        #370
+        INTRODUCTION_TO_THE_UNIX_OPERATING_SYSTEM = "The fundamental requirements, features and functions of the UNIX operating system. A UNIX-compatible OS will be used as a working model. Installation, configuration, setup, shell operations, and program development with the UNIX operating system. "
+        #380
+        INTRODUCTION_TO_SOFTWARE_ENGINEERING = "An introduction to the principles and practices of software engineering, including object-oriented analysis and design, design patterns, and testing."
+        #392
+        LAB_EXPERIENCE_IN_TEACHING_COMPUTER_SCIENCE_THREE_HUNDRED = "Supervised experience in developing procedures and techniques in teaching computer science."
+
+        #400 level classes#########################################
+        #420
+        DATABASE_MANAGEMENT_SYSTEMS = "Logical aspects of database processing; concepts of organizing data into integrated databases; hierarchical, network, and relational approaches."
+        #427
+        ALGORITHM_ANALYSIS = "Topics will include basic algorithmic analysis, algorithmic strategies, fundamental computing algorithms, basic computability, the complexity classes P and NP, and advanced algorithmic analysis."
+        #428
+        INTRODUCTION_TO_GRAPH_ALGORITHMS = "This course gives a wide introduction to the field of graph algorithms. Students will learn how to recognize and analyze algorithmic graph problems, as well as how to develop practical approaches for solving them."
+        #430
+        INTRODUCTION_TO_COMPUTER_SECURITY = "Introduction to the principles of computer security. Discussion of threats, intrusion, trust, protection, access control, and cryptography and implementation of security, confidentiality, and integrity policies."
+        #440
+        COMPUTER_GRAPHICS = "Graphic I/O devices, two-dimensional and three-dimensional display techniques, display processors, clipping and windowing, hidden line removal, data structures for graphics."
+        #445
+        DATA_AND_INFORMATION_VISUALIZATION = "Data visualization includes the visualization pipeline, basic and advanced visual data representations, fundamental and advanced visualization algorithms, visualization on the web, applications and software tools."
+        #446
+        USER_INTERFACE_DESIGN_AND_DEVELOPMENT = "The relationship of user interface design to human-computer interaction. Types of user interfaces, methods of evaluation, user-centered design and task analysis, programming tools and environments, and hardware devices."
+        #450
+        COMPUTER_NETWORK_AND_DATA_COMMUNICATIONS = "Device protocols; network configurations; encryption; data compression and security; satellite networks."
+        #445
+        ARTIFICIAL_INTELLIGENCE = "Introduction to the principles of artificial intelligence. Pattern matching, knowledge representation, natural language processing, expert systems."
+        #456
+        DATA_MINING = "Introducing concepts, models, algorithms, and tools for solving data mining tasks; decision trees, time series, Bayesian methods, k-nearest neighbors, and relational databases."
+        #457
+        COMPUTATIONAL_INTELLIGENCE_AND_MACHINE_LEARNING = "Introducing intelligent systems: artificial neural networks, deep learning, evolutionary computation, fuzzy systems, swarm intelligence, and hybridizations of the above techniques. We will look at these techniques from a machine learning perspective."
+        #460
+        SOFTWARE_ENGINEERING_FOR_MOBILE_DEVICES = "Development of stand-alone applications (apps) intended to be downloaded onto and run on mobile devices. Android and iOS is taught. Topics include XML, data and control flow diagrams, IDEs, layout design, etc."
+        #470
+        OPERATING_SYSTEMS = "Topics will include principles of operating systems, concurrency, scheduling and dispatch, memory management, processes and threads, device management, security and protection, and file systems."
+        #471
+        OPTIMIZATION = "Unimodal and Multimodal problems; combinatorial optimization problems; deterministic algorithms; Hill climbing algorithm; Tabu Search Algorithm; Evolutionary algorithms; Particle swarm optimization; Differential evolution; Single and Mutli-objective optimization."
+        #473
+        PARALLEL_COMPUTING = "Major parallel architectures and languages. Parallel programming methodologies and applications."
+        #480
+        ADVANCED_SOFTWARE_ENGINEERING = "Advanced principles and practices of software engineering, including project management, requirements gathering and specification, design, coding, testing, maintenance and documentation. Students work in teams to develop a large software project."
+        #481
+        SOFTWARE_ENGINEERING_PROJECT = "Continuation of coding, testing, and implementation phases of project begun in CS 480."
+        #489
+        SENIOR_COLLOQUIUM = "Introduction to research in computer science through investigation of ethical and historical topics in the field. End-of-major assessment activities."
+        #492
+        LABORATORY_EXPERIENCE_IN_TEACHING_COMPUTER_SCIENCE_FOUR_HUNDRED = "Supervised progressive experience in developing procedures and techniques in teaching computer science."
+
+
+        classes = {
+            "cs101" : COMPUTER_BASICS,
+            "cs102" : HEALTH_AND_TECHNOLOGY,
+            "cs105" : THE_LOGICAL_BASIS_OF_COMPUTING,
+            "cs107" : MAKE_A_GAME_WITH_COMPUTER_SCIENCE,
+            "cs109" : QUANTITATIVE_REASONING_USING_PYTHON,
+            "cs110" : PROGRAMMING_FUNDAMENTALS,
+            "cs111" : PROGRAMMING_FUNDAMENTALS_TWO,
+            "cs112" : FOUNDATIONS_OF_COMPUTER_SCIENCE,
+            "cs250" : WEB_DEVELOPMENT_TECHNOLOGIES_ONE,
+            "cs290" : COOPERATIVE_EDUCATION,
+            "cs301" : DATA_STRUCTURES,
+            "cs302" : ADVANCED_DATA_STRUCTURES_AND_FILE_PROCESSING,
+            "cs311" : COMPUTER_ARCHITECTURE_ONE,
+            "cs312" : COMPUTER_ARCHITECTURE_TWO,
+            "cs325" : TECHNICAL_WRITING_IN_COMPUTER_SCIENCE,
+            "cs351" : WEB_DEVELOPMENT_TECHNOLOGIES_TWO,
+            "cs352" : WEB_DEVELOPMENT_TECHNOLOGIES_THREE,
+            "cs361" : PRINCIPLES_OF_LANGUAGE_DESIGN_ONE,
+            "cs362" : PRINCIPLES_OF_LANGUAGE_DESIGN_TWO,
+            "cs367" : ADVANCED_VISUAL_BASIC_PROGRAMING,
+            "cs370" : INTRODUCTION_TO_THE_UNIX_OPERATING_SYSTEM,
+            "cs380" : INTRODUCTION_TO_SOFTWARE_ENGINEERING,
+            "cs392" : LAB_EXPERIENCE_IN_TEACHING_COMPUTER_SCIENCE_THREE_HUNDRED,
+            "cs420" : DATABASE_MANAGEMENT_SYSTEMS,
+            "cs427" : ALGORITHM_ANALYSIS,
+            "cs428" : INTRODUCTION_TO_GRAPH_ALGORITHMS,
+            "cs430" : INTRODUCTION_TO_COMPUTER_SECURITY,
+            "cs440" : COMPUTER_GRAPHICS,
+            "cs445" : DATA_AND_INFORMATION_VISUALIZATION,
+            "cs446" : USER_INTERFACE_DESIGN_AND_DEVELOPMENT,
+            "cs450" : COMPUTER_NETWORK_AND_DATA_COMMUNICATIONS,
+            "cs455" : ARTIFICIAL_INTELLIGENCE,
+            "cs456" : DATA_MINING,
+            "cs457" : COMPUTATIONAL_INTELLIGENCE_AND_MACHINE_LEARNING,
+            "cs460" : SOFTWARE_ENGINEERING_FOR_MOBILE_DEVICES,
+            "cs470" : OPERATING_SYSTEMS,
+            "cs471" : OPTIMIZATION,
+            "cs473" : PARALLEL_COMPUTING,
+            "cs480" : ADVANCED_SOFTWARE_ENGINEERING,
+            "cs481" : SOFTWARE_ENGINEERING_PROJECT,
+            "cs489" : SENIOR_COLLOQUIUM,
+            "cs492" : LABORATORY_EXPERIENCE_IN_TEACHING_COMPUTER_SCIENCE_FOUR_HUNDRED
+        }
+
+        # NEW CODE HERE (KILL US NOW PLS)
+
+        tts = ALProxy("ALTextToSpeech")
+
+        tts.say(classes[className])
+
+        self.onStopped()
+
+    def onInput_onStop(self):
+        self.onUnload() #it is recommended to reuse the clean-up as the box is stopped
+        self.onStopped() #activate the output of the box
+
+    def onInput_className(self, p):
+        global className
+
+        if p == "Computer Basics" or p == "one oh one":
+            className = "cs101"
+        elif p == "Health and Technology" or p == "one oh two":
+            className = "cs102"
+        elif p == "Logical Basis of Computing" or p == "one oh five":
+            className = "cs105"
+        elif p == "Make a Game with Computer Science" or p == "one oh seven":
+            className = "cs107"
+        elif p == "Quantitative Reasoning Using Python" or p == "one oh nine":
+            className = "cs109"
+        elif p == "Programming Fundamentals One" or p == "one ten":
+            className = "cs110"
+        elif p == "Programming Fundamentals Two" or p == "one eleven":
+            className = "cs111"
+        elif p == "Foundations of Computer Science" or p == "one twelve":
+            className = "cs112"
+        elif p == "Web Development Technologies One" or p == "two fifty":
+            className = "cs250"
+        elif p == "Cooperative Education" or p == "two ninety":
+            className = "cs290"
+        elif p == "Special Topics Two Hundred" or p == "two ninety eight":
+            className = "cs298"
+        elif p == "Seminar Two Hundred" or p == "two ninety nine":
+            className = "cs299"
+        elif p == "Data Structures" or p == "three oh one":
+            className = "cs301"
+        elif p == "Advanced Data Structures and File Processing" or p == "three oh two":
+            className = "cs302"
+        elif p == "Computer Architecture One" or p == "three eleven":
+            className = "cs311"
+        elif p == "Computer Architecture Two" or p == "three twelve":
+            className = "cs312"
+        elif p == "Technical Writing in Computer Science" or p == "three twenty five":
+            className = "cs325"
+        elif p == "Web Development Technologies Two" or p == "three fifty one":
+            className = "cs351"
+        elif p == "Web Development Technologies Three" or p == "three fifty two":
+            className = "cs352"
+        elif p == "Principles of Language Design One" or p == "three sixty one":
+            className = "cs361"
+        elif p == "Principles of Language Design Two" or p == "three sixty two":
+            className = "cs362"
+        elif p == "Advanced Visual Basic Programming" or p == "three sixty seven":
+            className = "cs367"
+        elif p == "Introduction to the Unix Operating System" or p == "three seventy":
+            className = "cs370"
+        elif p == "Introduction to Software Engineering" or p == "three eighty":
+            className = "cs380"
+        elif p == "Lab Experience in Teaching Computer Science Three Hundred" or p == "three ninety two":
+            className = "cs392"
+        elif p == "Individual Study Three Hundred" or p == "three ninety six":
+            className = "cs396"
+        elif p == "Honors Three Hundred" or p == "three ninety seven":
+            className = "cs397"
+        elif p == "Special Topics Three Hundred" or p == "three ninety eight":
+            className = "cs398"
+        elif p == "Seminar Thee Hundred" or p == "three ninety nine":
+            className = "cs399"
+        elif p == "Database Management Systems" or p == "four twenty":
+            className = "cs420"
+        elif p == "Algorithm Analysis" or p == "four twenty seven":
+            className = "cs427"
+        elif p == "Introduction to Graph Algorithms" or p == "four twenty eight":
+            className = "cs428"
+        elif p == "Introduction to Computer Security" or p == "four thirty":
+            className = "cs430"
+        elif p == "Computer Graphics" or p == "four forty":
+            className = "cs440"
+        elif p == "Computer Graphics Two" or p == "four forty one":
+            className = "cs441"
+        elif p == "Data and Information Visualization" or p == "four forty five":
+            className = "cs445"
+        elif p == "User Interface Design and Development" or p == "four forty six":
+            className = "cs446"
+        elif p == "Computer Networks and Communications" or p == "four fifty":
+            className = "cs450"
+        elif p == "Artificial Intelligence" or p == "four fifty five":
+            className = "cs455"
+        elif p == "Data Mining" or p == "four fifty six":
+            className = "cs456"
+        elif p == "Computational Intelligence and Machine Learning" or p == "four fifty seven":
+            className = "cs457"
+        elif p == "Software Engineering for Mobile Devices" or p == "four sixty":
+            className = "cs460"
+        elif p == "Operating Systems" or p == "four seventy":
+            className = "cs470"
+        elif p == "Optimization" or p == "four seventy one":
+            className = "cs471"
+        elif p == "Parallel Computing" or p == "four seventy three":
+            className = "cs473"
+        elif p == "Programming for Distributed Systems" or p == "four seventy five":
+            className = "cs475"
+        elif p == "Social Informatics for Computer Science" or p == "four seventy six":
+            className = "cs476"
+        elif p == "Advanced Software Engineering" or p == "four eighty":
+            className = "cs480"
+        elif p == "Software Engineering Project" or p == "four eighty one":
+            className = "cs481"
+        elif p == "Senior Colloquium" or p == "four eighty nine":
+            className = "cs489"
+        elif p == "Cooperative Education" or p == "four ninety":
+            className = "cs490"
+        elif p == "Workshop Four Hundred" or p == "four ninety one":
+            className = "cs491"
+        elif p == "Laboratory Experience in Teaching Computer Science Four Hundred" or p == "four ninety two":
+            className = "cs492"
+        elif p == "Practicum" or p == "four ninety three":
+            className = "cs493"
+        elif p == "Directed Research Four Hundred" or p == "four ninety five":
+            className = "cs495"
+        elif p == "Individual Study Four Hundred" or p == "four ninety six":
+            className = "cs496"
+        elif p == "Honors Four Hundred" or p == "four ninety seven":
+            className = "cs497"
+        elif p == "Special Topics Four Hundred" or p == "four ninety eight":
+            className = "cs498"
+        elif p == "Seminar Four Hundred" or p == "four ninety nine":
+            className = "cs499"]]>
+                </content>
+              </script>
+              <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when diagram is loaded." id="1" />
+              <Input name="onStart" type="1" type_size="1" nature="2" inner="0" tooltip="Box behavior starts when a signal is received on this input." id="2" />
+              <Input name="onStop" type="1" type_size="1" nature="3" inner="0" tooltip="Box behavior stops when a signal is received on this input." id="3" />
+              <Input name="className" type="3" type_size="1" nature="1" inner="0" tooltip="The name of the class being requested" id="4" />
+              <Output name="onStopped" type="1" type_size="1" nature="1" inner="0" tooltip="Signal sent when box behavior is finished." id="5" />
+            </Box>
+            <Box name="Ask again" id="6" localization="8" tooltip="Say some text. The text can be localized." x="251" y="389">
               <bitmap>media/images/box/interaction/say.png</bitmap>
               <script language="4">
                 <content>
@@ -270,546 +599,50 @@ class MyClass(GeneratedClass):
               <Output name="onStopped" type="1" type_size="1" nature="1" inner="0" tooltip="Signal sent when Box behavior is finished." id="4" />
               <Parameter name="Voice shaping (%)" inherits_from_parent="1" content_type="1" value="100" default_value="100" min="50" max="150" tooltip='Used to modify at runtime the voice feature (tone, speed). In a slighty&#x0A;different way than pitch and speed, it gives a kind of &quot;gender or age&#x0A;modification&quot; effect.&#x0A;&#x0A;For instance, a quite good male derivation of female voice can be&#x0A;obtained setting this parameter to 78%.&#x0A;&#x0A;Note: For a better effect, you can compensate this parameter with the&#x0A;speed parameter. For example, if you want to decrease by 20% the voice&#x0A;shaping, you will have to increase by 20% the speed to keep a constant&#x0A;average speed.' id="5" />
               <Parameter name="Speed (%)" inherits_from_parent="1" content_type="1" value="100" default_value="100" min="50" max="200" tooltip="Changes the speed of the voice.&#x0A;&#x0A;Note: For a better effect, you can compensate this parameter with the voice&#x0A;shaping parameter. For example, if you want to increase by 20% the speed, you&#x0A;will have to decrease by 20% the voice shaping to keep a constant average&#x0A;speed." id="6" />
-              <Parameter name="Text" inherits_from_parent="0" content_type="5" value="Oh! C S one ten. That was there I learned all the basics. Good times back then." default_value="" tooltip="The text you want to say. Don&apos;t forget to translate it!" id="7" />
+              <Parameter name="Text" inherits_from_parent="0" content_type="5" value="What other class would you like to know about?" default_value="" tooltip="The text you want to say. Don&apos;t forget to translate it!" id="7" />
               <Resource name="Speech" type="Lock" timeout="0" />
             </Box>
-            <Box name="CS301" id="5" localization="8" tooltip="Say some text. The text can be localized." x="849" y="385">
-              <bitmap>media/images/box/interaction/say.png</bitmap>
+            <Box name="Goodbye" id="2" localization="8" tooltip="See ya later nerds" x="502" y="35">
+              <bitmap>media/images/box/box-python-script.png</bitmap>
               <script language="4">
                 <content>
-                  <![CDATA[import time
-
-class MyClass(GeneratedClass):
+                  <![CDATA[class MyClass(GeneratedClass):
     def __init__(self):
-        GeneratedClass.__init__(self, False)
+        GeneratedClass.__init__(self)
 
     def onLoad(self):
-        self.tts = self.session().service('ALTextToSpeech')
-        self.ttsStop = self.session().service('ALTextToSpeech') #Create another service as wait is blocking if audioout is remote
-        self.bIsRunning = False
-        self.ids = []
+        #put initialization code here
+        pass
 
     def onUnload(self):
-        for id in self.ids:
-            try:
-                self.ttsStop.stop(id)
-            except:
-                pass
-        while( self.bIsRunning ):
-            time.sleep( 0.2 )
+        #put clean-up code here
+        pass
 
     def onInput_onStart(self):
-        self.bIsRunning = True
-        try:
-            sentence = "\RSPD="+ str( self.getParameter("Speed (%)") ) + "\ "
-            sentence += "\VCT="+ str( self.getParameter("Voice shaping (%)") ) + "\ "
-            sentence += self.getParameter("Text")
-            sentence +=  "\RST\ "
-            id = self.tts.pCall("say",str(sentence))
-            self.ids.append(id)
-            self.tts.wait(id)
-        finally:
-            try:
-                self.ids.remove(id)
-            except:
-                pass
-            if( self.ids == [] ):
-                self.onStopped() # activate output of the box
-                self.bIsRunning = False
+        tts = ALProxy("ALTextToSpeech")
+        tts.say("Thank you for asking about our classes, have a nice day!")
+        self.onStopped()
 
     def onInput_onStop(self):
-        self.onUnload()]]>
+        self.onUnload() #it is recommended to reuse the clean-up as the box is stopped
+        self.onStopped() #activate the output of the box]]>
                 </content>
               </script>
-              <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when Diagram is loaded." id="1" />
-              <Input name="onStart" type="1" type_size="1" nature="2" inner="0" tooltip="Box behavior starts when a signal is received on this Input." id="2" />
-              <Input name="onStop" type="1" type_size="1" nature="3" inner="0" tooltip="Box behavior stops when a signal is received on this Input." id="3" />
-              <Output name="onStopped" type="1" type_size="1" nature="1" inner="0" tooltip="Signal sent when Box behavior is finished." id="4" />
-              <Parameter name="Voice shaping (%)" inherits_from_parent="1" content_type="1" value="100" default_value="100" min="50" max="150" tooltip='Used to modify at runtime the voice feature (tone, speed). In a slighty&#x0A;different way than pitch and speed, it gives a kind of &quot;gender or age&#x0A;modification&quot; effect.&#x0A;&#x0A;For instance, a quite good male derivation of female voice can be&#x0A;obtained setting this parameter to 78%.&#x0A;&#x0A;Note: For a better effect, you can compensate this parameter with the&#x0A;speed parameter. For example, if you want to decrease by 20% the voice&#x0A;shaping, you will have to increase by 20% the speed to keep a constant&#x0A;average speed.' id="5" />
-              <Parameter name="Speed (%)" inherits_from_parent="1" content_type="1" value="100" default_value="100" min="50" max="200" tooltip="Changes the speed of the voice.&#x0A;&#x0A;Note: For a better effect, you can compensate this parameter with the voice&#x0A;shaping parameter. For example, if you want to increase by 20% the speed, you&#x0A;will have to decrease by 20% the voice shaping to keep a constant average&#x0A;speed." id="6" />
-              <Parameter name="Text" inherits_from_parent="0" content_type="5" value="C S 3 0 1 was great! Data structures are super important." default_value="" tooltip="The text you want to say. Don&apos;t forget to translate it!" id="7" />
-              <Resource name="Speech" type="Lock" timeout="0" />
-            </Box>
-            <Box name="Say" id="6" localization="8" tooltip="Say some text. The text can be localized." x="172" y="302">
-              <bitmap>media/images/box/interaction/say.png</bitmap>
-              <script language="4">
-                <content>
-                  <![CDATA[import time
-
-class MyClass(GeneratedClass):
-    def __init__(self):
-        GeneratedClass.__init__(self, False)
-
-    def onLoad(self):
-        self.tts = self.session().service('ALTextToSpeech')
-        self.ttsStop = self.session().service('ALTextToSpeech') #Create another service as wait is blocking if audioout is remote
-        self.bIsRunning = False
-        self.ids = []
-
-    def onUnload(self):
-        for id in self.ids:
-            try:
-                self.ttsStop.stop(id)
-            except:
-                pass
-        while( self.bIsRunning ):
-            time.sleep( 0.2 )
-
-    def onInput_onStart(self):
-        self.bIsRunning = True
-        try:
-            sentence = "\RSPD="+ str( self.getParameter("Speed (%)") ) + "\ "
-            sentence += "\VCT="+ str( self.getParameter("Voice shaping (%)") ) + "\ "
-            sentence += self.getParameter("Text")
-            sentence +=  "\RST\ "
-            id = self.tts.pCall("say",str(sentence))
-            self.ids.append(id)
-            self.tts.wait(id)
-        finally:
-            try:
-                self.ids.remove(id)
-            except:
-                pass
-            if( self.ids == [] ):
-                self.onStopped() # activate output of the box
-                self.bIsRunning = False
-
-    def onInput_onStop(self):
-        self.onUnload()]]>
-                </content>
-              </script>
-              <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when Diagram is loaded." id="1" />
-              <Input name="onStart" type="1" type_size="1" nature="2" inner="0" tooltip="Box behavior starts when a signal is received on this Input." id="2" />
-              <Input name="onStop" type="1" type_size="1" nature="3" inner="0" tooltip="Box behavior stops when a signal is received on this Input." id="3" />
-              <Output name="onStopped" type="1" type_size="1" nature="1" inner="0" tooltip="Signal sent when Box behavior is finished." id="4" />
-              <Parameter name="Voice shaping (%)" inherits_from_parent="1" content_type="1" value="100" default_value="100" min="50" max="150" tooltip='Used to modify at runtime the voice feature (tone, speed). In a slighty&#x0A;different way than pitch and speed, it gives a kind of &quot;gender or age&#x0A;modification&quot; effect.&#x0A;&#x0A;For instance, a quite good male derivation of female voice can be&#x0A;obtained setting this parameter to 78%.&#x0A;&#x0A;Note: For a better effect, you can compensate this parameter with the&#x0A;speed parameter. For example, if you want to decrease by 20% the voice&#x0A;shaping, you will have to increase by 20% the speed to keep a constant&#x0A;average speed.' id="5" />
-              <Parameter name="Speed (%)" inherits_from_parent="1" content_type="1" value="100" default_value="100" min="50" max="200" tooltip="Changes the speed of the voice.&#x0A;&#x0A;Note: For a better effect, you can compensate this parameter with the voice&#x0A;shaping parameter. For example, if you want to increase by 20% the speed, you&#x0A;will have to decrease by 20% the voice shaping to keep a constant average&#x0A;speed." id="6" />
-              <Parameter name="Text" inherits_from_parent="0" content_type="5" value="I didn&apos;t quite catch that. Please say the class again." default_value="" tooltip="The text you want to say. Don&apos;t forget to translate it!" id="7" />
-              <Resource name="Speech" type="Lock" timeout="0" />
-            </Box>
-            <Box name="CS111" id="7" localization="8" tooltip="Say some text. The text can be localized." x="838" y="107">
-              <bitmap>media/images/box/interaction/say.png</bitmap>
-              <script language="4">
-                <content>
-                  <![CDATA[import time
-
-class MyClass(GeneratedClass):
-    def __init__(self):
-        GeneratedClass.__init__(self, False)
-
-    def onLoad(self):
-        self.tts = self.session().service('ALTextToSpeech')
-        self.ttsStop = self.session().service('ALTextToSpeech') #Create another service as wait is blocking if audioout is remote
-        self.bIsRunning = False
-        self.ids = []
-
-    def onUnload(self):
-        for id in self.ids:
-            try:
-                self.ttsStop.stop(id)
-            except:
-                pass
-        while( self.bIsRunning ):
-            time.sleep( 0.2 )
-
-    def onInput_onStart(self):
-        self.bIsRunning = True
-        try:
-            sentence = "\RSPD="+ str( self.getParameter("Speed (%)") ) + "\ "
-            sentence += "\VCT="+ str( self.getParameter("Voice shaping (%)") ) + "\ "
-            sentence += self.getParameter("Text")
-            sentence +=  "\RST\ "
-            id = self.tts.pCall("say",str(sentence))
-            self.ids.append(id)
-            self.tts.wait(id)
-        finally:
-            try:
-                self.ids.remove(id)
-            except:
-                pass
-            if( self.ids == [] ):
-                self.onStopped() # activate output of the box
-                self.bIsRunning = False
-
-    def onInput_onStop(self):
-        self.onUnload()]]>
-                </content>
-              </script>
-              <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when Diagram is loaded." id="1" />
-              <Input name="onStart" type="1" type_size="1" nature="2" inner="0" tooltip="Box behavior starts when a signal is received on this Input." id="2" />
-              <Input name="onStop" type="1" type_size="1" nature="3" inner="0" tooltip="Box behavior stops when a signal is received on this Input." id="3" />
-              <Output name="onStopped" type="1" type_size="1" nature="1" inner="0" tooltip="Signal sent when Box behavior is finished." id="4" />
-              <Parameter name="Voice shaping (%)" inherits_from_parent="1" content_type="1" value="100" default_value="100" min="50" max="150" tooltip='Used to modify at runtime the voice feature (tone, speed). In a slighty&#x0A;different way than pitch and speed, it gives a kind of &quot;gender or age&#x0A;modification&quot; effect.&#x0A;&#x0A;For instance, a quite good male derivation of female voice can be&#x0A;obtained setting this parameter to 78%.&#x0A;&#x0A;Note: For a better effect, you can compensate this parameter with the&#x0A;speed parameter. For example, if you want to decrease by 20% the voice&#x0A;shaping, you will have to increase by 20% the speed to keep a constant&#x0A;average speed.' id="5" />
-              <Parameter name="Speed (%)" inherits_from_parent="1" content_type="1" value="100" default_value="100" min="50" max="200" tooltip="Changes the speed of the voice.&#x0A;&#x0A;Note: For a better effect, you can compensate this parameter with the voice&#x0A;shaping parameter. For example, if you want to increase by 20% the speed, you&#x0A;will have to decrease by 20% the voice shaping to keep a constant average&#x0A;speed." id="6" />
-              <Parameter name="Text" inherits_from_parent="0" content_type="5" value="Oh! C S one eleven. That was the second C S class that I took. I learned about recursion and other fun topics." default_value="" tooltip="The text you want to say. Don&apos;t forget to translate it!" id="7" />
-              <Resource name="Speech" type="Lock" timeout="0" />
-            </Box>
-            <Box name="CS112" id="8" localization="8" tooltip="Say some text. The text can be localized." x="840" y="200">
-              <bitmap>media/images/box/interaction/say.png</bitmap>
-              <script language="4">
-                <content>
-                  <![CDATA[import time
-
-class MyClass(GeneratedClass):
-    def __init__(self):
-        GeneratedClass.__init__(self, False)
-
-    def onLoad(self):
-        self.tts = self.session().service('ALTextToSpeech')
-        self.ttsStop = self.session().service('ALTextToSpeech') #Create another service as wait is blocking if audioout is remote
-        self.bIsRunning = False
-        self.ids = []
-
-    def onUnload(self):
-        for id in self.ids:
-            try:
-                self.ttsStop.stop(id)
-            except:
-                pass
-        while( self.bIsRunning ):
-            time.sleep( 0.2 )
-
-    def onInput_onStart(self):
-        self.bIsRunning = True
-        try:
-            sentence = "\RSPD="+ str( self.getParameter("Speed (%)") ) + "\ "
-            sentence += "\VCT="+ str( self.getParameter("Voice shaping (%)") ) + "\ "
-            sentence += self.getParameter("Text")
-            sentence +=  "\RST\ "
-            id = self.tts.pCall("say",str(sentence))
-            self.ids.append(id)
-            self.tts.wait(id)
-        finally:
-            try:
-                self.ids.remove(id)
-            except:
-                pass
-            if( self.ids == [] ):
-                self.onStopped() # activate output of the box
-                self.bIsRunning = False
-
-    def onInput_onStop(self):
-        self.onUnload()]]>
-                </content>
-              </script>
-              <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when Diagram is loaded." id="1" />
-              <Input name="onStart" type="1" type_size="1" nature="2" inner="0" tooltip="Box behavior starts when a signal is received on this Input." id="2" />
-              <Input name="onStop" type="1" type_size="1" nature="3" inner="0" tooltip="Box behavior stops when a signal is received on this Input." id="3" />
-              <Output name="onStopped" type="1" type_size="1" nature="1" inner="0" tooltip="Signal sent when Box behavior is finished." id="4" />
-              <Parameter name="Voice shaping (%)" inherits_from_parent="1" content_type="1" value="100" default_value="100" min="50" max="150" tooltip='Used to modify at runtime the voice feature (tone, speed). In a slighty&#x0A;different way than pitch and speed, it gives a kind of &quot;gender or age&#x0A;modification&quot; effect.&#x0A;&#x0A;For instance, a quite good male derivation of female voice can be&#x0A;obtained setting this parameter to 78%.&#x0A;&#x0A;Note: For a better effect, you can compensate this parameter with the&#x0A;speed parameter. For example, if you want to decrease by 20% the voice&#x0A;shaping, you will have to increase by 20% the speed to keep a constant&#x0A;average speed.' id="5" />
-              <Parameter name="Speed (%)" inherits_from_parent="1" content_type="1" value="100" default_value="100" min="50" max="200" tooltip="Changes the speed of the voice.&#x0A;&#x0A;Note: For a better effect, you can compensate this parameter with the voice&#x0A;shaping parameter. For example, if you want to increase by 20% the speed, you&#x0A;will have to decrease by 20% the voice shaping to keep a constant average&#x0A;speed." id="6" />
-              <Parameter name="Text" inherits_from_parent="0" content_type="5" value="In C S one twelve I learned about robots. That was sort of creepy!" default_value="" tooltip="The text you want to say. Don&apos;t forget to translate it!" id="7" />
-              <Resource name="Speech" type="Lock" timeout="0" />
-            </Box>
-            <Box name="CS250" id="9" localization="8" tooltip="Say some text. The text can be localized." x="843" y="292">
-              <bitmap>media/images/box/interaction/say.png</bitmap>
-              <script language="4">
-                <content>
-                  <![CDATA[import time
-
-class MyClass(GeneratedClass):
-    def __init__(self):
-        GeneratedClass.__init__(self, False)
-
-    def onLoad(self):
-        self.tts = self.session().service('ALTextToSpeech')
-        self.ttsStop = self.session().service('ALTextToSpeech') #Create another service as wait is blocking if audioout is remote
-        self.bIsRunning = False
-        self.ids = []
-
-    def onUnload(self):
-        for id in self.ids:
-            try:
-                self.ttsStop.stop(id)
-            except:
-                pass
-        while( self.bIsRunning ):
-            time.sleep( 0.2 )
-
-    def onInput_onStart(self):
-        self.bIsRunning = True
-        try:
-            sentence = "\RSPD="+ str( self.getParameter("Speed (%)") ) + "\ "
-            sentence += "\VCT="+ str( self.getParameter("Voice shaping (%)") ) + "\ "
-            sentence += self.getParameter("Text")
-            sentence +=  "\RST\ "
-            id = self.tts.pCall("say",str(sentence))
-            self.ids.append(id)
-            self.tts.wait(id)
-        finally:
-            try:
-                self.ids.remove(id)
-            except:
-                pass
-            if( self.ids == [] ):
-                self.onStopped() # activate output of the box
-                self.bIsRunning = False
-
-    def onInput_onStop(self):
-        self.onUnload()]]>
-                </content>
-              </script>
-              <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when Diagram is loaded." id="1" />
-              <Input name="onStart" type="1" type_size="1" nature="2" inner="0" tooltip="Box behavior starts when a signal is received on this Input." id="2" />
-              <Input name="onStop" type="1" type_size="1" nature="3" inner="0" tooltip="Box behavior stops when a signal is received on this Input." id="3" />
-              <Output name="onStopped" type="1" type_size="1" nature="1" inner="0" tooltip="Signal sent when Box behavior is finished." id="4" />
-              <Parameter name="Voice shaping (%)" inherits_from_parent="1" content_type="1" value="100" default_value="100" min="50" max="150" tooltip='Used to modify at runtime the voice feature (tone, speed). In a slighty&#x0A;different way than pitch and speed, it gives a kind of &quot;gender or age&#x0A;modification&quot; effect.&#x0A;&#x0A;For instance, a quite good male derivation of female voice can be&#x0A;obtained setting this parameter to 78%.&#x0A;&#x0A;Note: For a better effect, you can compensate this parameter with the&#x0A;speed parameter. For example, if you want to decrease by 20% the voice&#x0A;shaping, you will have to increase by 20% the speed to keep a constant&#x0A;average speed.' id="5" />
-              <Parameter name="Speed (%)" inherits_from_parent="1" content_type="1" value="100" default_value="100" min="50" max="200" tooltip="Changes the speed of the voice.&#x0A;&#x0A;Note: For a better effect, you can compensate this parameter with the voice&#x0A;shaping parameter. For example, if you want to increase by 20% the speed, you&#x0A;will have to decrease by 20% the voice shaping to keep a constant average&#x0A;speed." id="6" />
-              <Parameter name="Text" inherits_from_parent="0" content_type="5" value="In C S two fifty I learned the basics of web development. I love H T M L!" default_value="" tooltip="The text you want to say. Don&apos;t forget to translate it!" id="7" />
-              <Resource name="Speech" type="Lock" timeout="0" />
-            </Box>
-            <Box name="CS302" id="10" localization="8" tooltip="Say some text. The text can be localized." x="854" y="477">
-              <bitmap>media/images/box/interaction/say.png</bitmap>
-              <script language="4">
-                <content>
-                  <![CDATA[import time
-
-class MyClass(GeneratedClass):
-    def __init__(self):
-        GeneratedClass.__init__(self, False)
-
-    def onLoad(self):
-        self.tts = self.session().service('ALTextToSpeech')
-        self.ttsStop = self.session().service('ALTextToSpeech') #Create another service as wait is blocking if audioout is remote
-        self.bIsRunning = False
-        self.ids = []
-
-    def onUnload(self):
-        for id in self.ids:
-            try:
-                self.ttsStop.stop(id)
-            except:
-                pass
-        while( self.bIsRunning ):
-            time.sleep( 0.2 )
-
-    def onInput_onStart(self):
-        self.bIsRunning = True
-        try:
-            sentence = "\RSPD="+ str( self.getParameter("Speed (%)") ) + "\ "
-            sentence += "\VCT="+ str( self.getParameter("Voice shaping (%)") ) + "\ "
-            sentence += self.getParameter("Text")
-            sentence +=  "\RST\ "
-            id = self.tts.pCall("say",str(sentence))
-            self.ids.append(id)
-            self.tts.wait(id)
-        finally:
-            try:
-                self.ids.remove(id)
-            except:
-                pass
-            if( self.ids == [] ):
-                self.onStopped() # activate output of the box
-                self.bIsRunning = False
-
-    def onInput_onStop(self):
-        self.onUnload()]]>
-                </content>
-              </script>
-              <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when Diagram is loaded." id="1" />
-              <Input name="onStart" type="1" type_size="1" nature="2" inner="0" tooltip="Box behavior starts when a signal is received on this Input." id="2" />
-              <Input name="onStop" type="1" type_size="1" nature="3" inner="0" tooltip="Box behavior stops when a signal is received on this Input." id="3" />
-              <Output name="onStopped" type="1" type_size="1" nature="1" inner="0" tooltip="Signal sent when Box behavior is finished." id="4" />
-              <Parameter name="Voice shaping (%)" inherits_from_parent="1" content_type="1" value="100" default_value="100" min="50" max="150" tooltip='Used to modify at runtime the voice feature (tone, speed). In a slighty&#x0A;different way than pitch and speed, it gives a kind of &quot;gender or age&#x0A;modification&quot; effect.&#x0A;&#x0A;For instance, a quite good male derivation of female voice can be&#x0A;obtained setting this parameter to 78%.&#x0A;&#x0A;Note: For a better effect, you can compensate this parameter with the&#x0A;speed parameter. For example, if you want to decrease by 20% the voice&#x0A;shaping, you will have to increase by 20% the speed to keep a constant&#x0A;average speed.' id="5" />
-              <Parameter name="Speed (%)" inherits_from_parent="1" content_type="1" value="100" default_value="100" min="50" max="200" tooltip="Changes the speed of the voice.&#x0A;&#x0A;Note: For a better effect, you can compensate this parameter with the voice&#x0A;shaping parameter. For example, if you want to increase by 20% the speed, you&#x0A;will have to decrease by 20% the voice shaping to keep a constant average&#x0A;speed." id="6" />
-              <Parameter name="Text" inherits_from_parent="0" content_type="5" value="C S 3 0 2 helped me learn a lot more about trees, searching, and sorting. Those labs were tough!" default_value="" tooltip="The text you want to say. Don&apos;t forget to translate it!" id="7" />
-              <Resource name="Speech" type="Lock" timeout="0" />
-            </Box>
-            <Box name="CS311" id="11" localization="8" tooltip="Say some text. The text can be localized." x="860" y="568">
-              <bitmap>media/images/box/interaction/say.png</bitmap>
-              <script language="4">
-                <content>
-                  <![CDATA[import time
-
-class MyClass(GeneratedClass):
-    def __init__(self):
-        GeneratedClass.__init__(self, False)
-
-    def onLoad(self):
-        self.tts = self.session().service('ALTextToSpeech')
-        self.ttsStop = self.session().service('ALTextToSpeech') #Create another service as wait is blocking if audioout is remote
-        self.bIsRunning = False
-        self.ids = []
-
-    def onUnload(self):
-        for id in self.ids:
-            try:
-                self.ttsStop.stop(id)
-            except:
-                pass
-        while( self.bIsRunning ):
-            time.sleep( 0.2 )
-
-    def onInput_onStart(self):
-        self.bIsRunning = True
-        try:
-            sentence = "\RSPD="+ str( self.getParameter("Speed (%)") ) + "\ "
-            sentence += "\VCT="+ str( self.getParameter("Voice shaping (%)") ) + "\ "
-            sentence += self.getParameter("Text")
-            sentence +=  "\RST\ "
-            id = self.tts.pCall("say",str(sentence))
-            self.ids.append(id)
-            self.tts.wait(id)
-        finally:
-            try:
-                self.ids.remove(id)
-            except:
-                pass
-            if( self.ids == [] ):
-                self.onStopped() # activate output of the box
-                self.bIsRunning = False
-
-    def onInput_onStop(self):
-        self.onUnload()]]>
-                </content>
-              </script>
-              <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when Diagram is loaded." id="1" />
-              <Input name="onStart" type="1" type_size="1" nature="2" inner="0" tooltip="Box behavior starts when a signal is received on this Input." id="2" />
-              <Input name="onStop" type="1" type_size="1" nature="3" inner="0" tooltip="Box behavior stops when a signal is received on this Input." id="3" />
-              <Output name="onStopped" type="1" type_size="1" nature="1" inner="0" tooltip="Signal sent when Box behavior is finished." id="4" />
-              <Parameter name="Voice shaping (%)" inherits_from_parent="1" content_type="1" value="100" default_value="100" min="50" max="150" tooltip='Used to modify at runtime the voice feature (tone, speed). In a slighty&#x0A;different way than pitch and speed, it gives a kind of &quot;gender or age&#x0A;modification&quot; effect.&#x0A;&#x0A;For instance, a quite good male derivation of female voice can be&#x0A;obtained setting this parameter to 78%.&#x0A;&#x0A;Note: For a better effect, you can compensate this parameter with the&#x0A;speed parameter. For example, if you want to decrease by 20% the voice&#x0A;shaping, you will have to increase by 20% the speed to keep a constant&#x0A;average speed.' id="5" />
-              <Parameter name="Speed (%)" inherits_from_parent="1" content_type="1" value="100" default_value="100" min="50" max="200" tooltip="Changes the speed of the voice.&#x0A;&#x0A;Note: For a better effect, you can compensate this parameter with the voice&#x0A;shaping parameter. For example, if you want to increase by 20% the speed, you&#x0A;will have to decrease by 20% the voice shaping to keep a constant average&#x0A;speed." id="6" />
-              <Parameter name="Text" inherits_from_parent="0" content_type="5" value="three eleven was a tough class. You will learn all about computer architecture and the assembly language!" default_value="" tooltip="The text you want to say. Don&apos;t forget to translate it!" id="7" />
-              <Resource name="Speech" type="Lock" timeout="0" />
-            </Box>
-            <Box name="CS312" id="12" localization="8" tooltip="Say some text. The text can be localized." x="863" y="661">
-              <bitmap>media/images/box/interaction/say.png</bitmap>
-              <script language="4">
-                <content>
-                  <![CDATA[import time
-
-class MyClass(GeneratedClass):
-    def __init__(self):
-        GeneratedClass.__init__(self, False)
-
-    def onLoad(self):
-        self.tts = self.session().service('ALTextToSpeech')
-        self.ttsStop = self.session().service('ALTextToSpeech') #Create another service as wait is blocking if audioout is remote
-        self.bIsRunning = False
-        self.ids = []
-
-    def onUnload(self):
-        for id in self.ids:
-            try:
-                self.ttsStop.stop(id)
-            except:
-                pass
-        while( self.bIsRunning ):
-            time.sleep( 0.2 )
-
-    def onInput_onStart(self):
-        self.bIsRunning = True
-        try:
-            sentence = "\RSPD="+ str( self.getParameter("Speed (%)") ) + "\ "
-            sentence += "\VCT="+ str( self.getParameter("Voice shaping (%)") ) + "\ "
-            sentence += self.getParameter("Text")
-            sentence +=  "\RST\ "
-            id = self.tts.pCall("say",str(sentence))
-            self.ids.append(id)
-            self.tts.wait(id)
-        finally:
-            try:
-                self.ids.remove(id)
-            except:
-                pass
-            if( self.ids == [] ):
-                self.onStopped() # activate output of the box
-                self.bIsRunning = False
-
-    def onInput_onStop(self):
-        self.onUnload()]]>
-                </content>
-              </script>
-              <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when Diagram is loaded." id="1" />
-              <Input name="onStart" type="1" type_size="1" nature="2" inner="0" tooltip="Box behavior starts when a signal is received on this Input." id="2" />
-              <Input name="onStop" type="1" type_size="1" nature="3" inner="0" tooltip="Box behavior stops when a signal is received on this Input." id="3" />
-              <Output name="onStopped" type="1" type_size="1" nature="1" inner="0" tooltip="Signal sent when Box behavior is finished." id="4" />
-              <Parameter name="Voice shaping (%)" inherits_from_parent="1" content_type="1" value="100" default_value="100" min="50" max="150" tooltip='Used to modify at runtime the voice feature (tone, speed). In a slighty&#x0A;different way than pitch and speed, it gives a kind of &quot;gender or age&#x0A;modification&quot; effect.&#x0A;&#x0A;For instance, a quite good male derivation of female voice can be&#x0A;obtained setting this parameter to 78%.&#x0A;&#x0A;Note: For a better effect, you can compensate this parameter with the&#x0A;speed parameter. For example, if you want to decrease by 20% the voice&#x0A;shaping, you will have to increase by 20% the speed to keep a constant&#x0A;average speed.' id="5" />
-              <Parameter name="Speed (%)" inherits_from_parent="1" content_type="1" value="100" default_value="100" min="50" max="200" tooltip="Changes the speed of the voice.&#x0A;&#x0A;Note: For a better effect, you can compensate this parameter with the voice&#x0A;shaping parameter. For example, if you want to increase by 20% the speed, you&#x0A;will have to decrease by 20% the voice shaping to keep a constant average&#x0A;speed." id="6" />
-              <Parameter name="Text" inherits_from_parent="0" content_type="5" value="C S three twelve was very interesting. You will learn about topics like digital circuits, memory, and central processing units." default_value="" tooltip="The text you want to say. Don&apos;t forget to translate it!" id="7" />
-              <Resource name="Speech" type="Lock" timeout="0" />
-            </Box>
-            <Box name="CS325" id="13" localization="8" tooltip="Say some text. The text can be localized." x="870" y="753">
-              <bitmap>media/images/box/interaction/say.png</bitmap>
-              <script language="4">
-                <content>
-                  <![CDATA[import time
-
-class MyClass(GeneratedClass):
-    def __init__(self):
-        GeneratedClass.__init__(self, False)
-
-    def onLoad(self):
-        self.tts = self.session().service('ALTextToSpeech')
-        self.ttsStop = self.session().service('ALTextToSpeech') #Create another service as wait is blocking if audioout is remote
-        self.bIsRunning = False
-        self.ids = []
-
-    def onUnload(self):
-        for id in self.ids:
-            try:
-                self.ttsStop.stop(id)
-            except:
-                pass
-        while( self.bIsRunning ):
-            time.sleep( 0.2 )
-
-    def onInput_onStart(self):
-        self.bIsRunning = True
-        try:
-            sentence = "\RSPD="+ str( self.getParameter("Speed (%)") ) + "\ "
-            sentence += "\VCT="+ str( self.getParameter("Voice shaping (%)") ) + "\ "
-            sentence += self.getParameter("Text")
-            sentence +=  "\RST\ "
-            id = self.tts.pCall("say",str(sentence))
-            self.ids.append(id)
-            self.tts.wait(id)
-        finally:
-            try:
-                self.ids.remove(id)
-            except:
-                pass
-            if( self.ids == [] ):
-                self.onStopped() # activate output of the box
-                self.bIsRunning = False
-
-    def onInput_onStop(self):
-        self.onUnload()]]>
-                </content>
-              </script>
-              <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when Diagram is loaded." id="1" />
-              <Input name="onStart" type="1" type_size="1" nature="2" inner="0" tooltip="Box behavior starts when a signal is received on this Input." id="2" />
-              <Input name="onStop" type="1" type_size="1" nature="3" inner="0" tooltip="Box behavior stops when a signal is received on this Input." id="3" />
-              <Output name="onStopped" type="1" type_size="1" nature="1" inner="0" tooltip="Signal sent when Box behavior is finished." id="4" />
-              <Parameter name="Voice shaping (%)" inherits_from_parent="1" content_type="1" value="100" default_value="100" min="50" max="150" tooltip='Used to modify at runtime the voice feature (tone, speed). In a slighty&#x0A;different way than pitch and speed, it gives a kind of &quot;gender or age&#x0A;modification&quot; effect.&#x0A;&#x0A;For instance, a quite good male derivation of female voice can be&#x0A;obtained setting this parameter to 78%.&#x0A;&#x0A;Note: For a better effect, you can compensate this parameter with the&#x0A;speed parameter. For example, if you want to decrease by 20% the voice&#x0A;shaping, you will have to increase by 20% the speed to keep a constant&#x0A;average speed.' id="5" />
-              <Parameter name="Speed (%)" inherits_from_parent="1" content_type="1" value="100" default_value="100" min="50" max="200" tooltip="Changes the speed of the voice.&#x0A;&#x0A;Note: For a better effect, you can compensate this parameter with the voice&#x0A;shaping parameter. For example, if you want to increase by 20% the speed, you&#x0A;will have to decrease by 20% the voice shaping to keep a constant average&#x0A;speed." id="6" />
-              <Parameter name="Text" inherits_from_parent="0" content_type="5" value="Three twenty five helped me be able to write some great technical papers." default_value="" tooltip="The text you want to say. Don&apos;t forget to translate it!" id="7" />
-              <Resource name="Speech" type="Lock" timeout="0" />
+              <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when diagram is loaded." id="1" />
+              <Input name="onStart" type="1" type_size="1" nature="2" inner="0" tooltip="Box behavior starts when a signal is received on this input." id="2" />
+              <Input name="onStop" type="1" type_size="1" nature="3" inner="0" tooltip="Box behavior stops when a signal is received on this input." id="3" />
+              <Output name="onStopped" type="1" type_size="1" nature="1" inner="0" tooltip="Signal sent when box behavior is finished." id="4" />
             </Box>
             <Link inputowner="1" indexofinput="2" outputowner="0" indexofoutput="2" />
-            <Link inputowner="2" indexofinput="2" outputowner="4" indexofoutput="5" />
             <Link inputowner="4" indexofinput="2" outputowner="1" indexofoutput="4" />
-            <Link inputowner="3" indexofinput="2" outputowner="2" indexofoutput="4" />
-            <Link inputowner="0" indexofinput="4" outputowner="3" indexofoutput="4" />
-            <Link inputowner="0" indexofinput="4" outputowner="5" indexofoutput="4" />
+            <Link inputowner="6" indexofinput="2" outputowner="7" indexofoutput="5" />
+            <Link inputowner="4" indexofinput="2" outputowner="6" indexofoutput="4" />
             <Link inputowner="4" indexofinput="3" outputowner="4" indexofoutput="5" />
-            <Link inputowner="4" indexofinput="3" outputowner="4" indexofoutput="6" />
-            <Link inputowner="6" indexofinput="2" outputowner="4" indexofoutput="6" />
-            <Link inputowner="7" indexofinput="2" outputowner="2" indexofoutput="5" />
-            <Link inputowner="0" indexofinput="4" outputowner="7" indexofoutput="4" />
-            <Link inputowner="8" indexofinput="2" outputowner="2" indexofoutput="6" />
-            <Link inputowner="0" indexofinput="4" outputowner="8" indexofoutput="4" />
-            <Link inputowner="9" indexofinput="2" outputowner="2" indexofoutput="7" />
-            <Link inputowner="0" indexofinput="4" outputowner="9" indexofoutput="4" />
-            <Link inputowner="5" indexofinput="2" outputowner="2" indexofoutput="8" />
-            <Link inputowner="10" indexofinput="2" outputowner="2" indexofoutput="9" />
-            <Link inputowner="0" indexofinput="4" outputowner="10" indexofoutput="4" />
-            <Link inputowner="11" indexofinput="2" outputowner="2" indexofoutput="10" />
-            <Link inputowner="0" indexofinput="4" outputowner="11" indexofoutput="4" />
-            <Link inputowner="12" indexofinput="2" outputowner="2" indexofoutput="11" />
-            <Link inputowner="0" indexofinput="4" outputowner="12" indexofoutput="4" />
-            <Link inputowner="13" indexofinput="2" outputowner="2" indexofoutput="12" />
-            <Link inputowner="0" indexofinput="4" outputowner="13" indexofoutput="4" />
+            <Link inputowner="7" indexofinput="4" outputowner="3" indexofoutput="3" />
+            <Link inputowner="3" indexofinput="2" outputowner="4" indexofoutput="5" />
+            <Link inputowner="7" indexofinput="2" outputowner="3" indexofoutput="5" />
+            <Link inputowner="2" indexofinput="2" outputowner="3" indexofoutput="4" />
+            <Link inputowner="0" indexofinput="4" outputowner="2" indexofoutput="4" />
           </Diagram>
         </BehaviorKeyframe>
       </BehaviorLayer>
