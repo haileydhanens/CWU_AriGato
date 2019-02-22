@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<package version="0.0.0" uuid="classknowledge-2ffc20">
+<package uuid="classknowledge-2ffc20" version="0.0.0">
  <names>
   <name lang="en_US">class knowledge</name>
  </names>
@@ -15,7 +15,13 @@
    <nature>interactive</nature>
    <triggerSentences>
     <sentence lang="en_US">Can you tell me about a class</sentence>
+    <sentence lang="en_US">Tell me about some classes</sentence>
+    <sentence lang="en_US">Class info</sentence>
+    <sentence lang="en_US">Class information</sentence>
+    <sentence lang="en_US">Computer science classes</sentence>
+    <sentence lang="en_US">Describe the classes</sentence>
    </triggerSentences>
+   <autonomous/>
    <permissions/>
   </behaviorContent>
  </contents>
