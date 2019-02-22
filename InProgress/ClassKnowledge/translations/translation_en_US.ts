@@ -4,10 +4,9 @@
     <context>
         <name>behavior_1/behavior.xar:/CS110</name>
         <message>
-            <location filename="behavior_1/behavior.xar" line="0"/>
             <source>Oh! C S one ten. That was there I learned all the basics. Good times back then.</source>
             <comment>Text</comment>
-            <translation type="unfinished">Oh! C S one ten. That was there I learned all the basics. Good times back then.</translation>
+            <translation type="obsolete">Oh! C S one ten. That was there I learned all the basics. Good times back then.</translation>
         </message>
     </context>
     <context>
@@ -21,10 +20,9 @@
     <context>
         <name>behavior_1/behavior.xar:/CS301</name>
         <message>
-            <location filename="behavior_1/behavior.xar" line="0"/>
             <source>I loved data structures</source>
             <comment>Text</comment>
-            <translation type="unfinished">I loved data structures</translation>
+            <translation type="obsolete">I loved data structures</translation>
         </message>
     </context>
     <context>
