@@ -145,7 +145,65 @@ class MyClass(GeneratedClass):
                 self.asr.pushContexts()
             self.hasPushed = True
             if self.asr:
-                self.asr.setVocabulary( self.getParameter("Word list").split(';'), self.getParameter("Enable word spotting") )
+                classList = [
+                    "one oh one",
+                    "one oh two",
+                    "one oh five",
+                    "one oh seven",
+                    "one oh nine",
+                    "one ten",
+                    "one eleven",
+                    "one twelve",
+                    "two fifty",
+                    "two ninety",
+                    "two ninety eight",
+                    "two ninety nine",
+                    "three oh one",
+                    "three oh two",
+                    "three eleven",
+                    "three twelve",
+                    "three twenty five",
+                    "three fifety one",
+                    "three fifety two",
+                    "three sixty one",
+                    "three sixty two",
+                    "three sixty seven",
+                    "three seventy",
+                    "three eighty",
+                    "three ninety two",
+                    "three ninety six",
+                    "three ninety seven",
+                    "three ninety eight",
+                    "three ninety nine",
+                    "four twenty",
+                    "four twenty seven",
+                    "four twenty eight",
+                    "four thirty",
+                    "four fourty",
+                    "four fourty one",
+                    "four fourty five",
+                    "four fourty six",
+                    "four fifty",
+                    "four fifty five",
+                    "four fifty six",
+                    "four fifty seven",
+                    "four sixty",
+                    "four seventy",
+                    "four seventy one",
+                    "four sevety three",
+                    "four seventy five",
+                    "four seventy six",
+                    "four eigthy",
+                    "four eighty one",
+                    "four eighty nine",
+                    "four ninety",
+                    "four ninety one",
+                    "four ninety two",
+                    "exit",
+                    "quit",
+                    "stop"
+                ]
+                self.asr.setVocabulary( classList, self.getParameter("Enable word spotting") )
             self.memory.subscribeToEvent("WordRecognized", self.getName(), "onWordRecognized")
             self.hasSubscribed = True
         except RuntimeError, e:
@@ -172,7 +230,7 @@ class MyClass(GeneratedClass):
               <Output name="onStopped" type="1" type_size="1" nature="1" inner="0" tooltip="Signal sent when box behavior is finished." id="4" />
               <Output name="wordRecognized" type="3" type_size="1" nature="2" inner="0" tooltip="Word recognized with a confidence higher than the threshold set in the box parameters." id="5" />
               <Output name="onNothing" type="1" type_size="1" nature="2" inner="0" tooltip="Nothing has been understood." id="6" />
-              <Parameter name="Word list" inherits_from_parent="0" content_type="3" value="programming fundamentals;data structures" default_value="yes;no" custom_choice="0" tooltip="Try to recognize a word from a list of words set in the box parameters." id="7" />
+              <Parameter name="Word list" inherits_from_parent="0" content_type="3" value="" default_value="yes;no" custom_choice="0" tooltip="Try to recognize a word from a list of words set in the box parameters." id="7" />
               <Parameter name="Confidence threshold (%)" inherits_from_parent="0" content_type="1" value="30" default_value="30" min="0" max="100" tooltip="If the confidence associated with the word recognized is below this threshold, the robot will consider that it is not recognized." id="8" />
               <Parameter name="Enable word spotting" inherits_from_parent="0" content_type="0" value="0" default_value="0" tooltip="If this option is not activated the robot will only understand exact expressions. If it is, he will spot the exact expressions even in the middle of a sentence.&#x0A;&#x0A;!!Warning!! This option is only available with the speech recognition module using Nuance (ie in Atom version of the robot)." id="9" />
               <Resource name="Speech recognition" type="Lock" timeout="0" />
