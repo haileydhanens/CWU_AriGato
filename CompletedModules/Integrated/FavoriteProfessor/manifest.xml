@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<package uuid="dancemoves-de295e" version="0.0.0">
+<package version="0.0.0" uuid="favoriteprofessor-68c1bb">
  <names>
-  <name lang="en_US">Beyonce moves</name>
+  <name lang="en_US">FavProfessor</name>
  </names>
  <supportedLanguages>
   <language>en_US</language>
@@ -13,13 +13,11 @@
   <behaviorContent path="behavior_1">
    <userRequestable/>
    <nature>interactive</nature>
-   <names>
-    <name lang="en_US">Beyonce moves</name>
-   </names>
    <triggerSentences>
-    <sentence lang="en_US">can you dance like Beyonce</sentence>
-    <sentence lang="en_US">can you dance to single ladies</sentence>
+    <sentence lang="en_US">who is your favorite professor</sentence>
+    <sentence lang="en_US">do you know any professors</sentence>
    </triggerSentences>
+   <autonomous/>
    <permissions/>
   </behaviorContent>
  </contents>
