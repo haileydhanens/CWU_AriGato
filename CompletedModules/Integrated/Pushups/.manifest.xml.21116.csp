@@ -25,12 +25,7 @@
     <sentence lang="en_US">Do pushups</sentence>
     <sentence lang="en_US">can you do pushups</sentence>
     <sentence lang="en_US">do you know how to do pushups?</sentence>
-<<<<<<< HEAD
-    <sentence lang="en_US">can you do press ups</sentence>
-=======
->>>>>>> parent of f5c7d3d... Step 1
    </triggerSentences>
-   <autonomous/>
    <permissions/>
   </behaviorContent>
  </contents>

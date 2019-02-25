@@ -25,9 +25,12 @@
    <triggerSentences>
     <sentence lang="en_US">Raise your left foot</sentence>
     <sentence lang="en_US">move your right foot</sentence>
+<<<<<<< HEAD
     <sentence lang="en_US">raise your left leg</sentence>
     <sentence lang="en_US">move your left leg</sentence>
     <sentence lang="en_US">balance on your right leg</sentence>
+=======
+>>>>>>> parent of f5c7d3d... Step 1
    </triggerSentences>
    <loadingResponses>
     <sentence lang="en_US">Raising my left foot</sentence>
