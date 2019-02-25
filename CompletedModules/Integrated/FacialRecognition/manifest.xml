@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<package uuid="facialrecognition-abb3bd" version="0.0.0">
+ <names>
+  <name lang="en_US">FacialRecognition</name>
+ </names>
+ <supportedLanguages>
+  <language>en_US</language>
+ </supportedLanguages>
+ <descriptionLanguages>
+  <language>en_US</language>
+ </descriptionLanguages>
+ <contents>
+  <behaviorContent path="behavior_1">
+   <userRequestable/>
+   <nature>interactive</nature>
+   <names>
+    <name lang="en_US">RecognizeFaces</name>
+   </names>
+   <descriptions>
+    <description lang="en_US">NAO recognizes peoples face.</description>
+   </descriptions>
+   <tags>
+    <tag lang="en_US">recognition</tag>
+    <tag lang="en_US">recognize</tag>
+    <tag lang="en_US">face</tag>
+    <tag lang="en_US">people</tag>
+   </tags>
+   <triggerSentences>
+    <sentence lang="en_US">Do you know me</sentence>
+    <sentence lang="en_US">Do you remember me</sentence>
+    <sentence lang="en_US">Do you know my name?</sentence>
+    <sentence lang="en_US">Do you know who I am?</sentence>
+   </triggerSentences>
+   <loadingResponses>
+    <sentence lang="en_US">I remember you!</sentence>
+   </loadingResponses>
+   <permissions/>
+  </behaviorContent>
+ </contents>
+</package>

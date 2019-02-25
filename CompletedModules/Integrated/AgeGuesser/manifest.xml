@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<package uuid="ageguesser-bc9f78" version="0.0.0">
+ <names>
+  <name lang="en_US">AgeGuesser</name>
+ </names>
+ <descriptions>
+  <description lang="en_US">NAO attempts to guess the age of an user by using face analyzing features.</description>
+ </descriptions>
+ <supportedLanguages>
+  <language>en_US</language>
+ </supportedLanguages>
+ <descriptionLanguages>
+  <language>en_US</language>
+ </descriptionLanguages>
+ <contents>
+  <behaviorContent path="behavior_1">
+   <userRequestable/>
+   <nature>interactive</nature>
+   <descriptions>
+    <description lang="en_US">NAO attempts to guess the age of an user by using face analyzing features.</description>
+   </descriptions>
+   <triggerSentences>
+    <sentence lang="en_US">Can you guess how old i am</sentence>
+    <sentence lang="en_US">Guess my age</sentence>
+    <sentence lang="en_US">How old do you think I am</sentence>
+    <sentence lang="en_US">What is my age</sentence>
+    <sentence lang="en_US">How old am I</sentence>
+    <sentence lang="en_US">How old I am</sentence>
+   </triggerSentences>
+   <autonomous/>
+   <permissions/>
+  </behaviorContent>
+ </contents>
+</package>
