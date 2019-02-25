@@ -27,6 +27,8 @@
     <sentence lang="en_US">how cold is it outside?</sentence>
     <sentence lang="en_US">how hot is it</sentence>
     <sentence lang="en_US">how cold is it</sentence>
+    <sentence lang="en_US">How about  the weather</sentence>
+    <sentence lang="en_US">What is the weather</sentence>
    </triggerSentences>
    <loadingResponses>
     <sentence lang="en_US">Let me check</sentence>

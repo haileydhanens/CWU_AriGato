@@ -24,7 +24,10 @@
     <sentence lang="en_US">Guess my age</sentence>
     <sentence lang="en_US">How old do you think I am</sentence>
     <sentence lang="en_US">What is my age</sentence>
+    <sentence lang="en_US">How old am I</sentence>
+    <sentence lang="en_US">How old I am</sentence>
    </triggerSentences>
+   <autonomous/>
    <permissions/>
   </behaviorContent>
  </contents>
