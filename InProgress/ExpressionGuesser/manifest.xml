@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<package version="0.0.0" uuid="expressionguesser-709c8a">
+<package uuid="expressionguesser-709c8a" version="0.0.0">
  <names>
   <name lang="en_US">Untitled</name>
  </names>
@@ -22,6 +22,8 @@
    <triggerSentences>
     <sentence lang="en_US">Can you guess how im feeling</sentence>
     <sentence lang="en_US">Guess my mood</sentence>
+    <sentence lang="en_US">How do you think im feeling</sentence>
+    <sentence lang="en_US">What is my mood</sentence>
    </triggerSentences>
    <autonomous/>
    <permissions/>
