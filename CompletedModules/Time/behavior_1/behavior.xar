@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ChoregrapheProject xmlns="http://www.ald.softbankrobotics.com/schema/choregraphe/project.xsd" xar_version="3">
+  <Box name="root" id="-1" localization="8" tooltip="Root box of Choregraphe&apos;s behavior. Highest level possible." x="0" y="0">
+    <bitmap>media/images/box/root.png</bitmap>
+    <script language="4">
+      <content>
+        <![CDATA[]]>
+      </content>
+    </script>
+    <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when diagram is loaded." id="1" />
+    <Input name="onStart" type="1" type_size="1" nature="2" inner="0" tooltip="Box behavior starts when a signal is received on this input." id="2" />
+    <Input name="onStop" type="1" type_size="1" nature="3" inner="0" tooltip="Box behavior stops when a signal is received on this input." id="3" />
+    <Output name="onStopped" type="1" type_size="1" nature="1" inner="0" tooltip="Signal sent when box behavior is finished." id="4" />
+    <Timeline enable="0">
+      <BehaviorLayer name="behavior_layer1">
+        <BehaviorKeyframe name="keyframe1" index="1">
+          <Diagram>
+            <Box name="Time" id="1" localization="8" tooltip="NAO says the current local time." x="411" y="163">
+              <bitmap>media/images/box/interaction/choice.png</bitmap>
+              <script language="4">
+                <content>
+                  <![CDATA[class MyClass(GeneratedClass):
+    def __init__(self):
+        GeneratedClass.__init__(self)
+
+    def onLoad(self):
+        #put initialization code here
+        pass
+
+    def onUnload(self):
+        #put clean-up code here
+        pass
+
+    def onInput_onStart(self):
+        #import datetime
+        import datetime
+        proxy = ALProxy("ALTextToSpeech")
+        currentTime = datetime.datetime.now()
+        hour = currentTime.hour
+        minute = currentTime.minute
+
+        # check what the hour of current time is
+        if hour == 1 or hour == 13:
+            hour = 5
+
+        elif hour == 2 or hour == 14:
+            hour = 6
+
+        elif hour == 3 or hour == 15:
+            hour = 7
+
+        elif hour == 4 or hour == 16:
+            hour = 8
+
+        elif hour == 5 or hour == 17:
+            hour = 9
+
+        elif hour == 6 or hour == 18:
+            hour = 10
+
+        elif hour == 7 or hour == 19:
+            hour = 11
+
+        elif hour == 8 or hour == 20:
+            hour = 12
+
+        elif hour == 9 or hour == 21:
+            hour = 1
+
+        elif hour == 10 or hour == 22:
+            hour = 2
+
+        elif hour == 11 or hour == 23:
+            hour = 3
+
+        elif hour == 12 or hour == 24:
+            hour = 4
+
+        # add 5 minutes to the current time minutes
+        # NAO is 5 minutes off
+        if currentTime.minute < 55:
+            minute = (currentTime.minute + 5)
+
+            if currentTime.minute > 10:
+                proxy.say("It is " + str(hour) + " " + str(minute) + "uh clock")
+
+            elif currentTime.minute < 10:
+                proxy.say("It is " + str(hour) + "oh" + minutes)
+
+        # slightly changes the way NAO says the time for casuality purposes
+        elif currentTime.minute >= 55:
+
+            if currentTime.minute == 55:
+                proxy.say("It is " + str(hour) + "on the dot")
+
+            if currentTime.minute > 56:
+                minute = minute + 5 - 60
+                proxy.say("It is " + str(hour) + "oh" + minute)
+
+        # finish box
+        self.onStopped()
+
+    def onInput_onStop(self):
+        self.onUnload()
+        self.onStopped()]]>
+                </content>
+              </script>
+              <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when diagram is loaded." id="1" />
+              <Input name="onStart" type="1" type_size="1" nature="2" inner="0" tooltip="Box behavior starts when a signal is received on this input." id="2" />
+              <Input name="onStop" type="1" type_size="1" nature="3" inner="0" tooltip="Box behavior stops when a signal is received on this input." id="3" />
+              <Output name="onStopped" type="1" type_size="1" nature="1" inner="0" tooltip="Signal sent when box behavior is finished." id="4" />
+            </Box>
+            <Link inputowner="1" indexofinput="2" outputowner="0" indexofoutput="2" />
+            <Link inputowner="0" indexofinput="4" outputowner="1" indexofoutput="4" />
+          </Diagram>
+        </BehaviorKeyframe>
+      </BehaviorLayer>
+    </Timeline>
+  </Box>
+</ChoregrapheProject>

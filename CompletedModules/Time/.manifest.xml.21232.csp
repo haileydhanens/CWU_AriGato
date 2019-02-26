@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<package version="0.0.0" uuid="time-630433">
+ <names>
+  <name lang="en_US">Time</name>
+ </names>
+ <descriptions>
+  <description lang="en_US">NAO gets the time, converts it to Pacific Standard, and says the local time.</description>
+ </descriptions>
+ <supportedLanguages>
+  <language>en_US</language>
+ </supportedLanguages>
+ <descriptionLanguages>
+  <language>en_US</language>
+ </descriptionLanguages>
+ <contents>
+  <behaviorContent path="behavior_1">
+   <userRequestable/>
+   <nature>interactive</nature>
+   <names>
+    <name lang="en_US">WhatTimeIsIt</name>
+   </names>
+   <triggerSentences>
+    <sentence lang="en_US">What's the time</sentence>
+   </triggerSentences>
+   <permissions/>
+  </behaviorContent>
+ </contents>
+</package>

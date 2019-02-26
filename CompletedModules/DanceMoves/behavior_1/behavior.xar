@@ -571,7 +571,7 @@
                 </ActuatorList>
               </Timeline>
             </Box>
-            <Box name="BeyonceDanceMoves" id="5" localization="8" tooltip="NAO dances to Single Ladies by Beyonce." x="369" y="62">
+            <Box name="BeyonceDanceMoves" id="5" localization="8" tooltip="NAO dances to Single Ladies by Beyonce." x="249" y="55">
               <bitmap>media/images/box/movement/move.png</bitmap>
               <script language="4">
                 <content>
@@ -644,21 +644,8 @@
             motionProxy.angleInterpolation(legs, hipMovementFrame1, halfBeatx12, True);
             motionProxy.angleInterpolation(legs, hipMovementFrame2, halfBeatx12, True);
 
-        # dip motions
-
-        # point at audience
-        # point at NAO face
-        # hands at sides and shake legs
-        # hands down and shake hips
-        # if you like it you shoulda put a ring on it
-        # point at audience like napolean dynamite
-        # do the arm thing like back and forth
-        # x arms
-        # hip movements
-        # end : cute pose
-
         self.onStopped() #activate the output of the box
-        pass
+
 
     def onInput_onStop(self):
         self.onUnload() #it is recommended to reuse the clean-up as the box is stopped
@@ -791,7 +778,7 @@ class MyClass(GeneratedClass):
               </Timeline>
               <Resource name="Audio player" type="Lock" timeout="0" />
             </Box>
-            <Box name="Chorus" id="1" localization="8" tooltip="Main dance." x="518" y="64">
+            <Box name="Chorus" id="1" localization="8" tooltip="Main dance." x="398" y="57">
               <bitmap>media/images/box/box-timeLine.png</bitmap>
               <script language="4">
                 <content>
@@ -1606,9 +1593,9 @@ class MyClass(GeneratedClass):
               </Timeline>
             </Box>
             <Link inputowner="5" indexofinput="2" outputowner="0" indexofoutput="2" />
+            <Link inputowner="3" indexofinput="2" outputowner="0" indexofoutput="2" />
             <Link inputowner="1" indexofinput="3" outputowner="5" indexofoutput="4" />
             <Link inputowner="0" indexofinput="4" outputowner="1" indexofoutput="4" />
-            <Link inputowner="3" indexofinput="2" outputowner="0" indexofoutput="2" />
           </Diagram>
         </BehaviorKeyframe>
       </BehaviorLayer>
