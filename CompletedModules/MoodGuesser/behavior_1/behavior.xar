@@ -1,0 +1,466 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ChoregrapheProject xmlns="http://www.ald.softbankrobotics.com/schema/choregraphe/project.xsd" xar_version="3">
+  <Box name="root" id="-1" localization="8" tooltip="Root box of Choregraphe&apos;s behavior. Highest level possible." x="0" y="0">
+    <bitmap>media/images/box/root.png</bitmap>
+    <script language="4">
+      <content>
+        <![CDATA[]]>
+      </content>
+    </script>
+    <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when diagram is loaded." id="1" />
+    <Input name="onStart" type="1" type_size="1" nature="2" inner="0" tooltip="Box behavior starts when a signal is received on this input." id="2" />
+    <Input name="onStop" type="1" type_size="1" nature="3" inner="0" tooltip="Box behavior stops when a signal is received on this input." id="3" />
+    <Output name="onStopped" type="1" type_size="1" nature="1" inner="0" tooltip="Signal sent when box behavior is finished." id="4" />
+    <Timeline enable="0">
+      <BehaviorLayer name="behavior_layer1">
+        <BehaviorKeyframe name="keyframe1" index="1">
+          <Diagram>
+            <Box name="Face Detection" id="2" localization="8" tooltip="Detect people&apos;s face and return the number of detected faces.&#x0A;&#x0A;Note: Detect even faces that are not registered in the faces database (that&#x0A;you can teach him with the Learn Face box)." x="141" y="263">
+              <bitmap>media/images/box/interaction/face.png</bitmap>
+              <script language="4">
+                <content>
+                  <![CDATA[class MyClass(GeneratedClass):
+    def __init__(self):
+        GeneratedClass.__init__(self, False)
+
+    def onLoad(self):
+        self.bIsRunning = False
+
+    def onUnload(self):
+        self.bIsRunning = False
+
+    def onInput_onStart(self):
+        self.bIsRunning = True
+
+    def onInput_onStop(self):
+        if( self.bIsRunning ):
+            self.onUnload()
+            self.onStopped()]]>
+                </content>
+              </script>
+              <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when diagram is loaded." id="1" />
+              <Input name="onStart" type="1" type_size="1" nature="2" inner="0" tooltip="Box behavior starts when a signal is received on this input." id="2" />
+              <Input name="onStop" type="1" type_size="1" nature="3" inner="0" tooltip="Box behavior stops when a signal is received on this input." id="3" />
+              <Input name="FaceDetected" type="0" type_size="1" nature="4" stm_value_name="FaceDetected" inner="1" tooltip="Connected to ALMemory. Will be stimulated every time the value subscribed to changes, respecting the refresh period." id="4" />
+              <Output name="onStopped" type="1" type_size="1" nature="1" inner="0" tooltip="Signal sent when box behavior is stopped." id="5" />
+              <Output name="numberOfFaces" type="2" type_size="1" nature="2" inner="0" tooltip="Number of detected faces. This output is stimulated each time the number of&#x0A;detected faces change." id="6" />
+              <Output name="onNoFace" type="1" type_size="1" nature="2" inner="0" tooltip="No face is detected." id="7" />
+              <Timeline enable="0">
+                <BehaviorLayer name="behavior_layer1">
+                  <BehaviorKeyframe name="keyframe1" index="1">
+                    <Diagram>
+                      <Box name="Count Det. Faces" id="3" localization="8" tooltip="Process face detection extractor data (FaceDetected) to count the number&#x0A;of detected faces and notify when there is no face detected.&#x0A;&#x0A;An output (either one or the other) is stimulated each time the number of&#x0A;detected faces change." x="174" y="71">
+                        <bitmap>media/images/box/interaction/reco_face.png</bitmap>
+                        <script language="4">
+                          <content>
+                            <![CDATA[class MyClass(GeneratedClass):
+    def __init__(self):
+        GeneratedClass.__init__(self, False)
+
+    def onLoad(self):
+        self.nFacesDetected = -1
+
+    def onUnload(self):
+        #puts code for box cleanup here
+        pass
+
+    def onInput_onStart(self, p):
+        if(len(p) > 0):
+            if(self.nFacesDetected != len(p[1]) -1): # an additional array has been placed at the end for time
+                self.nFacesDetected = len(p[1]) -1  # filtered info and has to be substracted when counting faces
+                if(self.nFacesDetected != 0):
+                    self.onFaceDetected( self.nFacesDetected )
+                else:
+                    self.onNoFace()
+        else:
+            if(self.nFacesDetected != 0):
+                self.nFacesDetected = 0
+                self.onNoFace()
+
+    def onInput_onStop(self):
+        pass]]>
+                          </content>
+                        </script>
+                        <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when diagram is loaded." id="1" />
+                        <Input name="onStart" type="0" type_size="1" nature="2" inner="0" tooltip="Box behavior starts when a signal is received on this input. It must be the&#x0A;FaceDetected extractor data." id="2" />
+                        <Output name="onFaceDetected" type="2" type_size="1" nature="1" inner="0" tooltip="Number of detected faces." id="3" />
+                        <Output name="onNoFace" type="1" type_size="1" nature="1" inner="0" tooltip="No face is detected." id="4" />
+                      </Box>
+                      <Link inputowner="3" indexofinput="2" outputowner="0" indexofoutput="4" />
+                      <Link inputowner="0" indexofinput="6" outputowner="3" indexofoutput="3" />
+                      <Link inputowner="0" indexofinput="7" outputowner="3" indexofoutput="4" />
+                    </Diagram>
+                  </BehaviorKeyframe>
+                </BehaviorLayer>
+              </Timeline>
+            </Box>
+            <Box name="Get Expression" id="5" localization="8" tooltip="This box returns the detected facial expression of the person in front of the robot.&#x0A;The detection fails when there are more or less than one person in front of the robot or when the timeout is exceeded.&#x0A;&#x0A;It is possible to set up the Confidence Threshold and the Timeout parameters for this box. &#x0A;Furthermore it is possible to select the required emotions:&#x0A;- neutral&#x0A;- happy&#x0A;- surprised&#x0A;- angry&#x0A;- sad" x="220" y="78">
+              <bitmap>media/images/box/interaction/emotion.png</bitmap>
+              <script language="4">
+                <content>
+                  <![CDATA[class MyClass(GeneratedClass):
+    def __init__(self):
+        GeneratedClass.__init__(self)
+
+    def onLoad(self):
+        try:
+            self.faceC = self.session().service("ALFaceCharacteristics")
+        except Exception as e:
+            raise RuntimeError(str(e) + "Make sure you're not connected to a virtual robot." )
+        self.confidence = self.getParameter("Confidence Threshold")
+        self.threshNeutralEmotion = self.confidence + 0.15
+        self.threshHappyEmotion = self.confidence
+        self.threshSurprisedEmotion = self.confidence + 0.05
+        self.threshAngryEmotion = self.confidence + 0.2
+        self.threshSadEmotion = self.confidence + 0.15
+        self.emotions = ["neutral", "happy", "surprised", "angry", "sad"]
+        self.counter = 0
+        self.bIsRunning = False
+        self.delayed = []
+        self.errorMes = ""
+
+    def onUnload(self):
+        self.counter = 0
+        self.tProperties = [0,0,0,0,0]
+        self.bIsRunning = False
+        self.cancelDelays()
+
+    def onInput_onStart(self):
+        try:
+            #start timer
+            import qi
+            import functools
+            delay_future = qi.async(self.onTimeout, delay=int(self.getParameter("Timeout (s)") * 1000 * 1000))
+            self.delayed.append(delay_future)
+            bound_clean = functools.partial(self.cleanDelay, delay_future)
+            delay_future.addCallback(bound_clean)
+
+            self.tProperties = [0,0,0,0,0]
+            self.bIsRunning = True
+            while self.bIsRunning:
+                if self.counter < 4:
+                    try:
+                        #identify user
+                        ids = ALMemory.getData("PeoplePerception/PeopleList")
+                        if len(ids) == 0:
+                            self.errorMes = "No face detected"
+                            self.onUnload()
+                        elif len(ids) > 1:
+                            self.errorMes = "Multiple faces detected"
+                            self.onUnload()
+                        else:
+                            #analyze age properties
+                            self.faceC.analyzeFaceCharacteristics(ids[0])
+                            time.sleep(0.2)
+                            properties = ALMemory.getData("PeoplePerception/Person/"+str(ids[0])+"/ExpressionProperties")
+                            self.tProperties[0] += properties[0]
+                            self.tProperties[1] += properties[1]
+                            self.tProperties[2] += properties[2]
+                            self.tProperties[3] += properties[3]
+                            self.tProperties[4] += properties[4]
+                            self.counter += 1
+                    except:
+                        ids = []
+                else:
+                    self.counter = 0
+                    recognized = [0,0,0,0,0]
+                    #calculate mean value for neutral, happy, surprised, angry or sad
+                    self.tProperties[0] /= 4
+                    self.tProperties[1] /= 4
+                    self.tProperties[2] /= 4
+                    self.tProperties[3] /= 4
+                    self.tProperties[4] /= 4
+
+                    if self.getParameter("neutral") and self.tProperties[0] > self.threshNeutralEmotion:
+                        recognized[0] = self.tProperties[0]
+                    if self.getParameter("happy") and self.tProperties[1] >self.threshHappyEmotion:
+                        recognized[1] = self.tProperties[1]
+                    if self.getParameter("surprised") and self.tProperties[2] > self.threshSurprisedEmotion:
+                        recognized[2] = self.tProperties[2]
+                    if self.getParameter("angry") and self.tProperties[3] > self.threshAngryEmotion:
+                        recognized[3] = self.tProperties[3]
+                    if self.getParameter("sad") and self.tProperties[4] > self.threshSadEmotion:
+                        recognized[4] = self.tProperties[4]
+
+                    self.tProperties = [0,0,0,0,0]
+                    try:
+                        if recognized != [0,0,0,0,0]:
+                            emotion = self.emotions[recognized.index(max(recognized))]
+                        else:
+                            emotion = None
+                    except:
+                        emotion = None
+                    try:
+                        ALMemory.removeData("PeoplePerception/Person/"+str(ids[0])+"/ExpressionProperties")
+                    except:
+                        pass
+                    if emotion != None:
+                        self.onStopped(emotion)
+                        self.onUnload()
+                        return
+            raise RuntimeError(self.errorMes)
+        except Exception as e:
+            raise RuntimeError(str(e))
+            self.onUnload()
+
+    def onTimeout(self):
+        self.errorMes = "Timeout"
+        self.onUnload()
+
+    def cleanDelay(self, fut, fut_ref):
+        self.delayed.remove(fut)
+
+    def cancelDelays(self):
+        cancel_list = list(self.delayed)
+        for d in cancel_list:
+            d.cancel()
+
+    def onInput_onStop(self):
+        self.onUnload()]]>
+                </content>
+              </script>
+              <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when diagram is loaded." id="1" />
+              <Input name="onStart" type="1" type_size="1" nature="2" inner="0" tooltip="Box behavior starts when a signal is received on this input." id="2" />
+              <Input name="onStop" type="1" type_size="1" nature="3" inner="0" tooltip="Box behavior stops when a signal is received on this input." id="3" />
+              <Output name="onStopped" type="3" type_size="1" nature="1" inner="0" tooltip='Returns the facial expression of the person in front of the robot. &#x0A;- &quot;neutral&quot;&#x0A;- &quot;happy&quot;&#x0A;- &quot;surprised&quot;&#x0A;- &quot;angry&quot;&#x0A;- &quot;sad&quot;&#x0A;&#x0A;Tip:&#x0A;Connect this output to a &quot;Switch Case&quot; box containing the possible output values as strings. In this way you can trigger different paths in your behavior depending on the output.' id="4" />
+              <Output name="onError" type="3" type_size="1" nature="1" inner="0" tooltip='Triggered when gender detection failed. &#x0A;Possible error messages:&#x0A;- &quot;No face detected&quot;&#x0A;- &quot;Multiple faces detected&quot;&#x0A;- &quot;Timeout&quot;' id="5" />
+              <Parameter name="Confidence Threshold" inherits_from_parent="0" content_type="2" value="0.35" default_value="0.6" min="0" max="1" tooltip="Set the confidence threshold for the age detection." id="6" />
+              <Parameter name="Timeout (s)" inherits_from_parent="0" content_type="2" value="10" default_value="5" min="1" max="60" tooltip="" id="7" />
+              <Parameter name="neutral" inherits_from_parent="0" content_type="0" value="1" default_value="1" tooltip="" id="8" />
+              <Parameter name="happy" inherits_from_parent="0" content_type="0" value="1" default_value="1" tooltip="" id="9" />
+              <Parameter name="surprised" inherits_from_parent="0" content_type="0" value="1" default_value="1" tooltip="" id="10" />
+              <Parameter name="angry" inherits_from_parent="0" content_type="0" value="1" default_value="1" tooltip="" id="11" />
+              <Parameter name="sad" inherits_from_parent="0" content_type="0" value="1" default_value="1" tooltip="" id="12" />
+            </Box>
+            <Box name="Switch Case" id="1" localization="8" tooltip="Test input value and stimulate the output matching to this value. If there is no&#x0A;matching output, the default output (onDefault) is stimulated.&#x0A;&#x0A;You can edit a case by left double-clicking on the line. You can add a&#x0A;case by right clicking on a line and selecting &apos;Insert a row&apos;. You can delete&#x0A;a case by right clicking on a line and selecting &apos;Remove a row&apos;." plugin="dispatcher_plugin" x="395" y="60">
+              <bitmap>media/images/box/interaction/choice.png</bitmap>
+              <script language="4">
+                <content>
+                  <![CDATA[# /!\ Generated content. Do not edit!
+class MyClass(GeneratedClass):
+	def __init__(self):
+		try: # disable autoBind
+		  GeneratedClass.__init__(self, False)
+		except TypeError: # if NAOqi < 1.14
+		  GeneratedClass.__init__( self )
+
+	def onInput_onStart(self, p):
+		p = self.typeConversion(p)
+		if(p == self.typeConversion("happy")):
+			self.output_1(p)
+		elif(p == self.typeConversion("surprised")):
+			self.output_2(p)
+		elif(p == self.typeConversion("sad")):
+			self.output_3(p)
+		elif(p == self.typeConversion("angry")):
+			self.output_4(p)
+		elif(p == self.typeConversion("neutral")):
+			self.output_5(p)
+		else:
+			self.onDefault()
+
+	def typeConversion(self, p):
+		try:
+			p = float(p)
+			pint = int(p)
+			if( p == pint ):
+				p = pint
+		except:
+			p = str(p)
+		return p]]>
+                </content>
+              </script>
+              <pluginContent>
+                <keywords>
+                  <keyword>&quot;happy&quot;</keyword>
+                  <keyword>&quot;surprised&quot;</keyword>
+                  <keyword>&quot;sad&quot;</keyword>
+                  <keyword>&quot;angry&quot;</keyword>
+                  <keyword>&quot;neutral&quot;</keyword>
+                  <keyword></keyword>
+                </keywords>
+              </pluginContent>
+              <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when diagram is loaded." id="1" />
+              <Input name="onStart" type="0" type_size="1" nature="1" inner="0" tooltip="Value to test." id="2" />
+              <Output name="onDefault" type="1" type_size="1" nature="2" inner="0" tooltip="If the input value does not match any value set on the box." id="3" />
+              <Output name="output_1" type="0" type_size="1" nature="2" inner="0" tooltip="This IO has been automatically added by box. Read box tooltip for more information." id="4" />
+              <Output name="output_2" type="0" type_size="1" nature="2" inner="0" tooltip="This IO has been automatically added by box. Read box tooltip for more information." id="5" />
+              <Output name="output_3" type="0" type_size="1" nature="2" inner="0" tooltip="This IO has been automatically added by box. Read box tooltip for more information." id="6" />
+              <Output name="output_4" type="0" type_size="1" nature="2" inner="0" tooltip="This IO has been automatically added by box. Read box tooltip for more information." id="7" />
+              <Output name="output_5" type="0" type_size="1" nature="2" inner="0" tooltip="This IO has been automatically added by box. Read box tooltip for more information." id="8" />
+            </Box>
+            <Box name="HappyBox" id="3" localization="8" tooltip="NAO has detected that you are happy." x="707" y="46">
+              <bitmap>media/images/box/box-python-script.png</bitmap>
+              <script language="4">
+                <content>
+                  <![CDATA[class MyClass(GeneratedClass):
+    def __init__(self):
+        GeneratedClass.__init__(self)
+
+    def onLoad(self):
+        #put initialization code here
+        pass
+
+    def onUnload(self):
+        #put clean-up code here
+        pass
+
+    def onInput_onStart(self):
+        tts = ALProxy("ALTextToSpeech")
+        tts.say("You're looking quite happy today. That makes me happy too!")
+        self.onStopped() #activate the output of the box
+
+    def onInput_onStop(self):
+        self.onUnload() #it is recommended to reuse the clean-up as the box is stopped
+        self.onStopped() #activate the output of the box]]>
+                </content>
+              </script>
+              <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when diagram is loaded." id="1" />
+              <Input name="onStart" type="1" type_size="1" nature="2" inner="0" tooltip="Box behavior starts when a signal is received on this input." id="2" />
+              <Input name="onStop" type="1" type_size="1" nature="3" inner="0" tooltip="Box behavior stops when a signal is received on this input." id="3" />
+              <Output name="onStopped" type="1" type_size="1" nature="1" inner="0" tooltip="Signal sent when box behavior is finished." id="4" />
+            </Box>
+            <Box name="SurprisedBox" id="4" localization="8" tooltip="NAO has detected that you are surprised.&#x0A;" x="707" y="164">
+              <bitmap>media/images/box/box-python-script.png</bitmap>
+              <script language="4">
+                <content>
+                  <![CDATA[class MyClass(GeneratedClass):
+    def __init__(self):
+        GeneratedClass.__init__(self)
+
+    def onLoad(self):
+        #put initialization code here
+        pass
+
+    def onUnload(self):
+        #put clean-up code here
+        pass
+
+    def onInput_onStart(self):
+        tts = ALProxy("ALTextToSpeech")
+        tts.say("Wow! You look surprised! Did something really cool happen?!")
+        self.onStopped() #activate the output of the box
+
+    def onInput_onStop(self):
+        self.onUnload() #it is recommended to reuse the clean-up as the box is stopped
+        self.onStopped() #activate the output of the box]]>
+                </content>
+              </script>
+              <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when diagram is loaded." id="1" />
+              <Input name="onStart" type="1" type_size="1" nature="2" inner="0" tooltip="Box behavior starts when a signal is received on this input." id="2" />
+              <Input name="onStop" type="1" type_size="1" nature="3" inner="0" tooltip="Box behavior stops when a signal is received on this input." id="3" />
+              <Output name="onStopped" type="1" type_size="1" nature="1" inner="0" tooltip="Signal sent when box behavior is finished." id="4" />
+            </Box>
+            <Box name="SadBox" id="6" localization="8" tooltip="NAO has detected that you are sad.&#x0A;" x="721" y="293">
+              <bitmap>media/images/box/box-python-script.png</bitmap>
+              <script language="4">
+                <content>
+                  <![CDATA[class MyClass(GeneratedClass):
+    def __init__(self):
+        GeneratedClass.__init__(self)
+
+    def onLoad(self):
+        #put initialization code here
+        pass
+
+    def onUnload(self):
+        #put clean-up code here
+        pass
+
+    def onInput_onStart(self):
+        tts = ALProxy("ALTextToSpeech")
+        tts.say("Aw you look sad. Cheer up! Try thinking about puppies!")
+        self.onStopped() #activate the output of the box
+
+    def onInput_onStop(self):
+        self.onUnload() #it is recommended to reuse the clean-up as the box is stopped
+        self.onStopped() #activate the output of the box]]>
+                </content>
+              </script>
+              <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when diagram is loaded." id="1" />
+              <Input name="onStart" type="1" type_size="1" nature="2" inner="0" tooltip="Box behavior starts when a signal is received on this input." id="2" />
+              <Input name="onStop" type="1" type_size="1" nature="3" inner="0" tooltip="Box behavior stops when a signal is received on this input." id="3" />
+              <Output name="onStopped" type="1" type_size="1" nature="1" inner="0" tooltip="Signal sent when box behavior is finished." id="4" />
+            </Box>
+            <Box name="AngryBox" id="7" localization="8" tooltip="NAO has detected that you are angry." x="694" y="400">
+              <bitmap>media/images/box/box-python-script.png</bitmap>
+              <script language="4">
+                <content>
+                  <![CDATA[class MyClass(GeneratedClass):
+    def __init__(self):
+        GeneratedClass.__init__(self)
+
+    def onLoad(self):
+        #put initialization code here
+        pass
+
+    def onUnload(self):
+        #put clean-up code here
+        pass
+
+    def onInput_onStart(self):
+        tts = ALProxy("ALTextToSpeech")
+        tts.say("Yikes. you look angry! Dont take it out on me!")
+        self.onStopped() #activate the output of the box
+
+    def onInput_onStop(self):
+        self.onUnload() #it is recommended to reuse the clean-up as the box is stopped
+        self.onStopped() #activate the output of the box]]>
+                </content>
+              </script>
+              <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when diagram is loaded." id="1" />
+              <Input name="onStart" type="1" type_size="1" nature="2" inner="0" tooltip="Box behavior starts when a signal is received on this input." id="2" />
+              <Input name="onStop" type="1" type_size="1" nature="3" inner="0" tooltip="Box behavior stops when a signal is received on this input." id="3" />
+              <Output name="onStopped" type="1" type_size="1" nature="1" inner="0" tooltip="Signal sent when box behavior is finished." id="4" />
+            </Box>
+            <Box name="NeutralBox" id="8" localization="8" tooltip="NAO has detected that you are neutral." x="704" y="509">
+              <bitmap>media/images/box/box-python-script.png</bitmap>
+              <script language="4">
+                <content>
+                  <![CDATA[class MyClass(GeneratedClass):
+    def __init__(self):
+        GeneratedClass.__init__(self)
+
+    def onLoad(self):
+        #put initialization code here
+        pass
+
+    def onUnload(self):
+        #put clean-up code here
+        pass
+
+    def onInput_onStart(self):
+        tts = ALProxy("ALTextToSpeech")
+        tts.say("Not looking very expressive today. Try asking me if I can dance. It will make you smile!")
+        self.onStopped() #activate the output of the box
+
+    def onInput_onStop(self):
+        self.onUnload() #it is recommended to reuse the clean-up as the box is stopped
+        self.onStopped() #activate the output of the box]]>
+                </content>
+              </script>
+              <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when diagram is loaded." id="1" />
+              <Input name="onStart" type="1" type_size="1" nature="2" inner="0" tooltip="Box behavior starts when a signal is received on this input." id="2" />
+              <Input name="onStop" type="1" type_size="1" nature="3" inner="0" tooltip="Box behavior stops when a signal is received on this input." id="3" />
+              <Output name="onStopped" type="1" type_size="1" nature="1" inner="0" tooltip="Signal sent when box behavior is finished." id="4" />
+            </Box>
+            <Link inputowner="2" indexofinput="2" outputowner="0" indexofoutput="2" />
+            <Link inputowner="5" indexofinput="2" outputowner="2" indexofoutput="6" />
+            <Link inputowner="1" indexofinput="2" outputowner="5" indexofoutput="4" />
+            <Link inputowner="3" indexofinput="2" outputowner="1" indexofoutput="4" />
+            <Link inputowner="0" indexofinput="4" outputowner="3" indexofoutput="4" />
+            <Link inputowner="4" indexofinput="2" outputowner="1" indexofoutput="5" />
+            <Link inputowner="6" indexofinput="2" outputowner="1" indexofoutput="6" />
+            <Link inputowner="7" indexofinput="2" outputowner="1" indexofoutput="7" />
+            <Link inputowner="8" indexofinput="2" outputowner="1" indexofoutput="8" />
+            <Link inputowner="0" indexofinput="4" outputowner="4" indexofoutput="4" />
+            <Link inputowner="0" indexofinput="4" outputowner="6" indexofoutput="4" />
+            <Link inputowner="0" indexofinput="4" outputowner="7" indexofoutput="4" />
+            <Link inputowner="0" indexofinput="4" outputowner="8" indexofoutput="4" />
+            <Link inputowner="2" indexofinput="3" outputowner="5" indexofoutput="4" />
+          </Diagram>
+        </BehaviorKeyframe>
+      </BehaviorLayer>
+    </Timeline>
+  </Box>
+</ChoregrapheProject>
