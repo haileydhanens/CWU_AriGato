@@ -19,7 +19,8 @@
    <triggerSentences>
     <sentence lang="en_US">What is your favorite class</sentence>
     <sentence lang="en_US">What is your favorite C S class</sentence>
-    <sentence lang="en_US">What is ys your favorite class as C W U</sentence>
+    <sentence lang="en_US">What is your favorite class at C W U</sentence>
+    <sentence lang="en_US">What is your favorite class at central</sentence>
    </triggerSentences>
    <autonomous/>
    <permissions/>

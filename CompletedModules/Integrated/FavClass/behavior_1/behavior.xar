@@ -33,7 +33,7 @@
 
     def onInput_onStart(self):
         tts = ALProxy("ALTextToSpeech")
-        tts.say("my favorite class is C S four ninety-two, because it is where I met my capstone team before they were to graduate. We had a really great time, and I will miss them when they are gone.")
+        tts.say("my favorite class is C S four eighty-one, because it is where I met my capstone team before they were to graduate. We had a really great time, and I will miss them when they are gone.")
         self.onStopped() #activate the output of the box
 
     def onInput_onStop(self):

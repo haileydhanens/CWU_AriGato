@@ -33,7 +33,7 @@
 
     def onInput_onStart(self):
         tts =ALProxy("ALTextToSpeech")
-        tts.say("in a while crocodile")
+        tts.say("in a while, crocodile!")
         self.onStopped() #activate the output of the box
 
 

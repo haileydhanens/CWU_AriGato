@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<package version="0.0.0" uuid="turnleft-f0c403">
+<package version="0.0.0" uuid="turnaround-c73f78">
  <names>
-  <name lang="en_US">TurnLeft</name>
+  <name lang="en_US">Turn Around</name>
  </names>
  <supportedLanguages>
   <language>en_US</language>
@@ -14,11 +14,12 @@
    <userRequestable/>
    <nature>interactive</nature>
    <names>
-    <name lang="en_US">Turn Left</name>
+    <name lang="en_US">Turn Around</name>
    </names>
    <triggerSentences>
-    <sentence lang="en_US">Turn left</sentence>
-    <sentence lang="en_US">Rotate left</sentence>
+    <sentence lang="en_US">Turn around</sentence>
+    <sentence lang="en_US">Spin around</sentence>
+    <sentence lang="en_US">can you turn around</sentence>
    </triggerSentences>
    <autonomous/>
    <permissions/>

@@ -25,6 +25,7 @@
     <sentence lang="en_US">can you wiggle your fingers</sentence>
     <sentence lang="en_US">do your fingers move</sentence>
     <sentence lang="en_US">move your fingers</sentence>
+    <sentence lang="en_US">move your hands</sentence>
    </triggerSentences>
    <loadingResponses>
     <sentence lang="en_US">I can wiggle my fingers</sentence>

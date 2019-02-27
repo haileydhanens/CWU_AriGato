@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<package version="0.0.0" uuid="singanthem-b411a5">
+<package uuid="singanthem-b411a5" version="0.0.0">
  <names>
   <name lang="en_US">StarSpangledBanner</name>
  </names>
@@ -24,7 +24,6 @@
     <sentence lang="en_US">do you know the national anthem</sentence>
     <sentence lang="en_US">sing the star spangled banner</sentence>
    </triggerSentences>
-   <autonomous/>
    <permissions/>
   </behaviorContent>
  </contents>

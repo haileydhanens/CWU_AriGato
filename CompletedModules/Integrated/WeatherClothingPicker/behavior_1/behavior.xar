@@ -15,7 +15,7 @@
       <BehaviorLayer name="behavior_layer1">
         <BehaviorKeyframe name="keyframe1" index="1">
           <Diagram>
-            <Box name="ClothingPicker" id="1" localization="8" tooltip="NAO will tell you what clothing to wear based on the temperature and wind speed" x="364" y="62">
+            <Box name="ClothingPicker" id="1" localization="8" tooltip="NAO will tell you what clothing to wear based on the temperature and wind speed" x="472" y="121">
               <bitmap>media/images/box/box-python-script.png</bitmap>
               <script language="4">
                 <content>

@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<package version="0.0.0" uuid="weatherclothingpicker-16b3ec">
+<package version="0.0.0" uuid="turnleft-f0c403">
  <names>
-  <name lang="en_US">clothing_picker</name>
+  <name lang="en_US">TurnLeft</name>
  </names>
  <supportedLanguages>
   <language>en_US</language>
@@ -14,10 +14,13 @@
    <userRequestable/>
    <nature>interactive</nature>
    <names>
-    <name lang="en_US">ClothingPicker</name>
+    <name lang="en_US">Turn Left</name>
    </names>
    <triggerSentences>
-    <sentence lang="en_US">what should i wear outside today</sentence>
+    <sentence lang="en_US">Turn left</sentence>
+    <sentence lang="en_US">Rotate left</sentence>
+    <sentence lang="en_US">can you turn left</sentence>
+    <sentence lang="en_US">can you rotate left</sentence>
    </triggerSentences>
    <autonomous/>
    <permissions/>

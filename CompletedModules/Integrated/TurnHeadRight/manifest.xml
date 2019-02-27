@@ -23,10 +23,11 @@
     <description lang="en_US">make nao turn his head to the right</description>
    </descriptions>
    <triggerSentences>
+    <sentence lang="en_US">Turn your head right</sentence>
     <sentence lang="en_US">Turn head right</sentence>
+    <sentence lang="en_US">Head Right</sentence>
+    <sentence lang="en_US">Move your head to the right</sentence>
     <sentence lang="en_US">look right</sentence>
-    <sentence lang="en_US">look to the right</sentence>
-    <sentence lang="en_US">turn your head right</sentence>
    </triggerSentences>
    <loadingResponses>
     <sentence lang="en_US">okay</sentence>

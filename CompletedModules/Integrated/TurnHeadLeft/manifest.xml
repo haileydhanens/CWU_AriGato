@@ -30,6 +30,7 @@
     <sentence lang="en_US">alright</sentence>
     <sentence lang="en_US">okay</sentence>
    </loadingResponses>
+   <autonomous/>
    <permissions/>
   </behaviorContent>
  </contents>

@@ -18,6 +18,7 @@
    </names>
    <triggerSentences>
     <sentence lang="en_US">See you later Alligator</sentence>
+    <sentence lang="en_US">See ya later alligator</sentence>
    </triggerSentences>
    <autonomous/>
    <permissions/>

@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<package version="0.0.0" uuid="turnaround-c73f78">
+<package version="0.0.0" uuid="turnright-87a3c2">
  <names>
-  <name lang="en_US">Untitled</name>
+  <name lang="en_US">TurnRight</name>
  </names>
  <supportedLanguages>
   <language>en_US</language>
@@ -14,10 +14,13 @@
    <userRequestable/>
    <nature>interactive</nature>
    <names>
-    <name lang="en_US">Turn Around</name>
+    <name lang="en_US">Turn Right</name>
    </names>
    <triggerSentences>
-    <sentence lang="en_US">Turn around</sentence>
+    <sentence lang="en_US">Turn right</sentence>
+    <sentence lang="en_US">Rotate right</sentence>
+    <sentence lang="en_US">can you turn right</sentence>
+    <sentence lang="en_US">can you rotate right</sentence>
    </triggerSentences>
    <autonomous/>
    <permissions/>
