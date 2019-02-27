@@ -1,9 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<<<<<<< HEAD
 <package version="0.0.0" uuid="raiserightfoot-a74a19">
-=======
-<package uuid="raiserightfoot-a74a19" version="0.0.0">
->>>>>>> parent of f5c7d3d... Step 1
  <names>
   <name lang="en_US">RaiseRightFoot</name>
  </names>
@@ -29,20 +25,14 @@
    <triggerSentences>
     <sentence lang="en_US">Raise your right foot</sentence>
     <sentence lang="en_US">move your right foot</sentence>
-<<<<<<< HEAD
     <sentence lang="en_US">raise your right leg</sentence>
     <sentence lang="en_US">move your right leg</sentence>
     <sentence lang="en_US">balance on your left leg</sentence>
-=======
->>>>>>> parent of f5c7d3d... Step 1
    </triggerSentences>
    <loadingResponses>
     <sentence lang="en_US">Raising my right foot</sentence>
    </loadingResponses>
-<<<<<<< HEAD
    <autonomous/>
-=======
->>>>>>> parent of f5c7d3d... Step 1
    <permissions/>
   </behaviorContent>
  </contents>
