@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<package uuid="whattimeisit-ac895b" version="0.0.0">
+<package version="0.0.0" uuid="whattimeisit-ac895b">
  <names>
   <name lang="en_US">WhatTimeIsIt</name>
  </names>
@@ -19,11 +19,10 @@
    <triggerSentences>
     <sentence lang="en_US">what time is it</sentence>
     <sentence lang="en_US">do you know the time</sentence>
+    <sentence lang="en_US">can you tell me the time</sentence>
+    <sentence lang="en_US">what is the time</sentence>
    </triggerSentences>
-   <autonomous>
-    <condition purpose="launchTrigger"><![CDATA[(('Launchpad/NumPeopleZone2' > 0) ~ 5)
-&& ('Launchpad/PreviousActivity' !="whattimeisit-ac895b")]]></condition>
-   </autonomous>
+   <autonomous/>
    <permissions/>
   </behaviorContent>
  </contents>
