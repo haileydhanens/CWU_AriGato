@@ -86,7 +86,7 @@ class MyClass(GeneratedClass):
         year = dictionary.values()[24]
         stars = dictionary.values()[7]
 
-        proxy.say(p + " was released in " + str(year) + " and stars " + str(stars) + " and its rotten tomatoes rating is " + str(rating))
+        proxy.say(p + " was released in " + str(year) + " and stars " + str(stars) + ", and its rotten tomatoes rating is " + str(rating))
 
         self.onStopped()
 
@@ -151,7 +151,7 @@ class MyClass(GeneratedClass):
                 self.asr.pushContexts()
             self.hasPushed = True
             if self.asr:
-                movies = ["The Terminator", "I Robot", "Wall E", "Robots", "The Matrix", "Blade Runner", "Transformers", "Pacific Rim", "Robocop"]
+                movies = ["The Terminator", "I Robot", "Wall E", "Robots", "The Matrix", "Blade Runner", "Transformers", "Pacific Rim", "Robocop", "Real Steel", "Chappie", "Big Hero 6", "The Iron Giant", "Astro Boy", "Saturn 3", "Spare Parts","Making Mr. Right", "Robot Overlords","Surrogates", "Robot & Frank"]
 
                 self.asr.setVocabulary( movies, self.getParameter("Enable word spotting") )
             self.memory.subscribeToEvent("WordRecognized", self.getName(), "onWordRecognized")

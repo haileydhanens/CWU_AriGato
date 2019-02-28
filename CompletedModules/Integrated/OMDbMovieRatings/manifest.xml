@@ -18,6 +18,8 @@
    </names>
    <triggerSentences>
     <sentence lang="en_US">tell me about a movie</sentence>
+    <sentence lang="en_US">do you know any movies</sentence>
+    <sentence lang="en_US">do you like movies</sentence>
    </triggerSentences>
    <autonomous/>
    <permissions/>
