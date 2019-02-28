@@ -22,7 +22,9 @@
    <triggerSentences>
     <sentence lang="en_US">can you walk for me</sentence>
     <sentence lang="en_US">i need you to walk</sentence>
+    <sentence lang="en_US">walk for me</sentence>
    </triggerSentences>
+   <autonomous/>
    <permissions/>
   </behaviorContent>
  </contents>

@@ -25,6 +25,10 @@
     <sentence lang="en_US">do I nead a jacket</sentence>
     <sentence lang="en_US">Should I wear a Jacket</sentence>
     <sentence lang="en_US">What should I wear outside</sentence>
+    <sentence lang="en_US">what clothing should i wear today</sentence>
+    <sentence lang="en_US">What clothing should I wear</sentence>
+    <sentence lang="en_US">What outfit should I wear today</sentence>
+    <sentence lang="en_US">What outfit should I wear</sentence>
    </triggerSentences>
    <autonomous/>
    <permissions/>

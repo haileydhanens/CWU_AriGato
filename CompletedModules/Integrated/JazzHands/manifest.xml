@@ -21,6 +21,8 @@
     <sentence lang="en_US">do jazz hands</sentence>
     <sentence lang="en_US">be jazzy</sentence>
     <sentence lang="en_US">can you do jazz hands</sentence>
+    <sentence lang="en_US">move your arms</sentence>
+    <sentence lang="en_US">move your arms for me</sentence>
    </triggerSentences>
    <loadingResponses>
     <sentence lang="en_US">I love jazz!</sentence>

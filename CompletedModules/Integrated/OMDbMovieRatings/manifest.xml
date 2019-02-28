@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<package uuid="omdbmovieratings-7908cb" version="0.0.0">
+<package version="0.0.0" uuid="omdbmovieratings-7908cb">
  <names>
   <name lang="en_US">movie_ratings</name>
  </names>
@@ -21,7 +21,6 @@
     <sentence lang="en_US">do you know any movies</sentence>
     <sentence lang="en_US">do you like movies</sentence>
    </triggerSentences>
-   <autonomous/>
    <permissions/>
   </behaviorContent>
  </contents>

@@ -16,6 +16,7 @@
    <triggerSentences>
     <sentence lang="en_US">who is your favorite professor</sentence>
     <sentence lang="en_US">do you know any professors</sentence>
+    <sentence lang="en_US">who is your favorite person</sentence>
    </triggerSentences>
    <autonomous/>
    <permissions/>

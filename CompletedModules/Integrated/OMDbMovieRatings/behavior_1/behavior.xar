@@ -101,7 +101,7 @@ class MyClass(GeneratedClass):
               <Input name="movieTitle" type="3" type_size="1" nature="1" inner="0" tooltip="" id="4" />
               <Output name="onStopped" type="1" type_size="1" nature="1" inner="0" tooltip="Signal sent when box behavior is finished." id="5" />
             </Box>
-            <Box name="Speech Reco." id="3" localization="8" tooltip="Recognize a word from a list of words set in the box parameters.&#x0A;&#x0A;V1.1.0&#x0A;" x="269" y="290">
+            <Box name="Speech Reco." id="3" localization="8" tooltip="Recognize a word from a list of words set in the box parameters.&#x0A;&#x0A;V1.1.0&#x0A;" x="512" y="190">
               <bitmap>media/images/box/interaction/ear.png</bitmap>
               <script language="4">
                 <content>
