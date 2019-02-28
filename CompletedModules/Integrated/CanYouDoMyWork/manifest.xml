@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<package uuid="canyoudomywork-dbd99e" version="0.0.0">
+ <names>
+  <name lang="en_US">CanYouDoMyWork</name>
+ </names>
+ <supportedLanguages>
+  <language>en_US</language>
+ </supportedLanguages>
+ <descriptionLanguages>
+  <language>en_US</language>
+ </descriptionLanguages>
+ <contents>
+  <behaviorContent path="behavior_1">
+   <userRequestable/>
+   <nature>interactive</nature>
+   <names>
+    <name lang="en_US">CanYouDoMyWork</name>
+   </names>
+   <triggerSentences>
+    <sentence lang="en_US">Can you do my math homework</sentence>
+    <sentence lang="en_US">Can you do my homework</sentence>
+    <sentence lang="en_US">Can you do my work</sentence>
+    <sentence lang="en_US">can you do my Computer Science homework</sentence>
+    <sentence lang="en_US">Can you do my C S homework</sentence>
+    <sentence lang="en_US">Can you code for me</sentence>
+    <sentence lang="en_US">Can you do do my lab for me</sentence>
+   </triggerSentences>
+   <autonomous/>
+   <permissions/>
+  </behaviorContent>
+ </contents>
+</package>

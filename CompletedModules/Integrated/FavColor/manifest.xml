@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<package uuid="favcolor-919e34" version="0.0.0">
+ <names>
+  <name lang="en_US">FavColor</name>
+ </names>
+ <supportedLanguages>
+  <language>en_US</language>
+ </supportedLanguages>
+ <descriptionLanguages>
+  <language>en_US</language>
+ </descriptionLanguages>
+ <contents>
+  <behaviorContent path="behavior_1">
+   <userRequestable/>
+   <nature>interactive</nature>
+   <names>
+    <name lang="en_US">favColor</name>
+   </names>
+   <triggerSentences>
+    <sentence lang="en_US">do you like any colors</sentence>
+    <sentence lang="en_US">Do you have a favorite color</sentence>
+    <sentence lang="en_US">What is your favorite color</sentence>
+   </triggerSentences>
+   <autonomous/>
+   <permissions/>
+  </behaviorContent>
+ </contents>
+</package>

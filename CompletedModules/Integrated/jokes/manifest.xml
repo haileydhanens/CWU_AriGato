@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<package uuid="jokes-4a48ba" version="0.0.0">
+ <names>
+  <name lang="en_US">jokes</name>
+ </names>
+ <supportedLanguages>
+  <language>en_US</language>
+ </supportedLanguages>
+ <descriptionLanguages>
+  <language>en_US</language>
+ </descriptionLanguages>
+ <contents>
+  <behaviorContent path="behavior_1">
+   <userRequestable/>
+   <nature>interactive</nature>
+   <names>
+    <name lang="en_US">jokes</name>
+   </names>
+   <descriptions/>
+   <triggerSentences>
+    <sentence lang="en_US">Do you know any jokes</sentence>
+    <sentence lang="en_US">Tell me a joke</sentence>
+    <sentence lang="en_US">can you tell me any jokes</sentence>
+   </triggerSentences>
+   <autonomous/>
+   <permissions/>
+  </behaviorContent>
+ </contents>
+</package>
