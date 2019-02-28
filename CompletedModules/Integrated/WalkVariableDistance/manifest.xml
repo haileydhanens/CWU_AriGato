@@ -23,7 +23,6 @@
     <sentence lang="en_US">can you walk for me</sentence>
     <sentence lang="en_US">i need you to walk</sentence>
    </triggerSentences>
-   <autonomous/>
    <permissions/>
   </behaviorContent>
  </contents>
