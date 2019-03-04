@@ -16,13 +16,11 @@
    <names>
     <name lang="en_US">jokes</name>
    </names>
-   <descriptions/>
    <triggerSentences>
     <sentence lang="en_US">Do you know any jokes</sentence>
     <sentence lang="en_US">Tell me a joke</sentence>
     <sentence lang="en_US">can you tell me any jokes</sentence>
    </triggerSentences>
-   <autonomous/>
    <permissions/>
   </behaviorContent>
  </contents>
