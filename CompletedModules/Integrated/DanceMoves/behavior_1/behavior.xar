@@ -1605,99 +1605,10 @@ class MyClass(GeneratedClass):
                 </ActuatorList>
               </Timeline>
             </Box>
-            <Box name="Speech Reco." id="4" localization="8" tooltip="Recognize a word from a list of words set in the box parameters.&#x0A;&#x0A;V1.1.0&#x0A;" x="223" y="445">
-              <bitmap>media/images/box/interaction/ear.png</bitmap>
-              <script language="4">
-                <content>
-                  <![CDATA[
-
-class MyClass(GeneratedClass):
-    def __init__(self):
-        GeneratedClass.__init__(self, False)
-
-    def onLoad(self):
-        try:
-            self.asr = self.session().service("ALSpeechRecognition")
-        except Exception as e:
-            self.asr = None
-            self.logger.error(e)
-        self.memory = self.session().service("ALMemory")
-        from threading import Lock
-        self.bIsRunning = False
-        self.mutex = Lock()
-        self.hasPushed = False
-        self.hasSubscribed = False
-        self.BIND_PYTHON(self.getName(), "onWordRecognized")
-
-    def onUnload(self):
-        from threading import Lock
-        self.mutex.acquire()
-        try:
-            if (self.bIsRunning):
-                if (self.hasSubscribed):
-                    self.memory.unsubscribeToEvent("WordRecognized", self.getName())
-                if (self.hasPushed and self.asr):
-                    self.asr.popContexts()
-        except RuntimeError, e:
-            self.mutex.release()
-            raise e
-        self.bIsRunning = False;
-        self.mutex.release()
-
-    def onInput_onStart(self):
-        from threading import Lock
-        self.mutex.acquire()
-        if(self.bIsRunning):
-            self.mutex.release()
-            return
-        self.bIsRunning = True
-        try:
-            if self.asr:
-                self.asr.pushContexts()
-            self.hasPushed = True
-            if self.asr:
-                self.asr.setVocabulary( self.getParameter("Word list").split(';'), self.getParameter("Enable word spotting") )
-            self.memory.subscribeToEvent("WordRecognized", self.getName(), "onWordRecognized")
-            self.hasSubscribed = True
-        except RuntimeError, e:
-            self.mutex.release()
-            self.onUnload()
-            raise e
-        self.mutex.release()
-
-    def onInput_onStop(self):
-        if( self.bIsRunning ):
-            self.onUnload()
-            self.onStopped()
-
-    def onWordRecognized(self, key, value, message):
-        if(len(value) > 1 and value[1] >= self.getParameter("Confidence threshold (%)")/100.):
-            self.wordRecognized(value[0]) #~ activate output of the box
-        else:
-            self.onNothing()]]>
-                </content>
-              </script>
-              <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when diagram is loaded." id="1" />
-              <Input name="onStart" type="1" type_size="1" nature="2" inner="0" tooltip="Box behavior starts when a signal is received on this input." id="2" />
-              <Input name="onStop" type="1" type_size="1" nature="3" inner="0" tooltip="Box behavior stops when a signal is received on this input." id="3" />
-              <Output name="onStopped" type="1" type_size="1" nature="1" inner="0" tooltip="Signal sent when box behavior is finished." id="4" />
-              <Output name="wordRecognized" type="3" type_size="1" nature="2" inner="0" tooltip="Word recognized with a confidence higher than the threshold set in the box parameters." id="5" />
-              <Output name="onNothing" type="1" type_size="1" nature="2" inner="0" tooltip="Nothing has been understood." id="6" />
-              <Parameter name="Word list" inherits_from_parent="0" content_type="3" value="Exit;Stop" default_value="yes;no" custom_choice="0" tooltip="Try to recognize a word from a list of words set in the box parameters." id="7" />
-              <Parameter name="Confidence threshold (%)" inherits_from_parent="0" content_type="1" value="50" default_value="30" min="0" max="100" tooltip="If the confidence associated with the word recognized is below this threshold, the robot will consider that it is not recognized." id="8" />
-              <Parameter name="Enable word spotting" inherits_from_parent="0" content_type="0" value="0" default_value="0" tooltip="If this option is not activated the robot will only understand exact expressions. If it is, he will spot the exact expressions even in the middle of a sentence.&#x0A;&#x0A;!!Warning!! This option is only available with the speech recognition module using Nuance (ie in Atom version of the robot)." id="9" />
-              <Resource name="Speech recognition" type="Lock" timeout="0" />
-            </Box>
             <Link inputowner="5" indexofinput="2" outputowner="0" indexofoutput="2" />
             <Link inputowner="1" indexofinput="3" outputowner="5" indexofoutput="4" />
             <Link inputowner="0" indexofinput="4" outputowner="1" indexofoutput="4" />
             <Link inputowner="3" indexofinput="2" outputowner="0" indexofoutput="2" />
-            <Link inputowner="4" indexofinput="2" outputowner="0" indexofoutput="2" />
-            <Link inputowner="3" indexofinput="3" outputowner="4" indexofoutput="5" />
-            <Link inputowner="5" indexofinput="3" outputowner="4" indexofoutput="5" />
-            <Link inputowner="1" indexofinput="2" outputowner="4" indexofoutput="5" />
-            <Link inputowner="4" indexofinput="2" outputowner="4" indexofoutput="6" />
-            <Link inputowner="0" indexofinput="4" outputowner="4" indexofoutput="4" />
           </Diagram>
         </BehaviorKeyframe>
       </BehaviorLayer>
