@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<package version="0.0.0" uuid="weatherclothingpicker-16b3ec">
+<package uuid="weatherclothingpicker-16b3ec" version="0.0.0">
  <names>
   <name lang="en_US">clothing_picker</name>
  </names>
@@ -30,7 +30,6 @@
     <sentence lang="en_US">What outfit should I wear today</sentence>
     <sentence lang="en_US">What outfit should I wear</sentence>
    </triggerSentences>
-   <autonomous/>
    <permissions/>
   </behaviorContent>
  </contents>
