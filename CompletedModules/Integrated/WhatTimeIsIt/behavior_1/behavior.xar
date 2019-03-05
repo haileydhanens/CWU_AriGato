@@ -40,15 +40,21 @@ class MyClass(GeneratedClass):
 #        print "-"*30
         tts = ALProxy("ALTextToSpeech")
 
-        r = requests.get("http://worldtimeapi.org/api/ip").json()
+        request = requests.get("http://worldtimeapi.org/api/ip")
+        if request.status_code == 200 :
 
-        datetime= r['datetime']
+            r = request.json()
+            datetime= r['datetime']
+            time = str(datetime[11:16])
+            hour = int(time[:2])
+            minutes = int(time[3:])
 
-        time = str(datetime[11:16])
+            if hour > 12:
+                hour = hour - 12
 
-        tts.say("it is" + time + " ")
-
-
+            tts.say("it is" + str(hour) + ":" + str(minutes))
+        else:
+            tts.say("Sorry, im not wearign my watch right now")
         self.onStopped() #activate the output of the box
 
 

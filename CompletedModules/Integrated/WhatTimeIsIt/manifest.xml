@@ -22,7 +22,6 @@
     <sentence lang="en_US">can you tell me the time</sentence>
     <sentence lang="en_US">what is the time</sentence>
    </triggerSentences>
-   <autonomous/>
    <permissions/>
   </behaviorContent>
  </contents>

@@ -57,7 +57,7 @@ class MyClass(GeneratedClass):
             current_temperature = y["temp"]
             converted_temperature = (current_temperature - 273.15) * 9 / 5 + 32
             celcius = (current_temperature - 273.15)
-            string_temperature = "It is " + str(int(converted_temperature)) + " degrees fahrenheit or " + str(int(celcius)) + " celcius in Ellensburg right now."
+            string_temperature = "It is " + str(int(converted_temperature)) + " degrees fahrenheit or " + str(int(celcius)) + " celcius in Ellens burg right now."
 
             # print out temp
             proxy.say(string_temperature)
