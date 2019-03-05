@@ -56,8 +56,6 @@
             current_wind = w["speed"]
             converted_wind = current_wind / 1.609344
 
-            proxy.say("temp is " + str(round(converted_temperature, 1)) + ", wind is " + str(round(converted_wind, 1)))
-
             if converted_temperature <= 32:
                 if converted_wind < 7:
                         proxy.say("its a little chilly but not too breezy, feel free to put on a warm coat")
