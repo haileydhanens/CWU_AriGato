@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<package version="0.0.0" uuid="turnheadleft-8dd2a9">
+<package uuid="turnheadleft-8dd2a9" version="0.0.0">
  <names>
   <name lang="en_US">Turn head left</name>
  </names>
@@ -21,7 +21,6 @@
    </descriptions>
    <triggerSentences>
     <sentence lang="en_US">Turn your head left</sentence>
-    <sentence lang="en_US">turn head left</sentence>
     <sentence lang="en_US">head left</sentence>
     <sentence lang="en_US">move your head to the left</sentence>
     <sentence lang="en_US">look left</sentence>
