@@ -99,57 +99,35 @@ class MyClass(GeneratedClass):
             if self.asr:
                 classList = [
                     "one oh one",
-                    "one oh two",
                     "one oh five",
                     "one oh seven",
-                    "one oh nine",
                     "one ten",
                     "one eleven",
                     "one twelve",
                     "two fifty",
-                    "two ninety",
-                    "two ninety eight",
-                    "two ninety nine",
                     "three oh one",
                     "three oh two",
                     "three eleven",
                     "three twelve",
                     "three twenty five",
-                    "three fifty one",
-                    "three fifty two",
                     "three sixty one",
                     "three sixty two",
-                    "three sixty seven",
                     "three seventy",
                     "three eighty",
                     "three ninety two",
-                    "three ninety six",
-                    "three ninety seven",
-                    "three ninety eight",
-                    "three ninety nine",
                     "four twenty",
                     "four twenty seven",
                     "four twenty eight",
-                    "four thirty",
                     "four fourty",
-                    "four fourty one",
                     "four fourty five",
                     "four fourty six",
-                    "four fifty",
-                    "four fifty five",
                     "four fifty six",
-                    "four fifty seven",
                     "four sixty",
                     "four seventy",
                     "four seventy one",
-                    "four sevety three",
-                    "four seventy five",
-                    "four seventy six",
                     "four eigthy",
                     "four eighty one",
                     "four eighty nine",
-                    "four ninety",
-                    "four ninety one",
                     "four ninety two",
                     "exit",
                     "quit",
@@ -268,136 +246,103 @@ class MyClass(GeneratedClass):
         #consts with the desription of the class
         #100 level classes########################################
         #101
-        COMPUTER_BASICS = "Integrated, project-based course using student-produced working materials in the form of a mini thesis. Microsoft Office tools are learned in a web-based practical application environment."
-        #102
-        HEALTH_AND_TECHNOLOGY = "Students will analyze the impact of health factors through construction of a personal health index calculator, create health analysis tools with instantaneous updating, and evaluate the pros and cons of technology in the health field."
+        COMPUTER_BASICS = "In C S one oh one you will partake in an Integrated, project-based course using student-produced working materials in the form of a mini thesis. Microsoft Office tools are learned in a web-based practical application environment."
         #105
-        THE_LOGICAL_BASIS_OF_COMPUTING = "Students develop mathematical and quantitative reasoning skills by learning the fundamentals of computer programming. Students gain an understanding of possible connections between technology and artistic expression."
+        THE_LOGICAL_BASIS_OF_COMPUTING = "In C S one oh five Students develop mathematical and quantitative reasoning skills by learning the fundamentals of computer programming. Students gain an understanding of possible connections between technology and artistic expression."
         #107
-        MAKE_A_GAME_WITH_COMPUTER_SCIENCE = "This course provides an overview of gaming within the field of computer science including social, cultural, ethical, legal, and economic issues. Software engineering principles will be introduced and applied to a game development."
-        #109
-        QUANTITATIVE_REASONING_USING_PYTHON = "Students explore quantitative and statistical processes by implementing the popular programming language Python."
+        MAKE_A_GAME_WITH_COMPUTER_SCIENCE = "C S one oh seven provides an overview of gaming within the field of computer science including social, cultural, ethical, legal, and economic issues. Software engineering principles will be introduced and applied to a game development."
         #110
-        PROGRAMMING_FUNDAMENTALS = "Fundamental concepts of programming from an object-oriented perspective. Classes, objects and methods, algorithm development, problem-solving techniques, basic control structures, primitive types and arrays."
+        PROGRAMMING_FUNDAMENTALS = "In C S one ten you will learn of the Fundamental concepts of programming from an object-oriented perspective. You will learn about Classes, objects and methods, algorithm development, problem-solving techniques, basic control structures, primitive types and arrays."
         #111
-        PROGRAMMING_FUNDAMENTALS_TWO = "Continuation of object-oriented programming concepts introduced in CS 110. Inheritance, exceptions, graphical user interfaces, recursion, and data structures."
+        PROGRAMMING_FUNDAMENTALS_TWO = "C S one twelve is a Continuation of object-oriented programming concepts introduced in C S one ten. You will learn about Inheritance, exceptions, graphical user interfaces, recursion, and data structures."
         #112
-        FOUNDATIONS_OF_COMPUTER_SCIENCE = "Overview of the computer science profession including basic computer organization, algorithm development and analysis, computer data representation, computer applications, and social issues."
+        FOUNDATIONS_OF_COMPUTER_SCIENCE = "C S one twelves provides an Overview of the computer science profession including basic computer organization, algorithm development and analysis, computer data representation, computer applications, and social issues."
 
         #200 level classes#########################################
         #250
-        WEB_DEVELOPMENT_TECHNOLOGIES_ONE = "Techniques for web software development including XHTML, style sheets, scripting languages, web databases, PHP, and ethical issues."
-        #290
-        COOPERATIVE_EDUCATION = "An individualized, contracted field experience with business, industry, government, or social service agencies. This contractual arrangement involves a student-learning plan, cooperating employer supervision, and faculty coordination."
+        WEB_DEVELOPMENT_TECHNOLOGIES_ONE = "In C S two fifty you will learn Techniques for web software development including X H T M L, style sheets, scripting languages, web databases, P H P, and ethical issues."
 
         #300 level classes#########################################
         #301
-        DATA_STRUCTURES = "Introduction to data structures, simple list processing, basic searching and sorting techniques, stacks, queues, and trees."
+        DATA_STRUCTURES = "C S three oh one is awesome! You will receive an Introduction to data structures, simple list processing, basic searching and sorting techniques, stacks, queues, and trees."
         #302
-        ADVANCED_DATA_STRUCTURES_AND_FILE_PROCESSING = "Sequential, random access and indexed file organizations; B-trees; external searching and sorting; I/O buffering."
+        ADVANCED_DATA_STRUCTURES_AND_FILE_PROCESSING = "C S three oh two will teach you about Sequential, random access and indexed file organizations B trees, external searching and sorting, and I O buffering."
         #311
-        COMPUTER_ARCHITECTURE_ONE = "Introduction to computer architecture, data representations, assembly language, addressing techniques. Course will be offered every year."
+        COMPUTER_ARCHITECTURE_ONE = "C S three eleven is a really hard one, but super important. You will get an Introduction to computer architecture, data representations, assembly language, and addressing techniques."
         #312
-        COMPUTER_ARCHITECTURE_TWO = "Introduction to the structure of computers. Digital circuits, central processing units, memory, input/output processing, parallel architectures."
+        COMPUTER_ARCHITECTURE_TWO = "C S three twelves gives an Introduction to the structure of computers. Digital circuits, central processing units, memory, input output processing, and parallel architectures."
         #325
-        TECHNICAL_WRITING_IN_COMPUTER_SCIENCE = "Writing and editing technical material in computer science."
-        #351
-        WEB_DEVELOPMENT_TECHNOLOGIES_TWO = "Server-side technologies for web software development including programming languages, database access, e-commerce, testing, and ethical issues related to the web."
-        #352
-        WEB_DEVELOPMENT_TECHNOLOGIES_THREE = "Advanced technologies for web software development, including XML and its related technologies: DTD, XML Schema, XSL, and XSLT, and other emerging technologies."
+        TECHNICAL_WRITING_IN_COMPUTER_SCIENCE = "C S three twenty five is very interesting. You will experience Writing and editing technical material in the domain of computer science."
         #361
-        PRINCIPLES_OF_LANGUAGE_DESIGN_ONE = "Topics will include evolution of programming languages, syntax and semantics, bindings, scoping, data types, assignment, control, and subprograms."
+        PRINCIPLES_OF_LANGUAGE_DESIGN_ONE = "C S three sixty one introduces Topics such as the evolution of programming languages, syntax and semantics, bindings, scoping, data types, assignment, control, and subprograms."
         #362
-        PRINCIPLES_OF_LANGUAGE_DESIGN_TWO = "Topics will include abstract data types, parallel processing, object-oriented programming, exception handling functional programming, and logic programming."
-        #367
-        ADVANCED_VISUAL_BASIC_PROGRAMING = "Visual Basic programming and applications. Topics will include advanced data structures, error trapping and debugging, advanced VB and ActiveX controls, macros and databases. Not intended for CS majors."
+        PRINCIPLES_OF_LANGUAGE_DESIGN_TWO = "C S three sixty two covers Topics such as abstract data types, parallel processing, object-oriented programming, exception handling functional programming, and logic programming."
         #370
-        INTRODUCTION_TO_THE_UNIX_OPERATING_SYSTEM = "The fundamental requirements, features and functions of the UNIX operating system. A UNIX-compatible OS will be used as a working model. Installation, configuration, setup, shell operations, and program development with the UNIX operating system. "
+        INTRODUCTION_TO_THE_UNIX_OPERATING_SYSTEM = "C S three seventy was one of my favorite classes. You will learn about The fundamental requirements, features and functions of the you-nix operating system. A you-nix compatible OS will be used as a working model. Installation, configuration, setup, shell operations, and program development with the you-nix operating system. "
         #380
-        INTRODUCTION_TO_SOFTWARE_ENGINEERING = "An introduction to the principles and practices of software engineering, including object-oriented analysis and design, design patterns, and testing."
+        INTRODUCTION_TO_SOFTWARE_ENGINEERING = "C S three eighty is a very important class. It provides An introduction to the principles and practices of software engineering, including object-oriented analysis and design, design patterns, and testing."
         #392
-        LAB_EXPERIENCE_IN_TEACHING_COMPUTER_SCIENCE_THREE_HUNDRED = "Supervised experience in developing procedures and techniques in teaching computer science."
+        LAB_EXPERIENCE_IN_TEACHING_COMPUTER_SCIENCE_THREE_HUNDRED = "C S three ninety two requires you to be a T A for a lower level C S class."
 
         #400 level classes#########################################
         #420
-        DATABASE_MANAGEMENT_SYSTEMS = "Logical aspects of database processing; concepts of organizing data into integrated databases; hierarchical, network, and relational approaches."
+        DATABASE_MANAGEMENT_SYSTEMS = "In C S four twenty you learn about databases. The class covers the Logical aspects of database processing, concepts of organizing data into integrated databases, hierarchical, network, and relational approaches."
         #427
-        ALGORITHM_ANALYSIS = "Topics will include basic algorithmic analysis, algorithmic strategies, fundamental computing algorithms, basic computability, the complexity classes P and NP, and advanced algorithmic analysis."
+        ALGORITHM_ANALYSIS = "C S four twenty seven Topics will include basic algorithmic analysis, algorithmic strategies, fundamental computing algorithms, basic computability, the complexity classes P and N P, and advanced algorithmic analysis."
         #428
-        INTRODUCTION_TO_GRAPH_ALGORITHMS = "This course gives a wide introduction to the field of graph algorithms. Students will learn how to recognize and analyze algorithmic graph problems, as well as how to develop practical approaches for solving them."
-        #430
-        INTRODUCTION_TO_COMPUTER_SECURITY = "Introduction to the principles of computer security. Discussion of threats, intrusion, trust, protection, access control, and cryptography and implementation of security, confidentiality, and integrity policies."
+        INTRODUCTION_TO_GRAPH_ALGORITHMS = "C S four twenty eight gives a wide introduction to the field of graph algorithms. Students will learn how to recognize and analyze algorithmic graph problems, as well as how to develop practical approaches for solving them."
         #440
-        COMPUTER_GRAPHICS = "Graphic I/O devices, two-dimensional and three-dimensional display techniques, display processors, clipping and windowing, hidden line removal, data structures for graphics."
+        COMPUTER_GRAPHICS = "C S four forty covers Graphic I O devices, two-dimensional and three-dimensional display techniques, display processors, clipping and windowing, hidden line removal, and data structures for graphics."
         #445
-        DATA_AND_INFORMATION_VISUALIZATION = "Data visualization includes the visualization pipeline, basic and advanced visual data representations, fundamental and advanced visualization algorithms, visualization on the web, applications and software tools."
+        DATA_AND_INFORMATION_VISUALIZATION = "C S four forty five Data visualization includes the visualization pipeline, basic and advanced visual data representations, fundamental and advanced visualization algorithms, visualization on the web, applications and software tools."
         #446
-        USER_INTERFACE_DESIGN_AND_DEVELOPMENT = "The relationship of user interface design to human-computer interaction. Types of user interfaces, methods of evaluation, user-centered design and task analysis, programming tools and environments, and hardware devices."
-        #450
-        COMPUTER_NETWORK_AND_DATA_COMMUNICATIONS = "Device protocols; network configurations; encryption; data compression and security; satellite networks."
-        #445
-        ARTIFICIAL_INTELLIGENCE = "Introduction to the principles of artificial intelligence. Pattern matching, knowledge representation, natural language processing, expert systems."
+        USER_INTERFACE_DESIGN_AND_DEVELOPMENT = "C S four forty six covers The relationship of user interface design to human-computer interaction. Types of user interfaces, methods of evaluation, user-centered design and task analysis, programming tools and environments, and hardware devices. Be prepared for lots of usability testing!"
         #456
-        DATA_MINING = "Introducing concepts, models, algorithms, and tools for solving data mining tasks; decision trees, time series, Bayesian methods, k-nearest neighbors, and relational databases."
-        #457
-        COMPUTATIONAL_INTELLIGENCE_AND_MACHINE_LEARNING = "Introducing intelligent systems: artificial neural networks, deep learning, evolutionary computation, fuzzy systems, swarm intelligence, and hybridizations of the above techniques. We will look at these techniques from a machine learning perspective."
+        DATA_MINING = "C S four fifty six Introduces concepts, models, algorithms, and tools for solving data mining tasks. Also covered are decision trees, time series, Bayesian methods, k nearest neighbors, and relational databases."
         #460
-        SOFTWARE_ENGINEERING_FOR_MOBILE_DEVICES = "Development of stand-alone applications (apps) intended to be downloaded onto and run on mobile devices. Android and iOS is taught. Topics include XML, data and control flow diagrams, IDEs, layout design, etc."
+        SOFTWARE_ENGINEERING_FOR_MOBILE_DEVICES = "C S four sixty covers the Development of stand-alone applications intended to be downloaded onto and run on mobile devices. Android and i O S is taught. Topics include X M L, data and control flow diagrams, layout design, and more."
         #470
-        OPERATING_SYSTEMS = "Topics will include principles of operating systems, concurrency, scheduling and dispatch, memory management, processes and threads, device management, security and protection, and file systems."
+        OPERATING_SYSTEMS = "C S four seventy is a hard class for sure, but also very informative! Topics will include principles of operating systems, concurrency, scheduling and dispatch, memory management, processes and threads, device management, security and protection, and file systems."
         #471
-        OPTIMIZATION = "Unimodal and Multimodal problems; combinatorial optimization problems; deterministic algorithms; Hill climbing algorithm; Tabu Search Algorithm; Evolutionary algorithms; Particle swarm optimization; Differential evolution; Single and Mutli-objective optimization."
-        #473
-        PARALLEL_COMPUTING = "Major parallel architectures and languages. Parallel programming methodologies and applications."
+        OPTIMIZATION = "C S four seventy one covers Unimodal and Multimodal problems, combinatorial optimization problems, deterministic algorithms, Hill climbing algorithm, Tabu Search Algorithm, Evolutionary algorithms, Particle swarm optimization, Differential evolution, and Single and Mutli-objective optimization."
         #480
-        ADVANCED_SOFTWARE_ENGINEERING = "Advanced principles and practices of software engineering, including project management, requirements gathering and specification, design, coding, testing, maintenance and documentation. Students work in teams to develop a large software project."
+        ADVANCED_SOFTWARE_ENGINEERING = "C S four eighty is the first part of the senior capstone project. The class covers Advanced principles and practices of software engineering, including project management, requirements gathering and specification, design, coding, testing, maintenance and documentation. Students are assigned to teams to develop a large software project."
         #481
-        SOFTWARE_ENGINEERING_PROJECT = "Continuation of coding, testing, and implementation phases of project begun in CS 480."
+        SOFTWARE_ENGINEERING_PROJECT = "C S four eighty one is the second part of the senior capstone project. Continuation of coding, testing, and implementation phases of project begun in c s four eighty."
         #489
-        SENIOR_COLLOQUIUM = "Introduction to research in computer science through investigation of ethical and historical topics in the field. End-of-major assessment activities."
+        SENIOR_COLLOQUIUM = "C S four eighty nine is an Introduction to research in computer science through investigation of ethical and historical topics in the field. You will also take the M F T exam in the test, be prepared to study!"
         #492
-        LABORATORY_EXPERIENCE_IN_TEACHING_COMPUTER_SCIENCE_FOUR_HUNDRED = "Supervised progressive experience in developing procedures and techniques in teaching computer science."
+        LABORATORY_EXPERIENCE_IN_TEACHING_COMPUTER_SCIENCE_FOUR_HUNDRED = "In C S four ninety two, you will act as a T A for upper level C S classes."
 
 
         classes = {
             "cs101" : COMPUTER_BASICS,
-            "cs102" : HEALTH_AND_TECHNOLOGY,
             "cs105" : THE_LOGICAL_BASIS_OF_COMPUTING,
             "cs107" : MAKE_A_GAME_WITH_COMPUTER_SCIENCE,
-            "cs109" : QUANTITATIVE_REASONING_USING_PYTHON,
             "cs110" : PROGRAMMING_FUNDAMENTALS,
             "cs111" : PROGRAMMING_FUNDAMENTALS_TWO,
             "cs112" : FOUNDATIONS_OF_COMPUTER_SCIENCE,
             "cs250" : WEB_DEVELOPMENT_TECHNOLOGIES_ONE,
-            "cs290" : COOPERATIVE_EDUCATION,
             "cs301" : DATA_STRUCTURES,
             "cs302" : ADVANCED_DATA_STRUCTURES_AND_FILE_PROCESSING,
             "cs311" : COMPUTER_ARCHITECTURE_ONE,
             "cs312" : COMPUTER_ARCHITECTURE_TWO,
             "cs325" : TECHNICAL_WRITING_IN_COMPUTER_SCIENCE,
-            "cs351" : WEB_DEVELOPMENT_TECHNOLOGIES_TWO,
-            "cs352" : WEB_DEVELOPMENT_TECHNOLOGIES_THREE,
             "cs361" : PRINCIPLES_OF_LANGUAGE_DESIGN_ONE,
             "cs362" : PRINCIPLES_OF_LANGUAGE_DESIGN_TWO,
-            "cs367" : ADVANCED_VISUAL_BASIC_PROGRAMING,
             "cs370" : INTRODUCTION_TO_THE_UNIX_OPERATING_SYSTEM,
             "cs380" : INTRODUCTION_TO_SOFTWARE_ENGINEERING,
             "cs392" : LAB_EXPERIENCE_IN_TEACHING_COMPUTER_SCIENCE_THREE_HUNDRED,
             "cs420" : DATABASE_MANAGEMENT_SYSTEMS,
             "cs427" : ALGORITHM_ANALYSIS,
             "cs428" : INTRODUCTION_TO_GRAPH_ALGORITHMS,
-            "cs430" : INTRODUCTION_TO_COMPUTER_SECURITY,
             "cs440" : COMPUTER_GRAPHICS,
             "cs445" : DATA_AND_INFORMATION_VISUALIZATION,
             "cs446" : USER_INTERFACE_DESIGN_AND_DEVELOPMENT,
-            "cs450" : COMPUTER_NETWORK_AND_DATA_COMMUNICATIONS,
-            "cs455" : ARTIFICIAL_INTELLIGENCE,
             "cs456" : DATA_MINING,
-            "cs457" : COMPUTATIONAL_INTELLIGENCE_AND_MACHINE_LEARNING,
             "cs460" : SOFTWARE_ENGINEERING_FOR_MOBILE_DEVICES,
             "cs470" : OPERATING_SYSTEMS,
             "cs471" : OPTIMIZATION,
-            "cs473" : PARALLEL_COMPUTING,
             "cs480" : ADVANCED_SOFTWARE_ENGINEERING,
             "cs481" : SOFTWARE_ENGINEERING_PROJECT,
             "cs489" : SENIOR_COLLOQUIUM,
@@ -421,14 +366,10 @@ class MyClass(GeneratedClass):
 
         if p == "Computer Basics" or p == "one oh one":
             className = "cs101"
-        elif p == "Health and Technology" or p == "one oh two":
-            className = "cs102"
         elif p == "Logical Basis of Computing" or p == "one oh five":
             className = "cs105"
         elif p == "Make a Game with Computer Science" or p == "one oh seven":
             className = "cs107"
-        elif p == "Quantitative Reasoning Using Python" or p == "one oh nine":
-            className = "cs109"
         elif p == "Programming Fundamentals One" or p == "one ten":
             className = "cs110"
         elif p == "Programming Fundamentals Two" or p == "one eleven":
@@ -437,12 +378,6 @@ class MyClass(GeneratedClass):
             className = "cs112"
         elif p == "Web Development Technologies One" or p == "two fifty":
             className = "cs250"
-        elif p == "Cooperative Education" or p == "two ninety":
-            className = "cs290"
-        elif p == "Special Topics Two Hundred" or p == "two ninety eight":
-            className = "cs298"
-        elif p == "Seminar Two Hundred" or p == "two ninety nine":
-            className = "cs299"
         elif p == "Data Structures" or p == "three oh one":
             className = "cs301"
         elif p == "Advanced Data Structures and File Processing" or p == "three oh two":
@@ -453,30 +388,16 @@ class MyClass(GeneratedClass):
             className = "cs312"
         elif p == "Technical Writing in Computer Science" or p == "three twenty five":
             className = "cs325"
-        elif p == "Web Development Technologies Two" or p == "three fifty one":
-            className = "cs351"
-        elif p == "Web Development Technologies Three" or p == "three fifty two":
-            className = "cs352"
         elif p == "Principles of Language Design One" or p == "three sixty one":
             className = "cs361"
         elif p == "Principles of Language Design Two" or p == "three sixty two":
             className = "cs362"
-        elif p == "Advanced Visual Basic Programming" or p == "three sixty seven":
-            className = "cs367"
         elif p == "Introduction to the Unix Operating System" or p == "three seventy":
             className = "cs370"
         elif p == "Introduction to Software Engineering" or p == "three eighty":
             className = "cs380"
         elif p == "Lab Experience in Teaching Computer Science Three Hundred" or p == "three ninety two":
             className = "cs392"
-        elif p == "Individual Study Three Hundred" or p == "three ninety six":
-            className = "cs396"
-        elif p == "Honors Three Hundred" or p == "three ninety seven":
-            className = "cs397"
-        elif p == "Special Topics Three Hundred" or p == "three ninety eight":
-            className = "cs398"
-        elif p == "Seminar Thee Hundred" or p == "three ninety nine":
-            className = "cs399"
         elif p == "Database Management Systems" or p == "four twenty":
             className = "cs420"
         elif p == "Algorithm Analysis" or p == "four twenty seven":
@@ -487,56 +408,26 @@ class MyClass(GeneratedClass):
             className = "cs430"
         elif p == "Computer Graphics" or p == "four forty":
             className = "cs440"
-        elif p == "Computer Graphics Two" or p == "four forty one":
-            className = "cs441"
         elif p == "Data and Information Visualization" or p == "four forty five":
             className = "cs445"
         elif p == "User Interface Design and Development" or p == "four forty six":
             className = "cs446"
-        elif p == "Computer Networks and Communications" or p == "four fifty":
-            className = "cs450"
-        elif p == "Artificial Intelligence" or p == "four fifty five":
-            className = "cs455"
         elif p == "Data Mining" or p == "four fifty six":
             className = "cs456"
-        elif p == "Computational Intelligence and Machine Learning" or p == "four fifty seven":
-            className = "cs457"
         elif p == "Software Engineering for Mobile Devices" or p == "four sixty":
             className = "cs460"
         elif p == "Operating Systems" or p == "four seventy":
             className = "cs470"
         elif p == "Optimization" or p == "four seventy one":
             className = "cs471"
-        elif p == "Parallel Computing" or p == "four seventy three":
-            className = "cs473"
-        elif p == "Programming for Distributed Systems" or p == "four seventy five":
-            className = "cs475"
-        elif p == "Social Informatics for Computer Science" or p == "four seventy six":
-            className = "cs476"
         elif p == "Advanced Software Engineering" or p == "four eighty":
             className = "cs480"
         elif p == "Software Engineering Project" or p == "four eighty one":
             className = "cs481"
         elif p == "Senior Colloquium" or p == "four eighty nine":
             className = "cs489"
-        elif p == "Cooperative Education" or p == "four ninety":
-            className = "cs490"
-        elif p == "Workshop Four Hundred" or p == "four ninety one":
-            className = "cs491"
         elif p == "Laboratory Experience in Teaching Computer Science Four Hundred" or p == "four ninety two":
-            className = "cs492"
-        elif p == "Practicum" or p == "four ninety three":
-            className = "cs493"
-        elif p == "Directed Research Four Hundred" or p == "four ninety five":
-            className = "cs495"
-        elif p == "Individual Study Four Hundred" or p == "four ninety six":
-            className = "cs496"
-        elif p == "Honors Four Hundred" or p == "four ninety seven":
-            className = "cs497"
-        elif p == "Special Topics Four Hundred" or p == "four ninety eight":
-            className = "cs498"
-        elif p == "Seminar Four Hundred" or p == "four ninety nine":
-            className = "cs499"]]>
+            className = "cs492"]]>
                 </content>
               </script>
               <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when diagram is loaded." id="1" />
