@@ -20,6 +20,8 @@
     <sentence lang="en_US">Class information</sentence>
     <sentence lang="en_US">Computer science classes</sentence>
     <sentence lang="en_US">Describe the classes</sentence>
+    <sentence lang="en_US">what classes have you taken</sentence>
+    <sentence lang="en_US">have you taken any classes</sentence>
    </triggerSentences>
    <autonomous/>
    <permissions/>
